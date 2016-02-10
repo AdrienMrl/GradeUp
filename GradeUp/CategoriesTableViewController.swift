@@ -27,7 +27,7 @@ class CategoriesTableViewController: UITableViewController {
                 return
             }
             self.categories.insert(category_name, atIndex: 0)
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)], withRowAnimation: .Fade)
+            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
             
             // TODO: save the new category to memory
         }
@@ -37,14 +37,14 @@ class CategoriesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        return categories.count != 0
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
             categories.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
             
         }
     }
@@ -53,25 +53,48 @@ class CategoriesTableViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        categories = ["Maths", "French"]
+        categories = []
         
         navigationItem.leftBarButtonItem = editButtonItem()
-        
     }
     
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        for cell in tableView.visibleCells {
+            let cell = cell as! categoryTableViewCell
+            
+            cell.setEditable(editing)
+            if !editing && categories.count != 0 {
+                categories[cell.index] = cell.getCategoryName()
+            }
+        }
+
+    }
+  
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //let cell = categoryTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "categoryCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as! categoryTableViewCell
+
+        cell.setEditable(tableView.editing)
+        cell.index = indexPath.row
         
-        cell.textLabel!.text = categories[cellForRowAtIndexPath.row]
-        return cell
+        if categories.count == 0 {
+            cell.setCategoryName("No category")
+            cell.userInteractionEnabled = false
+        } else {
+            cell.setCategoryName(categories[indexPath.row])
+        }
+        return cell as UITableViewCell
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+
+        return categories.count == 0 ? 1 : categories.count
     }
     
     override func didReceiveMemoryWarning() {
