@@ -82,10 +82,11 @@ class CategoriesTableViewController: UITableViewController {
 
         cell.setEditable(tableView.editing)
         cell.index = indexPath.row
+        cell.userInteractionEnabled = categories.count != 0
+
         
         if categories.count == 0 {
             cell.setCategoryName("No category")
-            cell.userInteractionEnabled = false
         } else {
             cell.setCategoryName(categories[indexPath.row])
         }
