@@ -10,30 +10,25 @@ import UIKit
 
 class CategoriesTableViewController: UITableViewController {
 
-    var categories = [String]()
+    var categories = [Category]()
     
-    @IBAction func addCategory(sender: UIBarButtonItem) {
-        
+    @IBAction func addCategory(sender: UIBarButtonItem)
+    {
         let popUp = UIAlertController(title: "Add a category", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         popUp.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "category name"
         })
         
+        
         // create a the new category when the user presses Ok
         let alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) {
             (action: UIAlertAction) -> Void in
-            let category_name = popUp.textFields![0].text!
-            if category_name == "" {
-                return
-            }
-            self.categories.insert(category_name, atIndex: 0)
-            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
-            
-            // TODO: save the new category to memory
+            let categoryName = popUp.textFields![0].text
+            self.performSegueWithIdentifier("displayCategory", sender: self)
         }
+        
         popUp.addAction(alertAction)
         presentViewController(popUp, animated: true) {() -> Void in}
-        
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -53,7 +48,7 @@ class CategoriesTableViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        categories = []
+        categories = [Category(name: "Maths")]
         
         navigationItem.leftBarButtonItem = editButtonItem()
     }
@@ -66,7 +61,7 @@ class CategoriesTableViewController: UITableViewController {
             
             cell.setEditable(editing)
             if !editing && categories.count != 0 {
-                categories[cell.index] = cell.getCategoryName()
+                categories[cell.index] = Category(name: cell.getCategoryName())
             }
         }
 
@@ -88,7 +83,7 @@ class CategoriesTableViewController: UITableViewController {
         if categories.count == 0 {
             cell.setCategoryName("No category")
         } else {
-            cell.setCategoryName(categories[indexPath.row])
+            cell.setCategoryName(categories[indexPath.row].name)
         }
         return cell as UITableViewCell
     }
@@ -103,6 +98,17 @@ class CategoriesTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func unwindForSegueLol(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        print("unwind")
+    }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let selectedCategory = categories[indexPath.row]
+                
+        self.performSegueWithIdentifier("displayCategory", sender: self)
+        
+    }
 }
 
