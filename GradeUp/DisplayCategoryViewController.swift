@@ -10,26 +10,26 @@
 import UIKit
 
 class DisplayCategoryViewController: UIViewController {
-
-    var goToEdit = false
+    
+    var shouldSegEditMode = false
+    var category: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.performSegueWithIdentifier("editCategory", sender: self)
-
-        print(goToEdit)
-
-        // Do any additional setup after loading the view.
+     
+        self.navigationItem.title = category?.name
+        
+        if shouldSegEditMode {
+            shouldSegEditMode = false
+            self.performSegueWithIdentifier("editCategory", sender: self)
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func unwindForEditSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        print("unwindinnng")
-    }
+
     /*
     // MARK: - Navigation
 

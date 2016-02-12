@@ -11,9 +11,11 @@ import UIKit
 class CategoriesTableViewController: UITableViewController {
 
     var categories = [Category]()
+    var editMode = false
+    var selectedCategory: Category?
     
     @IBAction func addCategory(sender: UIBarButtonItem)
-    {
+    {        
         let popUp = UIAlertController(title: "Add a category", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         popUp.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "category name"
@@ -22,9 +24,14 @@ class CategoriesTableViewController: UITableViewController {
         
         // create a the new category when the user presses Ok
         let alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) {
+            
             (action: UIAlertAction) -> Void in
-            let categoryName = popUp.textFields![0].text
-            self.performSegueWithIdentifier("displayCategory", sender: self)
+            
+            if let name = popUp.textFields![0].text {
+                self.selectedCategory = Category(name: name)
+                self.editMode = true
+                self.performSegueWithIdentifier("displayCategory", sender: self)
+            }
         }
         
         popUp.addAction(alertAction)
@@ -49,7 +56,7 @@ class CategoriesTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         categories = [Category(name: "Maths")]
-        
+                
         navigationItem.leftBarButtonItem = editButtonItem()
     }
     
@@ -98,17 +105,24 @@ class CategoriesTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func unwindForSegueLol(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        print("unwind")
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        //let selectedCategory = categories[indexPath.row]
+        
+        editMode = false
+        selectedCategory = categories[indexPath.row]
+        performSegueWithIdentifier("displayCategory", sender: self)
+        
     }
     
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let selectedCategory = categories[indexPath.row]
-                
-        self.performSegueWithIdentifier("displayCategory", sender: self)
+        let navController = segue.destinationViewController as! UINavigationController
         
+        if let targetVC = navController.topViewController as? DisplayCategoryViewController {
+            targetVC.shouldSegEditMode = editMode
+            targetVC.category = selectedCategory
+        }
     }
 }
 
