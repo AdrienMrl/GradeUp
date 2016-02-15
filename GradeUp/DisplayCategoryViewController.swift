@@ -25,6 +25,9 @@ class DisplayCategoryViewController: UIViewController {
         }
     }
     
+    @IBAction   func unwindForDisplay(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
