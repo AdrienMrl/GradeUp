@@ -9,11 +9,58 @@
 import UIKit
 
 class EditCategoryViewController: UIViewController {
+    
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
 
+    var timer: NSTimer?
+    
+    var secs = 0
+    var minutes = 0
+    
+    enum RecordingMode {
+        case Question
+        case Answer
+    }
+    
+    var recordingMode : RecordingMode = RecordingMode.Question {
+        didSet {
+            infoLabel.text = "Record " + (self.recordingMode == .Question ? "Question" : "Answer")
+        }
+    }
+    
+    
+    @IBAction func record(sender: UIButton) {
+        
+        if timer == nil {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerTick"), userInfo: nil, repeats: true)
+        }
+        
+        recordingMode = recordingMode == .Question ? .Answer : .Question
+        
+    }
+    
+    func timerTick() {
+        
+        secs++
+        if secs > 59 {
+            secs = 0
+            minutes++
+        }
+        
+        func padNumber(num: Int) -> String {
+            return String(format: "%02d", num)
+        }
+        
+        timerLabel.text = "\(padNumber(minutes)):\(padNumber(secs))"
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        recordingMode = .Question
     }
     
     override func didReceiveMemoryWarning() {

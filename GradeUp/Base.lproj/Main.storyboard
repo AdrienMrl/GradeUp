@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zVb-ke-6kP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SHt-fb-I75">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Display Category View Controller-->
@@ -44,11 +45,50 @@
                         <viewControllerLayoutGuide type="bottom" id="qhp-0L-0pb"/>
                     </layoutGuides>
                     <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="Snp-UK-Aj0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2v-OG-2F5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBo-nj-SVD">
+                                        <rect key="frame" x="155.5" y="100" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="5zK-rR-PEF"/>
+                                            <constraint firstAttribute="width" secondItem="FBo-nj-SVD" secondAttribute="height" multiplier="1:1" id="k9u-JJ-jQF"/>
+                                            <constraint firstAttribute="width" constant="64" id="sTa-yk-upu"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="record"/>
+                                        <connections>
+                                            <action selector="record:" destination="beR-9t-9y8" eventType="touchUpInside" id="hoD-dO-9Re"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNb-Eq-PQF">
+                                        <rect key="frame" x="270" y="123" width="46" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQM-ck-4Fv" userLabel="Info Label">
+                                        <rect key="frame" x="48" y="123" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kNb-Eq-PQF" secondAttribute="trailing" constant="30" id="0d1-Fi-29N"/>
+                                    <constraint firstItem="FBo-nj-SVD" firstAttribute="top" secondItem="R2v-OG-2F5" secondAttribute="top" constant="100" id="4Ky-Rd-pVd"/>
+                                    <constraint firstItem="FBo-nj-SVD" firstAttribute="leading" secondItem="bQM-ck-4Fv" secondAttribute="trailing" constant="30" id="5ej-yj-Tse"/>
+                                    <constraint firstItem="bQM-ck-4Fv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R2v-OG-2F5" secondAttribute="leading" constant="20" id="Dim-nx-q82"/>
+                                    <constraint firstItem="kNb-Eq-PQF" firstAttribute="leading" secondItem="FBo-nj-SVD" secondAttribute="trailing" constant="30" id="KW2-2i-7hC"/>
+                                    <constraint firstAttribute="height" constant="200" id="Pco-wp-5n1"/>
+                                    <constraint firstItem="FBo-nj-SVD" firstAttribute="centerX" secondItem="R2v-OG-2F5" secondAttribute="centerX" id="dCt-A5-54m"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QFg-Yl-Oae">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -60,14 +100,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="infoLabel" destination="bQM-ck-4Fv" id="30Y-14-GSZ"/>
+                        <outlet property="recordButton" destination="FBo-nj-SVD" id="iEF-Lc-iNJ"/>
+                        <outlet property="timerLabel" destination="kNb-Eq-PQF" id="bAI-TP-emE"/>
                         <segue destination="JjZ-dg-Xqe" kind="unwind" identifier="exitFromEditCategory" unwindAction="unwindForDisplayCategoryViewController:towardsViewController:" id="NkO-IP-Trm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEB-O1-tRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JjZ-dg-Xqe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4208" y="2065"/>
+            <point key="canvasLocation" x="4271.5" y="2224.5"/>
         </scene>
         <!--Categories-->
         <scene sceneID="HdA-VG-1si">
@@ -185,9 +229,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Hg-B5-jOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3482" y="2065"/>
+            <point key="canvasLocation" x="3526" y="2517"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="record" width="64" height="64"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cGU-oE-mOC"/>
     </inferredMetricsTieBreakers>
