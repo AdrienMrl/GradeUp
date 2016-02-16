@@ -1,4 +1,3 @@
-
 //
 //  DisplayCategoryViewController.swift
 //  GradeUp
@@ -22,6 +21,12 @@ class DisplayCategoryViewController: UIViewController {
         if shouldSegEditMode {
             shouldSegEditMode = false
             self.performSegueWithIdentifier("editCategory", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "editCategory") {
+            print("WIIIIZZZ")
         }
     }
     

@@ -91,6 +91,7 @@
 			children = (
 				930FDCEB1C691DD70068325D /* AppDelegate.swift */,
 				930FDCED1C691DD70068325D /* CategoriesTableViewController.swift */,
+				93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */,
 				930FDCEF1C691DD70068325D /* Main.storyboard */,
 				933539AD1C7199B800F3EF45 /* Recorder.swift */,
 				931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */,
@@ -98,7 +99,6 @@
 				9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */,
 				930FDCF21C691DD70068325D /* Assets.xcassets */,
 				930FDCF41C691DD70068325D /* LaunchScreen.storyboard */,
-				93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */,
 				9314E9601C6AC7AA001A95D5 /* Category.swift */,
 				930FDCF71C691DD70068325D /* Info.plist */,
 			);

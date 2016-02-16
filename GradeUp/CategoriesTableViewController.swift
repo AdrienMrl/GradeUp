@@ -28,7 +28,10 @@ class CategoriesTableViewController: UITableViewController {
             (action: UIAlertAction) -> Void in
             
             if let name = popUp.textFields![0].text {
+                
                 self.selectedCategory = Category(name: name)
+                self.categories.append(self.selectedCategory!)
+//                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: .Automatic)
                 self.editMode = true
                 self.performSegueWithIdentifier("displayCategory", sender: self)
             }
@@ -116,6 +119,8 @@ class CategoriesTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
         
         let navController = segue.destinationViewController as! UINavigationController
         

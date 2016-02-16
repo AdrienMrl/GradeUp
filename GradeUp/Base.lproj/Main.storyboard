@@ -130,7 +130,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="No category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDt-Wx-sZC">
-                                            <rect key="frame" x="21" y="0.0" width="581" height="44"/>
+                                            <rect key="frame" x="19" y="0.0" width="581" height="44"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" notEnabled="YES"/>
                                             </accessibility>
@@ -236,6 +236,6 @@
         <image name="record" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3U9-6c-Igl"/>
+        <segue reference="cGU-oE-mOC"/>
     </inferredMetricsTieBreakers>
 </document>
