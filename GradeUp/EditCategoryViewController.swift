@@ -13,6 +13,9 @@ class EditCategoryViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    let tvContr = RecordingsTableViewController()
 
     var timer: NSTimer?
     
@@ -37,7 +40,12 @@ class EditCategoryViewController: UIViewController {
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerTick"), userInfo: nil, repeats: true)
         }
         
-        recordingMode = recordingMode == .Question ? .Answer : .Question
+        if recordingMode == .Question {
+            recordingMode = .Answer
+        } else {
+            //tvController
+            recordingMode = .Question
+        }
         
     }
     
@@ -61,6 +69,9 @@ class EditCategoryViewController: UIViewController {
         super.viewDidLoad()
         
         recordingMode = .Question
+
+        tableView.delegate = tvContr
+        tableView.dataSource = tvContr
     }
     
     override func didReceiveMemoryWarning() {

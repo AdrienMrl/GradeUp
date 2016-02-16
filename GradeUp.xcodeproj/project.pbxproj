@@ -17,6 +17,7 @@
 		9314E9631C6AD3DE001A95D5 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314E9621C6AD3DE001A95D5 /* EditCategoryViewController.swift */; };
 		931F3F2D1C6D66BD00240CF7 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */; };
 		933539AE1C7199B800F3EF45 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933539AD1C7199B800F3EF45 /* Recorder.swift */; };
+		933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */; };
 		9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */; };
 		93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		9314E9621C6AD3DE001A95D5 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
 		931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		933539AD1C7199B800F3EF45 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
 		9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryTableViewCell.swift; sourceTree = "<group>"; };
 		93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +97,7 @@
 				933539AD1C7199B800F3EF45 /* Recorder.swift */,
 				931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */,
 				9314E9621C6AD3DE001A95D5 /* EditCategoryViewController.swift */,
+				933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */,
 				9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */,
 				930FDCF21C691DD70068325D /* Assets.xcassets */,
 				930FDCF41C691DD70068325D /* LaunchScreen.storyboard */,
@@ -219,6 +222,7 @@
 			files = (
 				9314E9631C6AD3DE001A95D5 /* EditCategoryViewController.swift in Sources */,
 				930FDCEE1C691DD70068325D /* CategoriesTableViewController.swift in Sources */,
+				933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */,
 				931F3F2D1C6D66BD00240CF7 /* GlobalSplitViewController.swift in Sources */,
 				930FDCEC1C691DD70068325D /* AppDelegate.swift in Sources */,
 				9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */,
