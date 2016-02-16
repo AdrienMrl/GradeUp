@@ -10,6 +10,8 @@ import UIKit
 
 class RecordingsTableViewController: UITableViewController {
 
+    var category: Category!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +20,6 @@ class RecordingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        print("DID LOAD !")
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +36,6 @@ class RecordingsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("LOL")
         return 1
     }
 

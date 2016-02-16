@@ -19,17 +19,32 @@ class Category: NSObject, NSCoding {
     
     var name: String
     
-    class QA {
-        var question: String
-        var answer: String
+    class QA: NSObject, NSCoding {
         
-        init(q: String, a: String) {
-            question = q
-            answer = a
+        var identifier: Int
+        var success_rate_total = 0
+        var success_rate_session = 0
+
+        init(identifier: Int) {
+            self.identifier = identifier
+        }
+        
+        required convenience init?(coder aDecoder: NSCoder) {
+            self.init(identifier: aDecoder.decodeObject() as! Int)
+            self.success_rate_total = aDecoder.decodeObject() as! Int
+            self.success_rate_session = aDecoder.decodeObject() as! Int
+        }
+        
+        func encodeWithCoder(aCoder: NSCoder) {
+            
+            aCoder.encodeObject(identifier)
+            aCoder.encodeObject(success_rate_total)
+            aCoder.encodeObject(success_rate_session)
         }
     }
     
-    var qas: Array<QA> = []
+    // A list of Question and Answers identifiers
+    var qas: Array<QA>! = []
     
     init(name: String) {
         self.name = name
@@ -37,14 +52,17 @@ class Category: NSObject, NSCoding {
     
     func encodeWithCoder(aCoder: NSCoder) {
         
-        aCoder.encodeObject(name)
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(qas, forKey: "qas")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        
-        let name = aDecoder.decodeObject() as! String
-        
+
+        let name = aDecoder.decodeObjectForKey("name") as! String
+
         self.init(name: name)
+        
+        self.qas = aDecoder.decodeObjectForKey("qas") as! Array<QA>
     }
     
     static func saveCategories(categories: Array<Category>) -> Bool {

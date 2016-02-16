@@ -15,6 +15,8 @@ class EditCategoryViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var category: Category!
+    
     let tvContr = RecordingsTableViewController()
 
     var timer: NSTimer?
@@ -46,7 +48,6 @@ class EditCategoryViewController: UIViewController {
             //tvController
             recordingMode = .Question
         }
-        
     }
     
     func timerTick() {
@@ -70,8 +71,10 @@ class EditCategoryViewController: UIViewController {
         
         recordingMode = .Question
 
+        tvContr.category = self.category
         tableView.delegate = tvContr
         tableView.dataSource = tvContr
+        
     }
     
     override func didReceiveMemoryWarning() {

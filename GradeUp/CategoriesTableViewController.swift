@@ -64,6 +64,7 @@ class CategoriesTableViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        Category.saveCategories([])
         if let archivedItems =
             NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
                 categories = archivedItems
