@@ -29,10 +29,14 @@ class CategoriesTableViewController: UITableViewController {
             
             if let name = popUp.textFields![0].text {
                 
-                self.selectedCategory = Category(name: name)
-                self.categories.append(self.selectedCategory!)
-//                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: .Automatic)
+                let newCategory = Category(name: name)
+                self.categories.append(newCategory)
+                self.selectedCategory = newCategory
                 self.editMode = true
+                
+                Category.saveCategories(self.categories)
+                self.tableView.reloadData()
+                
                 self.performSegueWithIdentifier("displayCategory", sender: self)
             }
         }
@@ -52,14 +56,19 @@ class CategoriesTableViewController: UITableViewController {
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
             
         }
+        
+        Category.saveCategories(categories)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        categories = [Category(name: "Maths")]
-                
+        if let archivedItems =
+            NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
+                categories = archivedItems
+        }
+        
         navigationItem.leftBarButtonItem = editButtonItem()
     }
     
@@ -74,7 +83,6 @@ class CategoriesTableViewController: UITableViewController {
                 categories[cell.index] = Category(name: cell.getCategoryName())
             }
         }
-
     }
   
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

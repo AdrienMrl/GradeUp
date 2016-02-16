@@ -90,6 +90,24 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QFg-Yl-Oae">
                                 <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordingCellPrototype" id="LOT-iZ-Y5n">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LOT-iZ-Y5n" id="SlU-MB-Fux">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wes-H9-YHb">
+                                                    <rect key="frame" x="89" y="11" width="89" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                     </stackView>
@@ -104,6 +122,7 @@
                     <connections>
                         <outlet property="infoLabel" destination="bQM-ck-4Fv" id="30Y-14-GSZ"/>
                         <outlet property="recordButton" destination="FBo-nj-SVD" id="iEF-Lc-iNJ"/>
+                        <outlet property="tableView" destination="QFg-Yl-Oae" id="eek-sa-vc0"/>
                         <outlet property="timerLabel" destination="kNb-Eq-PQF" id="bAI-TP-emE"/>
                         <segue destination="JjZ-dg-Xqe" kind="unwind" identifier="exitFromEditCategory" unwindAction="unwindForDisplayCategoryViewController:towardsViewController:" id="NkO-IP-Trm"/>
                     </connections>
