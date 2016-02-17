@@ -21,7 +21,7 @@ class Category: NSObject, NSCoding {
     
     class QA: NSObject, NSCoding {
         
-        var identifier: Int
+        let identifier: Int
         var success_rate_total = 0
         var success_rate_session = 0
 

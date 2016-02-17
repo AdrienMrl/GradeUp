@@ -29,9 +29,10 @@ class EditCategoryViewController: UIViewController {
         case Answer
     }
     
-    var recordingMode : RecordingMode = RecordingMode.Question {
+    var recordingMode : RecordingMode! = nil {
         didSet {
-            infoLabel.text = "Record " + (self.recordingMode == .Question ? "Question" : "Answer")
+            infoLabel.text = "Record " +
+                (self.recordingMode == nil || self.recordingMode == .Question ? "Question" : "Answer")
         }
     }
     
@@ -42,12 +43,33 @@ class EditCategoryViewController: UIViewController {
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerTick"), userInfo: nil, repeats: true)
         }
         
+        secs = 0
+        minutes = 0
+        
+        Recorder.stop()
+        
+        
+        if recordingMode == nil {
+            recordingMode = .Question
+            Recorder.start(recordingMode, categoryName: category.name, identifier: category.qas.count)
+            return
+        }
+        
         if recordingMode == .Question {
             recordingMode = .Answer
+            
         } else {
-            //tvController
-            recordingMode = .Question
+            let newQA = Category.QA(identifier: category.qas.count)
+            
+            category.qas.append(newQA)
+            
+            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+            
+            recordingMode = .Question            
         }
+        
+        Recorder.start(recordingMode, categoryName: category.name, identifier: category.qas.count)
+
     }
     
     func timerTick() {
@@ -69,14 +91,14 @@ class EditCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recordingMode = .Question
+        recordingMode = nil
 
-        tvContr.category = self.category
+        tvContr.category = category
         tableView.delegate = tvContr
         tableView.dataSource = tvContr
-        
+
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
