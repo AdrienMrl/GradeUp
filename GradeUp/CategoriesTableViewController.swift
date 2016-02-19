@@ -54,7 +54,7 @@ class CategoriesTableViewController: UITableViewController {
             
             Category.categories.removeAtIndex(indexPath.row)
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
-            if (categories.count == 0) {
+            if (Category.categories.count == 0) {
                 shouldDisplayBackGround(true)
             }
         }
@@ -79,16 +79,8 @@ class CategoriesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-<<<<<<< HEAD
-        if let archivedItems =
-            NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
-                categories = archivedItems
-        }
-=======
-
->>>>>>> 10d0d71066707d8e4c6957acdf780ca14ec8f296
         
-        if (categories.count == 0) {
+        if (Category.categories.count == 0) {
             shouldDisplayBackGround(true)
         }
         navigationItem.leftBarButtonItem = editButtonItem()
@@ -116,12 +108,12 @@ class CategoriesTableViewController: UITableViewController {
         
         cell.setEditable(tableView.editing)
         cell.index = indexPath.row
-        cell.setCategoryName(categories[indexPath.row].name)
+        cell.setCategoryName(Category.categories[indexPath.row].name)
         return cell as UITableViewCell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return Category.categories.count
     }
     
     override func didReceiveMemoryWarning() {
