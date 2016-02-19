@@ -10,13 +10,32 @@ import UIKit
 
 class DisplayCategoryViewController: UIViewController {
     
+    var lastSessionRate = 0
+    var bestSessionRate = 100
+    var numberOfQuestion = 0
     var shouldSegEditMode = false
     var category: Category?
+    
+    @IBOutlet weak var lastSessionLabel: UILabel!
+    @IBOutlet weak var bestSessionLabel: UILabel!
+    @IBOutlet weak var numberOfQuestionLabel: UILabel!
+    
+    func setLabelColorFromScore() {
+        let lastSessionColor = UIColor(red: CGFloat(100 - lastSessionRate) / CGFloat(100), green: CGFloat(lastSessionRate) / CGFloat(100), blue: 0, alpha: 1)
+        let bestSessionColor = UIColor(red: CGFloat(100 - bestSessionRate) / CGFloat(100), green: CGFloat(bestSessionRate) / CGFloat(100), blue: 0, alpha: 1)
+        lastSessionLabel.textColor = lastSessionColor
+        bestSessionLabel.textColor = bestSessionColor
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
      
         self.navigationItem.title = category?.name
+        
+        lastSessionLabel?.text = String(lastSessionRate) + "%"
+        bestSessionLabel?.text = String(bestSessionRate) + "%"
+        numberOfQuestionLabel?.text = String(numberOfQuestion)
+        setLabelColorFromScore()
         
         if shouldSegEditMode {
             shouldSegEditMode = false

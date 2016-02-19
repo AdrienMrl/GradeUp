@@ -14,8 +14,10 @@ class CategoriesTableViewController: UITableViewController {
     var editMode = false
     var selectedCategory: Category?
     
+    
     @IBAction func addCategory(sender: UIBarButtonItem)
-    {        
+    {
+        shouldDisplayBackGround(false)
         let popUp = UIAlertController(title: "Add a category", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         popUp.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "category name"
@@ -54,21 +56,41 @@ class CategoriesTableViewController: UITableViewController {
             
             categories.removeAtIndex(indexPath.row)
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
-            
+            if (categories.count == 0) {
+                shouldDisplayBackGround(true)
+            }
         }
         
         Category.saveCategories(categories)
     }
     
+    func shouldDisplayBackGround(should:Bool) {
+        if (should) {
+            let backgroundLabel = UILabel()
+            backgroundLabel.text = "No Category"
+            backgroundLabel.textAlignment = NSTextAlignment.Center
+            backgroundLabel.font = UIFont(name: "Arial", size: 20)
+            backgroundLabel.textColor = UIColor.lightGrayColor()
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            tableView.backgroundView = backgroundLabel
+        }
+        else {
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+            tableView.backgroundView = nil
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         if let archivedItems =
             NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
                 categories = archivedItems
         }
         
+        if (categories.count == 0) {
+            shouldDisplayBackGround(true)
+        }
         navigationItem.leftBarButtonItem = editButtonItem()
     }
     
@@ -84,40 +106,33 @@ class CategoriesTableViewController: UITableViewController {
             }
         }
     }
-  
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //let cell = categoryTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "categoryCell")
         let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as! categoryTableViewCell
-
+        
         cell.setEditable(tableView.editing)
         cell.index = indexPath.row
-        cell.userInteractionEnabled = categories.count != 0
-
         
-        if categories.count == 0 {
-            cell.setCategoryName("No category")
-        } else {
-            cell.setCategoryName(categories[indexPath.row].name)
-        }
+        cell.setCategoryName(categories[indexPath.row].name)
         return cell as UITableViewCell
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return categories.count == 0 ? 1 : categories.count
+        
+        return categories.count
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+        
         //let selectedCategory = categories[indexPath.row]
         
         editMode = false
@@ -127,9 +142,6 @@ class CategoriesTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        
-        
         let navController = segue.destinationViewController as! UINavigationController
         
         if let targetVC = navController.topViewController as? DisplayCategoryViewController {
