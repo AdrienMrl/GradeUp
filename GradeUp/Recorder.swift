@@ -107,7 +107,6 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     static func playRecording(name: String, identifier: Int) {
         do {
             player = try AVAudioPlayer(contentsOfURL: directoryURL(.Question, name: name, identifier: identifier)!)
-            player.volume = 1.0
             player.prepareToPlay()
             player.play()
             print("playing sound <3")

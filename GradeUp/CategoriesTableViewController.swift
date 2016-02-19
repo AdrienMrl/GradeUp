@@ -9,8 +9,7 @@
 import UIKit
 
 class CategoriesTableViewController: UITableViewController {
-
-    var categories = [Category]()
+    
     var editMode = false
     var selectedCategory: Category?
     
@@ -32,11 +31,10 @@ class CategoriesTableViewController: UITableViewController {
             if let name = popUp.textFields![0].text {
                 
                 let newCategory = Category(name: name)
-                self.categories.append(newCategory)
+                Category.categories.append(newCategory)
                 self.selectedCategory = newCategory
                 self.editMode = true
                 
-                Category.saveCategories(self.categories)
                 self.tableView.reloadData()
                 
                 self.performSegueWithIdentifier("displayCategory", sender: self)
@@ -48,20 +46,18 @@ class CategoriesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return categories.count != 0
+        return Category.categories.count != 0
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
-            categories.removeAtIndex(indexPath.row)
+            Category.categories.removeAtIndex(indexPath.row)
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
             if (categories.count == 0) {
                 shouldDisplayBackGround(true)
             }
         }
-        
-        Category.saveCategories(categories)
     }
     
     func shouldDisplayBackGround(should:Bool) {
@@ -83,10 +79,14 @@ class CategoriesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+<<<<<<< HEAD
         if let archivedItems =
             NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
                 categories = archivedItems
         }
+=======
+
+>>>>>>> 10d0d71066707d8e4c6957acdf780ca14ec8f296
         
         if (categories.count == 0) {
             shouldDisplayBackGround(true)
@@ -101,8 +101,8 @@ class CategoriesTableViewController: UITableViewController {
             let cell = cell as! categoryTableViewCell
             
             cell.setEditable(editing)
-            if !editing && categories.count != 0 {
-                categories[cell.index] = Category(name: cell.getCategoryName())
+            if !editing && Category.categories.count != 0 {
+                Category.categories[cell.index] = Category(name: cell.getCategoryName())
             }
         }
     }
@@ -116,13 +116,11 @@ class CategoriesTableViewController: UITableViewController {
         
         cell.setEditable(tableView.editing)
         cell.index = indexPath.row
-        
         cell.setCategoryName(categories[indexPath.row].name)
         return cell as UITableViewCell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return categories.count
     }
     
@@ -136,7 +134,7 @@ class CategoriesTableViewController: UITableViewController {
         //let selectedCategory = categories[indexPath.row]
         
         editMode = false
-        selectedCategory = categories[indexPath.row]
+        selectedCategory = Category.categories[indexPath.row]
         performSegueWithIdentifier("displayCategory", sender: self)
         
     }
