@@ -19,7 +19,13 @@ class Category: NSObject, NSCoding {
     
     var name: String
     static var categories: [Category] =
-        NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as! [Category] {
+    {
+        if let object = NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
+            return object
+        }
+        
+        return []
+    }() {
         didSet {
             saveCategories()
         }

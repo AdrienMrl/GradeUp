@@ -47,7 +47,7 @@ class RecordingsTableViewController: UITableViewController {
         
         //let selectedCategory = categories[indexPath.row]
         
-        Recorder.playRecording(category.name, identifier: indexPath.row)
+        Recorder.playRecording(.Question, name: category.name, identifier: indexPath.row)
         
     }
 

@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import Darwin
 
 
 class Recorder: NSObject, AVAudioRecorderDelegate {
@@ -23,6 +24,11 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     ]
     
     static let instance = Recorder()
+    
+    enum RecordingMode {
+        case Question
+        case Answer
+    }
     
     override init() {
         
@@ -48,7 +54,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         
     }
     
-    static func makeName(recordingMode: EditCategoryViewController.RecordingMode,
+    static func makeName(recordingMode: RecordingMode,
         name: String, identifier: Int) -> String {
         
         let recordMode = recordingMode == .Question ? "question" : "answer"
@@ -60,7 +66,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         return paths[0]
     }
     
-    static func directoryURL(recordingMode: EditCategoryViewController.RecordingMode,
+    static func directoryURL(recordingMode: RecordingMode,
             name: String, identifier: Int) -> NSURL? {
         let fileManager = NSFileManager.defaultManager()
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
@@ -70,7 +76,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         return soundURL
     }
     
-    static func start(recordingMode: EditCategoryViewController.RecordingMode,
+    static func start(recordingMode: RecordingMode,
             categoryName: String, identifier: Int) {
 
         let audioSession = AVAudioSession.sharedInstance()
@@ -98,18 +104,23 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         } catch {
             print("ERROR !")
         }
-        
-        print("stopped recording")
     }
     
     static var player: AVAudioPlayer!
     
-    static func playRecording(name: String, identifier: Int) {
+    static func playRandomQuestion(category: Category) -> Int {
+        let selectedIdx = Int(arc4random_uniform(UInt32(category.qas.count)))
+        
+        playRecording(.Question, name: category.name, identifier: category.qas[selectedIdx].identifier)
+        
+        return selectedIdx
+    }
+    
+    static func playRecording(type: RecordingMode, name: String, identifier: Int) {
         do {
-            player = try AVAudioPlayer(contentsOfURL: directoryURL(.Question, name: name, identifier: identifier)!)
+            player = try AVAudioPlayer(contentsOfURL: directoryURL(type, name: name, identifier: identifier)!)
             player.prepareToPlay()
             player.play()
-            print("playing sound <3")
         } catch let error as NSError {
             print("CRASH !" + error.localizedDescription)
         }

@@ -23,16 +23,12 @@ class EditCategoryViewController: UIViewController {
     
     var secs = 0
     var minutes = 0
+
     
-    enum RecordingMode {
-        case Question
-        case Answer
-    }
-    
-    var recordingMode : RecordingMode! = nil {
+    var recordingMode : Recorder.RecordingMode! = nil {
         didSet {
             infoLabel.text = "Record " +
-                (self.recordingMode == nil || self.recordingMode == .Question ? "Question" : "Answer")
+                (self.recordingMode == nil || self.recordingMode == Recorder.RecordingMode.Question ? "Question" : "Answer")
         }
     }
     

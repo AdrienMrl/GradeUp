@@ -43,7 +43,7 @@ class DisplayCategoryViewController: UIViewController {
         }
     }
     
-    @IBAction   func unwindForDisplay(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    @IBAction func unwindForDisplay(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,13 +53,19 @@ class DisplayCategoryViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        let nav = segue.destinationViewController as! UINavigationController
+
         if segue.identifier == "editCategory" {
             
-            let nav = segue.destinationViewController as! UINavigationController
             let editVC = nav.topViewController as! EditCategoryViewController
             
             editVC.category = category
+            
+        } else if segue.identifier == "toTinder" {
+            
+            let tinderVC = nav.topViewController as! TinderViewController
+            
+            tinderVC.category = category
         }
-        
     }
 }
