@@ -18,6 +18,12 @@ class Category: NSObject, NSCoding {
     }()
     
     var name: String
+    static var categories: [Category] =
+        NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as! [Category] {
+        didSet {
+            saveCategories()
+        }
+    }
     
     class QA: NSObject, NSCoding {
         
@@ -44,7 +50,11 @@ class Category: NSObject, NSCoding {
     }
     
     // A list of Question and Answers identifiers
-    var qas: Array<QA>! = []
+    var qas: Array<QA>! = [] {
+        didSet {
+            Category.saveCategories()
+        }
+    }
     
     init(name: String) {
         self.name = name
@@ -64,8 +74,8 @@ class Category: NSObject, NSCoding {
         
         self.qas = aDecoder.decodeObjectForKey("qas") as! Array<QA>
     }
-    
-    static func saveCategories(categories: Array<Category>) -> Bool {
-        return NSKeyedArchiver.archiveRootObject(categories, toFile: archiveURL.path!)
+
+    static func saveCategories() -> Bool {
+        return NSKeyedArchiver.archiveRootObject(Category.categories, toFile: archiveURL.path!)
     }
 }

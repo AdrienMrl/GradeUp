@@ -64,7 +64,6 @@ class EditCategoryViewController: UIViewController {
             category.qas.append(newQA)
             
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
-            
             recordingMode = .Question            
         }
         
