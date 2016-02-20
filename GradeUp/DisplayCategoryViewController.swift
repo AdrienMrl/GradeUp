@@ -20,9 +20,16 @@ class DisplayCategoryViewController: UIViewController {
     @IBOutlet weak var bestSessionLabel: UILabel!
     @IBOutlet weak var numberOfQuestionLabel: UILabel!
     
+    func computeColor(percentage: Int) -> UIColor {
+        
+        return UIColor(, alpha: 1)
+    }
+    
     func setLabelColorFromScore() {
-        let lastSessionColor = UIColor(red: CGFloat(100 - lastSessionRate) / CGFloat(100), green: CGFloat(lastSessionRate) / CGFloat(100), blue: 0, alpha: 1)
-        let bestSessionColor = UIColor(red: CGFloat(100 - bestSessionRate) / CGFloat(100), green: CGFloat(bestSessionRate) / CGFloat(100), blue: 0, alpha: 1)
+        
+        let lastSessionColor = computeColor(lastSessionRate)
+        let bestSessionColor = computeColor(bestSessionRate)
+        
         lastSessionLabel.textColor = lastSessionColor
         bestSessionLabel.textColor = bestSessionColor
     }

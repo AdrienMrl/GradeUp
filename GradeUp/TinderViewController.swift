@@ -13,6 +13,8 @@ class TinderViewController: UIViewController {
     var category: Category!
     var currentQuestion: Int = 0
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var draggableView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
