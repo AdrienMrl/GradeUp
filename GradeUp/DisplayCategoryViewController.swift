@@ -22,7 +22,7 @@ class DisplayCategoryViewController: UIViewController {
     
     func computeColor(percentage: Int) -> UIColor {
         
-        return UIColor(, alpha: 1)
+        return UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     func setLabelColorFromScore() {
