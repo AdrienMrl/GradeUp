@@ -17,6 +17,7 @@
 		9314E9631C6AD3DE001A95D5 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314E9621C6AD3DE001A95D5 /* EditCategoryViewController.swift */; };
 		931F3F2D1C6D66BD00240CF7 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */; };
 		93207CA51C76B11F009450C1 /* TinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93207CA41C76B11F009450C1 /* TinderViewController.swift */; };
+		932EE7A71C795CE200795F59 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EE7A61C795CE200795F59 /* SwipeView.swift */; };
 		933539AE1C7199B800F3EF45 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933539AD1C7199B800F3EF45 /* Recorder.swift */; };
 		933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */; };
 		933E18AD1C7923B0008FE4DC /* TinderSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */; };
@@ -49,6 +50,7 @@
 		9314E9621C6AD3DE001A95D5 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
 		931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		93207CA41C76B11F009450C1 /* TinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderViewController.swift; sourceTree = "<group>"; };
+		932EE7A61C795CE200795F59 /* SwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 		933539AD1C7199B800F3EF45 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
 		933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderSwipe.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */,
 				930FDCEF1C691DD70068325D /* Main.storyboard */,
 				933539AD1C7199B800F3EF45 /* Recorder.swift */,
+				932EE7A61C795CE200795F59 /* SwipeView.swift */,
 				93207CA41C76B11F009450C1 /* TinderViewController.swift */,
 				933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */,
 				931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9314E9631C6AD3DE001A95D5 /* EditCategoryViewController.swift in Sources */,
+				932EE7A71C795CE200795F59 /* SwipeView.swift in Sources */,
 				930FDCEE1C691DD70068325D /* CategoriesTableViewController.swift in Sources */,
 				93207CA51C76B11F009450C1 /* TinderViewController.swift in Sources */,
 				933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */,

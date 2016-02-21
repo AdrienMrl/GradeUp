@@ -159,28 +159,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-Ws-5Kv">
-                                <rect key="frame" x="133" y="94" width="148" height="43"/>
+                                <rect key="frame" x="133" y="94" width="147.5" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-FA-NwW">
-                                <rect key="frame" x="20" y="210" width="374" height="468"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-FA-NwW" customClass="SwipeView" customModule="GradeUp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="210" width="374" height="424"/>
                                 <color key="backgroundColor" red="0.0" green="0.31705759767469543" blue="0.52971613219895286" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="tRC-fJ-Epe" appends="YES" id="qOb-qR-Ivj"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Za-IEV">
-                                <rect key="frame" x="350" y="686" width="44" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Za-IEV">
+                                <rect key="frame" x="350" y="642" width="44" height="30"/>
                                 <state key="normal" title="I got it"/>
                                 <connections>
                                     <action selector="gotIt:" destination="xHy-gv-oFo" eventType="touchUpInside" id="vSd-FS-4kD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-5z-uP3">
-                                <rect key="frame" x="20" y="686" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-5z-uP3">
+                                <rect key="frame" x="20" y="642" width="46" height="30"/>
                                 <state key="normal" title="I failed"/>
                                 <connections>
                                     <action selector="fail:" destination="xHy-gv-oFo" eventType="touchUpInside" id="jNg-S4-epl"/>
@@ -203,8 +203,8 @@
                                     <action selector="hearAnswer:" destination="xHy-gv-oFo" eventType="touchUpInside" id="fTd-Gs-YYe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
-                                <rect key="frame" x="170" y="686" width="74" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
+                                <rect key="frame" x="170" y="642" width="74" height="30"/>
                                 <state key="normal" title="Hear again"/>
                                 <connections>
                                     <action selector="hearQuestion:" destination="xHy-gv-oFo" eventType="touchUpInside" id="RaU-S2-lTA"/>

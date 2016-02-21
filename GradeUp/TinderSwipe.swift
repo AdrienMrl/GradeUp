@@ -8,21 +8,87 @@
 
 import UIKit
 
+
 class Swiper: NSObject {
+
     
-    let target: UIView
+    var target: UIView!
     var att: UIAttachmentBehavior!
     var origin: CGPoint!
+    var rightAction: (() -> ())?
+    var leftAction: (() -> ())?
+    var baseSwipeView: UIView!
+    var nextView: UIView!
+    
+    func cloneView(view: UIView) -> UIView {
+        return NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(view)) as! UIView
+    }
     
     init(target: UIView) {
         
-        self.target = target
-
         super.init()
+        
+        baseSwipeView = target
+        
+        putViewBehind(target)
+        
     }
 
+    func getRandomColor() -> UIColor{
+        
+        let randomRed:CGFloat = CGFloat(drand48())
+        
+        let randomGreen:CGFloat = CGFloat(drand48())
+        
+        let randomBlue:CGFloat = CGFloat(drand48())
+        
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+        
+    }
     
-    func drag(p: UIPanGestureRecognizer) {
+    func putViewBehind(which: UIView) {
+
+        
+        self.target = which
+        let pg = UIPanGestureRecognizer(target: self, action:"drag:")
+        which.addGestureRecognizer(pg)
+        nextView = cloneView(self.target)
+        nextView.backgroundColor = getRandomColor()
+        print("target is \(self.target) superview is \(self.target.superview)")
+        self.target.superview!.insertSubview(nextView, belowSubview: self.target)
+    }
+    
+    func reset() {
+        
+        UIView.animateWithDuration(0.2, animations: {
+            self.target.center = self.origin
+            self.target.transform = CGAffineTransformMakeRotation(0)
+        })
+    }
+    
+    func swipe(right: Bool) {
+        
+        
+        UIView.animateWithDuration(0.3, animations: {
+            self.target.center.x =
+                self.origin.x + self.target.superview!.bounds.width * 2 * (right ? 1 : -1)
+            right ? self.rightAction?() : self.leftAction?()
+            self.rotate(self.target)
+        }, completion: {
+                (Bool) in
+                self.target.hidden = true
+                self.putViewBehind(self.nextView)
+        })
+    }
+    
+    func rotate(view: UIView) {
+        
+        let c = view.center
+        let degrees: Double = 10 * (Double(c.x) - Double(origin.x)) / (Double(target.superview!.bounds.width) - Double(origin.x))
+        view.transform = CGAffineTransformMakeRotation(CGFloat(degrees * M_PI / 180.0))
+    }
+    
+    func drag(p: UIPanGestureRecognizer!) {
 
         switch p.state {
             
@@ -36,17 +102,20 @@ class Swiper: NSObject {
                 c.x += delta.x;
                 target.center = c
                 p.setTranslation(CGPointZero, inView: target.superview)
-                
-                let degrees: Double = 10 * (Double(c.x) - Double(origin.x)) / (Double(target.superview!.bounds.width) - Double(origin.x))
-                target.transform = CGAffineTransformMakeRotation(CGFloat(degrees * M_PI / 180.0))
+            
+                rotate(target)
 
+            case .Ended:
+                
+                let offset = origin.x - target.center.x
+                if abs(offset) > (target.superview!.bounds.width - origin.x) / 2 {
+                    swipe(offset < 0)
+                } else {
+                    reset()
+                }
             
             default:
-                
-                UIView.animateWithDuration(0.2, animations: {
-                    self.target.center = self.origin
-                    self.target.transform = CGAffineTransformMakeRotation(0)
-                })
+                reset()
         }
     
     }

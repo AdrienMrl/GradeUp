@@ -10,11 +10,11 @@ import UIKit
 
 class TinderViewController: UIViewController {
 
+    var swiper: Swiper!
     var category: Category!
     var currentQuestion: Int = 0
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var draggableView: UIView!
-    var swiper: Swiper!
+    @IBOutlet weak var draggableView: SwipeView!
     
     @IBAction func dragTinderView(sender: UIPanGestureRecognizer) {
         swiper.drag(sender)
@@ -24,7 +24,15 @@ class TinderViewController: UIViewController {
         super.viewDidLoad()
         
         pullQuestion()
+        
         swiper = Swiper(target: draggableView)
+        
+        swiper.rightAction = {
+            print("swipe right")
+        }
+        swiper.leftAction = {
+            print("swipe left")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,10 +56,12 @@ class TinderViewController: UIViewController {
 
     @IBAction func gotIt(sender: AnyObject) {
         pullQuestion()
+        swiper.swipe(true)
     }
 
     @IBAction func fail(sender: AnyObject) {
         pullQuestion()
+        swiper.swipe(false)
     }
     
     /*
