@@ -17,7 +17,6 @@ class Swiper: NSObject {
     var origin: CGPoint!
     var rightAction: (() -> ())?
     var leftAction: (() -> ())?
-    var baseSwipeView: UIView!
     var nextView: UIView!
     
     func cloneView(view: UIView) -> UIView {
@@ -27,8 +26,6 @@ class Swiper: NSObject {
     init(target: UIView) {
         
         super.init()
-        
-        baseSwipeView = target
         
         putViewBehind(target)
         
@@ -48,14 +45,13 @@ class Swiper: NSObject {
     
     func putViewBehind(which: UIView) {
 
-        
         self.target = which
         let pg = UIPanGestureRecognizer(target: self, action:"drag:")
         which.addGestureRecognizer(pg)
         nextView = cloneView(self.target)
+        
         nextView.backgroundColor = getRandomColor()
-        print("target is \(self.target) superview is \(self.target.superview)")
-        self.target.superview!.insertSubview(nextView, belowSubview: self.target)
+        self.target.superview!.insertSubview(nextView, belowSubview: self.target)        
     }
     
     func reset() {
@@ -89,7 +85,7 @@ class Swiper: NSObject {
     }
     
     func drag(p: UIPanGestureRecognizer!) {
-
+        
         switch p.state {
             
             case .Began:

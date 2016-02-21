@@ -168,9 +168,6 @@
                                 <rect key="frame" x="20" y="210" width="374" height="424"/>
                                 <color key="backgroundColor" red="0.0" green="0.31705759767469543" blue="0.52971613219895286" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="tRC-fJ-Epe" appends="YES" id="qOb-qR-Ivj"/>
-                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Za-IEV">
                                 <rect key="frame" x="350" y="642" width="44" height="30"/>
@@ -245,11 +242,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdO-GC-f51" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hxS-WQ-h1H" userLabel="Exit" sceneMemberID="exit"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="tRC-fJ-Epe">
-                    <connections>
-                        <action selector="dragTinderView:" destination="xHy-gv-oFo" id="Llg-HA-Q1j"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3140" y="3087"/>
         </scene>

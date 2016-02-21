@@ -17,13 +17,16 @@ class TinderViewController: UIViewController {
     @IBOutlet weak var draggableView: SwipeView!
     
     @IBAction func dragTinderView(sender: UIPanGestureRecognizer) {
-        swiper.drag(sender)
+        swiper?.drag(sender)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pullQuestion()
+    }
+
+    override func viewDidAppear(animated: Bool) {
         
         swiper = Swiper(target: draggableView)
         
@@ -33,8 +36,8 @@ class TinderViewController: UIViewController {
         swiper.leftAction = {
             print("swipe left")
         }
-    }
 
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,17 +54,17 @@ class TinderViewController: UIViewController {
     func pullQuestion() {
         
         currentQuestion = Recorder.playRandomQuestion(category)
-        questionLabel.text = "Question #\(currentQuestion)"
+        questionLabel.text = "Question #\(currentQuestion + 1)"
     }
 
     @IBAction func gotIt(sender: AnyObject) {
         pullQuestion()
-        swiper.swipe(true)
+        swiper?.swipe(true)
     }
 
     @IBAction func fail(sender: AnyObject) {
         pullQuestion()
-        swiper.swipe(false)
+        swiper?.swipe(false)
     }
     
     /*
