@@ -14,7 +14,7 @@ class DisplayCategoryViewController: UIViewController {
     var bestSessionRate = 100
     var numberOfQuestion = 0
     var shouldSegEditMode = false
-    var category: Category?
+    var category: Category!
     
     @IBOutlet weak var lastSessionLabel: UILabel!
     @IBOutlet weak var bestSessionLabel: UILabel!
@@ -69,6 +69,11 @@ class DisplayCategoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        
+        return !(identifier == "toTinder" && category.qas.count == 0)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let nav = segue.destinationViewController as! UINavigationController
@@ -76,14 +81,16 @@ class DisplayCategoryViewController: UIViewController {
         if segue.identifier == "editCategory" {
             
             let editVC = nav.topViewController as! EditCategoryViewController
-            
             editVC.category = category
             
         } else if segue.identifier == "toTinder" {
             
-            let tinderVC = nav.topViewController as! TinderViewController
+            if category.qas.count != 0 {
             
-            tinderVC.category = category
+                let tinderVC = nav.topViewController as! TinderViewController
+                tinderVC.category = category
+                
+            }
         }
     }
 }

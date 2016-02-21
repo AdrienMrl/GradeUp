@@ -14,12 +14,17 @@ class TinderViewController: UIViewController {
     var currentQuestion: Int = 0
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var draggableView: UIView!
+    var swiper: Swiper!
     
+    @IBAction func dragTinderView(sender: UIPanGestureRecognizer) {
+        swiper.drag(sender)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pullQuestion()
+        swiper = Swiper(target: draggableView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +41,7 @@ class TinderViewController: UIViewController {
     }
     
     func pullQuestion() {
+        
         currentQuestion = Recorder.playRandomQuestion(category)
         questionLabel.text = "Question #\(currentQuestion)"
     }
