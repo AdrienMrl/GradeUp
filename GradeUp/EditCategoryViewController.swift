@@ -98,6 +98,11 @@ class EditCategoryViewController: UIViewController {
         category.sessionSuccessRate = 0
         category.bestSuccessRate = 0
         Category.saveCategories()
+        
+        let view = sender.superview!!
+        
+        view.removeFromSuperview()
+
     }
     
     override func didReceiveMemoryWarning() {
