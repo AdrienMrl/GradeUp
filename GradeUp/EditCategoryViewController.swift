@@ -94,6 +94,12 @@ class EditCategoryViewController: UIViewController {
 
     }
 
+    @IBAction func resetStats(sender: AnyObject) {
+        category.sessionSuccessRate = 0
+        category.bestSuccessRate = 0
+        Category.saveCategories()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -302,8 +302,15 @@
                                     <constraint firstItem="FBo-nj-SVD" firstAttribute="centerX" secondItem="R2v-OG-2F5" secondAttribute="centerX" id="dCt-A5-54m"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC0-KS-AiV">
+                                <rect key="frame" x="0.0" y="200" width="375" height="30"/>
+                                <state key="normal" title="Reset statistics"/>
+                                <connections>
+                                    <action selector="resetStats:" destination="beR-9t-9y8" eventType="touchUpInside" id="PFB-xG-H5Y"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QFg-Yl-Oae">
-                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                                <rect key="frame" x="0.0" y="230" width="375" height="437"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordingCellPrototype" id="LOT-iZ-Y5n">
@@ -317,6 +324,10 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="lC0-KS-AiV" firstAttribute="top" secondItem="R2v-OG-2F5" secondAttribute="bottom" id="Knt-lV-3BT"/>
+                            <constraint firstItem="lC0-KS-AiV" firstAttribute="bottom" secondItem="QFg-Yl-Oae" secondAttribute="top" id="ocm-bG-nyo"/>
+                        </constraints>
                     </stackView>
                     <navigationItem key="navigationItem" id="dlK-xr-GuJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="rZ3-A9-Qdt">
@@ -481,6 +492,6 @@
         <image name="record" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cGU-oE-mOC"/>
+        <segue reference="3U9-6c-Igl"/>
     </inferredMetricsTieBreakers>
 </document>

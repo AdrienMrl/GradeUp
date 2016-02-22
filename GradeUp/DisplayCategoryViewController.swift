@@ -43,7 +43,9 @@ class DisplayCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        self.navigationItem.title = category?.name
+        if category != nil {
+            self.navigationItem.title = category.name
+        }
         
      }
  
@@ -51,7 +53,9 @@ class DisplayCategoryViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-        print(category.bestSuccessRate)
+        if category == nil {
+            return
+        }
         
         lastSessionLabel?.text = String(Int(category.sessionSuccessRate * 100)) + "%"
         bestSessionLabel?.text = String(Int(category.bestSuccessRate * 100)) + "%"
