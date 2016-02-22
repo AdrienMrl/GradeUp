@@ -10,9 +10,6 @@ import UIKit
 
 class DisplayCategoryViewController: UIViewController {
     
-    var lastSessionRate = 0
-    var bestSessionRate = 100
-    var numberOfQuestion = 0
     var shouldSegEditMode = false
     var category: Category!
     
@@ -26,9 +23,7 @@ class DisplayCategoryViewController: UIViewController {
         )
     }
     
-    func computeColor(percentage: Int) -> UIColor {
-        
-        let percentage: Float = Float(percentage) / 100
+    func computeColor(percentage: Float) -> UIColor {
         
         return UIColor(
             red:   computeComposentValue(percentage, greenVal: 0, redVal: 0.392),
@@ -38,8 +33,8 @@ class DisplayCategoryViewController: UIViewController {
     
     func setLabelColorFromScore() {
         
-        let lastSessionColor = computeColor(lastSessionRate)
-        let bestSessionColor = computeColor(bestSessionRate)
+        let lastSessionColor = computeColor(category.sessionSuccessRate)
+        let bestSessionColor = computeColor(category.bestSuccessRate)
         
         lastSessionLabel.textColor = lastSessionColor
         bestSessionLabel.textColor = bestSessionColor
@@ -50,17 +45,25 @@ class DisplayCategoryViewController: UIViewController {
      
         self.navigationItem.title = category?.name
         
-        lastSessionLabel?.text = String(lastSessionRate) + "%"
-        bestSessionLabel?.text = String(bestSessionRate) + "%"
-        numberOfQuestionLabel?.text = String(numberOfQuestion)
+     }
+ 
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        print(category.bestSuccessRate)
+        
+        lastSessionLabel?.text = String(Int(category.sessionSuccessRate * 100)) + "%"
+        bestSessionLabel?.text = String(Int(category.bestSuccessRate * 100)) + "%"
+        numberOfQuestionLabel?.text = String(category.qas.count)
         setLabelColorFromScore()
         
         if shouldSegEditMode {
             shouldSegEditMode = false
             self.performSegueWithIdentifier("editCategory", sender: self)
         }
+        
     }
-    
     @IBAction func unwindForDisplay(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
     }
     

@@ -16,6 +16,9 @@ class TinderViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var draggableView: SwipeView!
     
+    var success: Float = 0.0
+    var failure: Float = 0.0
+    
     @IBAction func dragTinderView(sender: UIPanGestureRecognizer) {
         swiper?.drag(sender)
     }
@@ -24,17 +27,30 @@ class TinderViewController: UIViewController {
         super.viewDidLoad()
         
         pullQuestion()
+        success = 0
+        failure = 0
     }
 
+    @IBAction func gotIt() {
+        swiper?.swipe(true)
+    }
+    
+    @IBAction func failed() {
+        swiper?.swipe(false)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         
         swiper = Swiper(target: draggableView)
         
         swiper.rightAction = {
-            print("swipe right")
+            self.success++
+            self.pullQuestion()
+
         }
         swiper.leftAction = {
-            print("swipe left")
+            self.failure++
+            self.pullQuestion()
         }
 
     }
@@ -55,16 +71,22 @@ class TinderViewController: UIViewController {
         
         currentQuestion = Recorder.playRandomQuestion(category)
         questionLabel.text = "Question #\(currentQuestion + 1)"
+        updateSuccessRate()
     }
-
-    @IBAction func gotIt(sender: AnyObject) {
-        pullQuestion()
-        swiper?.swipe(true)
-    }
-
-    @IBAction func fail(sender: AnyObject) {
-        pullQuestion()
-        swiper?.swipe(false)
+    
+    func updateSuccessRate() {
+        
+        if success + failure == 0 {
+            return
+        }
+        
+        category.sessionSuccessRate = success / (success + failure)
+        
+        if category.bestSuccessRate < category.sessionSuccessRate {
+           category.bestSuccessRate = category.sessionSuccessRate
+        }
+        
+        Category.saveCategories()
     }
     
     /*

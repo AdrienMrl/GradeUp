@@ -173,14 +173,14 @@
                                 <rect key="frame" x="350" y="642" width="44" height="30"/>
                                 <state key="normal" title="I got it"/>
                                 <connections>
-                                    <action selector="gotIt:" destination="xHy-gv-oFo" eventType="touchUpInside" id="vSd-FS-4kD"/>
+                                    <action selector="gotIt" destination="xHy-gv-oFo" eventType="touchUpInside" id="JA3-3M-gYg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-5z-uP3">
                                 <rect key="frame" x="20" y="642" width="46" height="30"/>
                                 <state key="normal" title="I failed"/>
                                 <connections>
-                                    <action selector="fail:" destination="xHy-gv-oFo" eventType="touchUpInside" id="jNg-S4-epl"/>
+                                    <action selector="failed" destination="xHy-gv-oFo" eventType="touchUpInside" id="FB0-mp-ApU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFh-5n-Ddx">

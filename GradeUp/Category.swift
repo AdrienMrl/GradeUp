@@ -18,6 +18,8 @@ class Category: NSObject, NSCoding {
     }()
     
     var name: String
+    var sessionSuccessRate: Float
+    var bestSuccessRate: Float
     static var categories: [Category] =
     {
         if let object = NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
@@ -64,12 +66,16 @@ class Category: NSObject, NSCoding {
     
     init(name: String) {
         self.name = name
+        self.sessionSuccessRate = 0
+        self.bestSuccessRate = 0
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
         
         aCoder.encodeObject(name, forKey: "name")
         aCoder.encodeObject(qas, forKey: "qas")
+        aCoder.encodeObject(sessionSuccessRate, forKey: "sessionSuccessRate")
+        aCoder.encodeObject(bestSuccessRate, forKey: "bestSuccessRate")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -79,6 +85,9 @@ class Category: NSObject, NSCoding {
         self.init(name: name)
         
         self.qas = aDecoder.decodeObjectForKey("qas") as! Array<QA>
+        self.sessionSuccessRate = aDecoder.decodeObjectForKey("sessionSuccessRate") as! Float
+        self.bestSuccessRate = aDecoder.decodeObjectForKey("bestSuccessRate") as! Float
+
     }
 
     static func saveCategories() -> Bool {
