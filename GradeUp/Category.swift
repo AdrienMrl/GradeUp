@@ -36,24 +36,31 @@ class Category: NSObject, NSCoding {
     class QA: NSObject, NSCoding {
         
         let identifier: Int
-        var success_rate_total = 0
-        var success_rate_session = 0
+        var time_success = 0
+        var time_failure = 0
 
         init(identifier: Int) {
             self.identifier = identifier
         }
         
         required convenience init?(coder aDecoder: NSCoder) {
-            self.init(identifier: aDecoder.decodeObject() as! Int)
-            self.success_rate_total = aDecoder.decodeObject() as! Int
-            self.success_rate_session = aDecoder.decodeObject() as! Int
+            self.init(identifier: aDecoder.decodeObjectForKey("identifier") as! Int)
+            
+            self.time_success = aDecoder.decodeObjectForKey("time_success") as! Int
+            self.time_failure = aDecoder.decodeObjectForKey("time_failure") as! Int
         }
         
         func encodeWithCoder(aCoder: NSCoder) {
             
-            aCoder.encodeObject(identifier)
-            aCoder.encodeObject(success_rate_total)
-            aCoder.encodeObject(success_rate_session)
+            aCoder.encodeObject(identifier, forKey: "identifier")
+            aCoder.encodeObject(time_success, forKey: "time_success")
+            aCoder.encodeObject(time_failure, forKey: "time_failure")
+        }
+        
+        func getSuccessRate() -> Float {
+            let total = time_success + time_failure
+            
+            return total == 0 ? 0 : Float(time_success) / Float(total)
         }
     }
     
@@ -78,6 +85,17 @@ class Category: NSObject, NSCoding {
         aCoder.encodeObject(bestSuccessRate, forKey: "bestSuccessRate")
     }
     
+    // debug function
+    func emergencyRecoverQA(howMany: Int) -> [QA] {
+        var qas : [QA] = []
+        
+        for i in 0...howMany {
+            qas.append(QA(identifier: i))
+        }
+        
+        return qas
+    }
+    
     required convenience init?(coder aDecoder: NSCoder) {
 
         let name = aDecoder.decodeObjectForKey("name") as! String
@@ -85,6 +103,9 @@ class Category: NSObject, NSCoding {
         self.init(name: name)
         
         self.qas = aDecoder.decodeObjectForKey("qas") as! Array<QA>
+        
+        //self.qas = emergencyRecoverQA(7)
+        
         self.sessionSuccessRate = aDecoder.decodeObjectForKey("sessionSuccessRate") as! Float
         self.bestSuccessRate = aDecoder.decodeObjectForKey("bestSuccessRate") as! Float
 

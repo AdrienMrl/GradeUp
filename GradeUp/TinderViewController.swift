@@ -13,9 +13,10 @@ class TinderViewController: UIViewController {
 
     var swiper: Swiper!
     var category: Category!
-    var currentQuestion: Int = 0
+    var currentQuestion: Int! = nil
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var draggableView: SwipeView!
+    @IBOutlet weak var successLabel: UILabel!
     
     var success: Float = 0.0
     var failure: Float = 0.0
@@ -33,10 +34,12 @@ class TinderViewController: UIViewController {
     }
 
     @IBAction func gotIt() {
+        category.qas[currentQuestion].time_success++
         swiper?.swipe(true)
     }
     
     @IBAction func failed() {
+        category.qas[currentQuestion].time_failure++
         swiper?.swipe(false)
     }
     
@@ -74,9 +77,28 @@ class TinderViewController: UIViewController {
     
     func pullQuestion() {
         
-        currentQuestion = Int(arc4random_uniform(UInt32(category.qas.count)))
+        //currentQuestion = Int(arc4random_uniform(UInt32(category.qas.count)))
+        
+        func sortQA() {
+            category.qas.sortInPlace {
+                return $0.getSuccessRate() < $1.getSuccessRate()
+            }
+        }
+        if currentQuestion == nil {
+            sortQA()
+            currentQuestion = 0
+        } else {
+            
+            currentQuestion!++
+            
+            if currentQuestion >= category.qas.count {
+                sortQA()
+                currentQuestion = 0
+            }
+        }
         
         questionLabel.text = "Question #\(currentQuestion + 1)"
+        successLabel.text = "Success: \(Int(category.qas[currentQuestion].getSuccessRate() * 100))%"
         updateSuccessRate()
         playStuff(.Question)
     }
