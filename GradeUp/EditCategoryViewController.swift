@@ -17,6 +17,8 @@ class EditCategoryViewController: UIViewController {
     
     var category: Category!
     
+    var recordingStuff = Recorder()
+    
     let tvContr = RecordingsTableViewController()
 
     var timer: NSTimer?
@@ -41,30 +43,52 @@ class EditCategoryViewController: UIViewController {
         
         secs = 0
         minutes = 0
+
         
-        Recorder.stop()
-        
+        var identifier = category.qas.count
+
         
         if recordingMode == nil {
             recordingMode = .Question
-            Recorder.start(recordingMode, categoryName: category.name, identifier: category.qas.count)
+            Recorder.start(recordingMode, categoryName: category.name, identifier: identifier)
             return
         }
         
         if recordingMode == .Question {
             recordingMode = .Answer
+            Recorder.stop()
             
-        } else {
-            let newQA = Category.QA(identifier: category.qas.count)
+            timer?.invalidate()
+            timer = nil
+            refreshTimerLabels()
+            
+            return
+            
+        } else if Recorder.instance.recorder.recording {
+            
+            let newQA = Category.QA(identifier: identifier)
             
             category.qas.append(newQA)
+            identifier++
             
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
-            recordingMode = .Question            
+            recordingMode = nil
+            Recorder.stop()
+            return
         }
         
-        Recorder.start(recordingMode, categoryName: category.name, identifier: category.qas.count)
+        Recorder.start(recordingMode, categoryName: category.name, identifier: identifier)
 
+    }
+    
+    func refreshTimerLabels() {
+        
+        func padNumber(num: Int) -> String {
+            return String(format: "%02d", num)
+        }
+        
+        timerLabel.text = "\(padNumber(minutes)):\(padNumber(secs))"
+  
     }
     
     func timerTick() {
@@ -75,12 +99,7 @@ class EditCategoryViewController: UIViewController {
             minutes++
         }
         
-        func padNumber(num: Int) -> String {
-            return String(format: "%02d", num)
-        }
-        
-        timerLabel.text = "\(padNumber(minutes)):\(padNumber(secs))"
-        
+        refreshTimerLabels()
     }
     
     override func viewDidLoad() {

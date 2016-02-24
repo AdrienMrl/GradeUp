@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Darwin
 
 class TinderViewController: UIViewController {
 
@@ -59,19 +60,25 @@ class TinderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func playStuff(type: Recorder.RecordingMode) {
+        Recorder.play(type, categoryName: category.name, identifier: category.qas[currentQuestion].identifier)
+    }
+    
     @IBAction func hearQuestion(sender: UIButton) {
-        Recorder.playRecording(.Question, name: category.name, identifier: currentQuestion)
+        playStuff(.Question)
     }
     
     @IBAction func hearAnswer(sender: AnyObject) {
-        Recorder.playRecording(.Answer, name: category.name, identifier: currentQuestion)
+        playStuff(.Answer)
     }
     
     func pullQuestion() {
         
-        currentQuestion = Recorder.playRandomQuestion(category)
+        currentQuestion = Int(arc4random_uniform(UInt32(category.qas.count)))
+        
         questionLabel.text = "Question #\(currentQuestion + 1)"
         updateSuccessRate()
+        playStuff(.Question)
     }
     
     func updateSuccessRate() {
