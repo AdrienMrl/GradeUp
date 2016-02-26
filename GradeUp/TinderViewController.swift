@@ -35,11 +35,13 @@ class TinderViewController: UIViewController {
 
     @IBAction func gotIt() {
         category.qas[currentQuestion].time_success++
+        Category.saveCategories()
         swiper?.swipe(true)
     }
     
     @IBAction func failed() {
         category.qas[currentQuestion].time_failure++
+        Category.saveCategories()
         swiper?.swipe(false)
     }
     

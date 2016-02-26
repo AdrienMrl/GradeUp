@@ -104,7 +104,7 @@ class Category: NSObject, NSCoding {
         
         self.qas = aDecoder.decodeObjectForKey("qas") as! Array<QA>
         
-        //self.qas = emergencyRecoverQA(7)
+//        self.qas = emergencyRecoverQA(11)
         
         self.sessionSuccessRate = aDecoder.decodeObjectForKey("sessionSuccessRate") as! Float
         self.bestSuccessRate = aDecoder.decodeObjectForKey("bestSuccessRate") as! Float

@@ -30,55 +30,66 @@ class EditCategoryViewController: UIViewController {
     var recordingMode : Recorder.RecordingMode! = nil {
         didSet {
             infoLabel.text = "Record " +
-                (self.recordingMode == nil || self.recordingMode == Recorder.RecordingMode.Question ? "Question" : "Answer")
+                (self.recordingMode == nil ||
+                    self.recordingMode == Recorder.RecordingMode.Question ? "Question" : "Answer")
+        }
+    }
+    
+    func getCurrentQuestionIdentifier() -> Int {
+        
+        // FIXME: BUG !!!! identifier will collide with existing identifier sometimes
+        return category.qas.count
+    }
+    
+    @IBAction func record(sender: UIButton) {
+        
+        if recordingMode == nil {
+            
+            recordQuestion()
+            
+        } else if recordingMode == .Question {
+            
+            stopRecording()
+            recordAnswer()
+            
+        } else if recordingMode == .Answer {
+            
+            stopRecording()
+            let newQA = Category.QA(identifier: getCurrentQuestionIdentifier())
+            category.qas.append(newQA)
+            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
         }
     }
     
     
-    @IBAction func record(sender: UIButton) {
+    func record(type: Recorder.RecordingMode) {
+        
+        let identifier = getCurrentQuestionIdentifier()
+        
+        Recorder.start(type, categoryName: category.name, identifier: identifier)
+        recordingMode = type
         
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerTick"), userInfo: nil, repeats: true)
         }
-        
+    }
+    
+    func recordQuestion() {
+        record(.Question)
+    }
+    
+    func recordAnswer() {
+        record(.Answer)
+    }
+    
+    func stopRecording() {
+        Recorder.stop()
+        recordingMode = nil
+        timer?.invalidate()
+        timer = nil
         secs = 0
         minutes = 0
-
-        
-        var identifier = category.qas.count
-
-        
-        if recordingMode == nil {
-            recordingMode = .Question
-            Recorder.start(recordingMode, categoryName: category.name, identifier: identifier)
-            return
-        }
-        
-        if recordingMode == .Question {
-            recordingMode = .Answer
-            Recorder.stop()
-            
-            timer?.invalidate()
-            timer = nil
-            refreshTimerLabels()
-            
-            return
-            
-        } else if Recorder.instance.recorder.recording {
-            
-            let newQA = Category.QA(identifier: identifier)
-            
-            category.qas.append(newQA)
-            identifier++
-            
-            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
-            recordingMode = nil
-            Recorder.stop()
-            return
-        }
-        
-        Recorder.start(recordingMode, categoryName: category.name, identifier: identifier)
-
+        refreshTimerLabels()
     }
     
     func refreshTimerLabels() {
@@ -129,21 +140,4 @@ class EditCategoryViewController: UIViewController {
         view.removeFromSuperview()
 
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Navigation
-    
-    
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
