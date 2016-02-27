@@ -23,6 +23,7 @@
 		933E18AD1C7923B0008FE4DC /* TinderSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */; };
 		9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */; };
 		93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */; };
+		A0244F191C7FE8A0007109CC /* MagicWaves.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0244F181C7FE8A0007109CC /* MagicWaves.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderSwipe.swift; sourceTree = "<group>"; };
 		9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryTableViewCell.swift; sourceTree = "<group>"; };
 		93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCategoryViewController.swift; sourceTree = "<group>"; };
+		A0244F181C7FE8A0007109CC /* MagicWaves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicWaves.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		930FDCDF1C691DD70068325D = {
 			isa = PBXGroup;
 			children = (
+				A0244F181C7FE8A0007109CC /* MagicWaves.swift */,
 				930FDCEA1C691DD70068325D /* GradeUp */,
 				930FDCFF1C691DD70068325D /* GradeUpTests */,
 				930FDCE91C691DD70068325D /* Products */,
@@ -236,6 +239,7 @@
 				933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */,
 				931F3F2D1C6D66BD00240CF7 /* GlobalSplitViewController.swift in Sources */,
 				930FDCEC1C691DD70068325D /* AppDelegate.swift in Sources */,
+				A0244F191C7FE8A0007109CC /* MagicWaves.swift in Sources */,
 				9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */,
 				9314E9611C6AC7AA001A95D5 /* Category.swift in Sources */,
 				93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */,
