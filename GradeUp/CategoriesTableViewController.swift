@@ -94,7 +94,7 @@ class CategoriesTableViewController: UITableViewController {
             
             cell.setEditable(editing)
             if !editing && Category.categories.count != 0 {
-                Category.categories[cell.index] = Category(name: cell.getCategoryName())
+                Category.categories[cell.index].name = cell.getCategoryName()
             }
         }
     }
