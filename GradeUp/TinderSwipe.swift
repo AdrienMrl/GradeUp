@@ -20,7 +20,9 @@ class Swiper: NSObject {
     var nextView: UIView!
     
     func cloneView(view: UIView) -> UIView {
-        return NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(view)) as! UIView
+        let newView = NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(view)) as! MagicWavesView
+        newView.delegate = (view as! MagicWavesView).delegate
+        return newView
     }
     
     init(target: UIView) {

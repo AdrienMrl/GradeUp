@@ -8,16 +8,15 @@
 
 import UIKit
 
-class EditCategoryViewController: UIViewController {
+class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
     
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var waveView: MagicWavesView!
     
     var category: Category!
-    
-    var recordingStuff = Recorder()
     
     let tvContr = RecordingsTableViewController()
 
@@ -26,6 +25,21 @@ class EditCategoryViewController: UIViewController {
     var secs = 0
     var minutes = 0
 
+    func updateMeters() -> Float {
+       let recorder = Recorder.instance.recorder
+        
+        if recorder == nil {
+            return -160
+        }
+
+        recorder.updateMeters()
+        print(recorder.averagePowerForChannel(0))
+        print(recorder.averagePowerForChannel(1))
+        print(recorder.averagePowerForChannel(2))
+        print(recorder.averagePowerForChannel(3))
+
+        return recorder.averagePowerForChannel(0)
+    }
     
     var recordingMode : Recorder.RecordingMode! = nil {
         didSet {
@@ -121,6 +135,7 @@ class EditCategoryViewController: UIViewController {
         tvContr.category = category
         tableView.delegate = tvContr
         tableView.dataSource = tvContr
+        waveView.delegate = self
 
     }
 

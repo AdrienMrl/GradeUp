@@ -51,7 +51,6 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     static func setupRecorder(recordingMode: RecordingMode,
         categoryName: String, identifier: Int) {
-
             
             let settings = [AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatMPEG4AAC), AVSampleRateKey: NSNumber(integer: 44100), AVNumberOfChannelsKey: NSNumber(integer: 2)]
 
@@ -59,8 +58,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             print(outputURL.absoluteString)
             try! instance.recorder = AVAudioRecorder(URL: outputURL, settings: settings)
             instance.recorder.prepareToRecord()
-            
-
+            instance.recorder.meteringEnabled = true
             
             do {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
@@ -92,6 +90,8 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         do {
             let outputURL = Recorder.recordingURL(recordingMode, name: categoryName, identifier: identifier)
             try instance.player = AVAudioPlayer(contentsOfURL: outputURL)
+            instance.player.meteringEnabled = true
+
         }
         catch let error as NSError {
             NSLog("error: \(error)")

@@ -9,17 +9,28 @@
 import UIKit
 import Darwin
 
-class TinderViewController: UIViewController {
+class TinderViewController: UIViewController, MagicWavesViewDelegate {
 
     var swiper: Swiper!
     var category: Category!
     var currentQuestion: Int! = nil
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var draggableView: SwipeView!
+    @IBOutlet weak var draggableView: MagicWavesView!
     @IBOutlet weak var successLabel: UILabel!
     
     var success: Float = 0.0
     var failure: Float = 0.0
+    
+    func updateMeters() -> Float {
+        
+        if let player = Recorder.instance.player {
+            player.updateMeters()
+
+            return player.averagePowerForChannel(0)
+        }
+        
+        return -160
+    }
     
     @IBAction func dragTinderView(sender: UIPanGestureRecognizer) {
         swiper?.drag(sender)
@@ -31,6 +42,7 @@ class TinderViewController: UIViewController {
         pullQuestion()
         success = 0
         failure = 0
+        draggableView.delegate = self
     }
 
     @IBAction func gotIt() {

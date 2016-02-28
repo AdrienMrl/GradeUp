@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol MagicWavesViewDelegate {
+    
+    func updateMeters() -> Float
+}
+
+
 class MagicWavesView: UIView {
 
     private var _phase: CGFloat = 0.0
     private var _amplitude: CGFloat = 0.0
     
-    @IBInspectable var waveColor: UIColor = UIColor.blackColor()
+    @IBInspectable var waveColor: UIColor = UIColor.whiteColor()
     @IBInspectable var numberOfWaves = 5
     @IBInspectable var primaryWaveLineWidth: CGFloat = 3.0
     @IBInspectable var secondaryWaveLineWidth: CGFloat = 1.0
@@ -22,10 +28,43 @@ class MagicWavesView: UIView {
     @IBInspectable var density: CGFloat = 5
     @IBInspectable var phaseShift: CGFloat = -0.15
     
+    var delegate: MagicWavesViewDelegate?
+    
     @IBInspectable var amplitude: CGFloat {
         get {
             return _amplitude
         }
+    }
+    
+    override init(frame rect: CGRect) {
+        
+        super.init(frame: rect)
+        setup()
+    }
+    
+    func updateMeters() {
+        
+        if let delegate = delegate {
+            
+            let level = delegate.updateMeters()
+            let scale = pow(10, level / 40)
+            updateWithLevel(CGFloat(scale))
+            
+        } else {
+            updateWithLevel(-160)
+        }
+    }
+    
+    func setup() {
+        
+        let displayLink = CADisplayLink(target: self, selector: Selector("updateMeters"))
+        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
     }
     
     func updateWithLevel(level: CGFloat) {
@@ -81,5 +120,4 @@ class MagicWavesView: UIView {
             CGContextStrokePath(context)
         }
     }
-
 }
