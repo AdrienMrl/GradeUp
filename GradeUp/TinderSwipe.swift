@@ -67,16 +67,20 @@ class Swiper: NSObject {
     func swipe(right: Bool) {
         
         
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animateWithDuration(0.3 , animations: {
             self.target.center.x =
                 self.origin.x + self.target.superview!.bounds.width * 2 * (right ? 1 : -1)
-            right ? self.rightAction?() : self.leftAction?()
             self.rotate(self.target)
+            
         }, completion: {
                 (Bool) in
-                self.target.hidden = true
-                self.target.removeFromSuperview()
-                self.putViewBehind(self.nextView)
+        
+            right ? self.rightAction?() : self.leftAction?()
+            
+            self.target.hidden = true
+            self.target.removeFromSuperview()
+            self.putViewBehind(self.nextView)
+
         })
     }
     
