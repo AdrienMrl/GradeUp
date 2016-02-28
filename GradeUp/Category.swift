@@ -65,11 +65,11 @@ class Category: NSObject, NSCoding {
     }
     
     // A list of Question and Answers identifiers
-    var qas: Array<QA>! = [] {
-        didSet {
+    var qas: Array<QA>! = [] /* {
+         didSet {
             Category.saveCategories()
         }
-    }
+    } */
     
     init(name: String) {
         self.name = name

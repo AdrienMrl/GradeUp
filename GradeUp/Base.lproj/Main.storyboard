@@ -164,19 +164,19 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-FA-NwW" customClass="SwipeView" customModule="GradeUp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDy-FA-NwW" customClass="SwipeView" customModule="GradeUp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="210" width="374" height="468"/>
                                 <color key="backgroundColor" red="0.0" green="0.31705759767469543" blue="0.52971613219895286" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Za-IEV">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Za-IEV">
                                 <rect key="frame" x="350" y="686" width="44" height="30"/>
                                 <state key="normal" title="I got it"/>
                                 <connections>
                                     <action selector="gotIt" destination="xHy-gv-oFo" eventType="touchUpInside" id="JA3-3M-gYg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-5z-uP3">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-5z-uP3">
                                 <rect key="frame" x="20" y="686" width="46" height="30"/>
                                 <state key="normal" title="I failed"/>
                                 <connections>
@@ -200,7 +200,7 @@
                                     <action selector="hearAnswer:" destination="xHy-gv-oFo" eventType="touchUpInside" id="fTd-Gs-YYe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
                                 <rect key="frame" x="170" y="686" width="74" height="30"/>
                                 <state key="normal" title="Hear again"/>
                                 <connections>
@@ -511,6 +511,6 @@
         <image name="record" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3U9-6c-Igl"/>
+        <segue reference="cGU-oE-mOC"/>
     </inferredMetricsTieBreakers>
 </document>
