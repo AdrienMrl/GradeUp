@@ -245,13 +245,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="urW-wv-pxb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dLE-Aa-Wcd">
-                            <connections>
-                                <segue destination="hxS-WQ-h1H" kind="unwind" unwindAction="unwindForDisplay:towardsViewController:" id="rFn-cP-ya6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="urW-wv-pxb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="draggableView" destination="WDy-FA-NwW" id="hkE-VR-sq3"/>
@@ -260,7 +254,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdO-GC-f51" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="hxS-WQ-h1H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3140" y="3087"/>
         </scene>
