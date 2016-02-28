@@ -1,5 +1,5 @@
 //
-//  MagicWaves.swift
+//  MagicWavesView.swift
 //  GradeUp
 //
 //  Created by Gwendal Lasson on 26/02/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MagicWaves: UIView {
+class MagicWavesView: UIView {
 
     private var _phase: CGFloat = 0.0
     private var _amplitude: CGFloat = 0.0
