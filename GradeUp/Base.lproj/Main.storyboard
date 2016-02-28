@@ -206,7 +206,7 @@
                                     <action selector="hearQuestion:" destination="xHy-gv-oFo" eventType="touchUpInside" id="RaU-S2-lTA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success: 0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1Q-XW-7B3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Success: 0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1Q-XW-7B3">
                                 <rect key="frame" x="20" y="166" width="344" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -227,14 +227,23 @@
                             <constraint firstItem="x2I-5z-uP3" firstAttribute="top" secondItem="WDy-FA-NwW" secondAttribute="bottom" constant="8" symbolic="YES" id="hbm-Vh-q6M"/>
                             <constraint firstItem="rFh-5n-Ddx" firstAttribute="centerX" secondItem="iYN-Ws-5Kv" secondAttribute="centerX" id="hyI-1n-TBM"/>
                             <constraint firstItem="WDy-FA-NwW" firstAttribute="top" secondItem="rFh-5n-Ddx" secondAttribute="bottom" constant="52" id="j73-GI-Mzp"/>
+                            <constraint firstItem="s61-s4-Jxs" firstAttribute="centerX" secondItem="QiL-Gl-LTb" secondAttribute="centerX" id="ltO-ec-hsQ"/>
                             <constraint firstItem="iYN-Ws-5Kv" firstAttribute="top" secondItem="urX-3k-ae2" secondAttribute="bottom" constant="30" id="mxx-3o-xHZ"/>
                             <constraint firstItem="rFh-5n-Ddx" firstAttribute="top" secondItem="iYN-Ws-5Kv" secondAttribute="bottom" id="oFF-Ch-enE"/>
                             <constraint firstItem="WDy-FA-NwW" firstAttribute="top" secondItem="QiL-Gl-LTb" secondAttribute="top" constant="210" id="p07-pj-5ud"/>
                             <constraint firstItem="5y5-Za-IEV" firstAttribute="trailing" secondItem="QiL-Gl-LTb" secondAttribute="trailingMargin" id="qZp-5a-CxF"/>
+                            <constraint firstItem="O1Q-XW-7B3" firstAttribute="leading" secondItem="QiL-Gl-LTb" secondAttribute="leadingMargin" id="rry-Rf-OKo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O1Q-XW-7B3" secondAttribute="trailing" constant="30" id="uea-m1-oQd"/>
                             <constraint firstItem="O1Q-XW-7B3" firstAttribute="top" secondItem="rFh-5n-Ddx" secondAttribute="bottom" constant="8" symbolic="YES" id="uyR-qf-cUt"/>
                             <constraint firstItem="WDy-FA-NwW" firstAttribute="trailing" secondItem="5y5-Za-IEV" secondAttribute="trailing" id="xzz-hw-chG"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NrN-sq-jYm"/>
+                                <exclude reference="17W-eE-Qse"/>
+                                <exclude reference="fwd-HS-doL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="urW-wv-pxb">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="dLE-Aa-Wcd">

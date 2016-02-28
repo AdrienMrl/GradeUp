@@ -75,6 +75,7 @@ class Swiper: NSObject {
         }, completion: {
                 (Bool) in
                 self.target.hidden = true
+                self.target.removeFromSuperview()
                 self.putViewBehind(self.nextView)
         })
     }
