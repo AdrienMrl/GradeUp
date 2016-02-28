@@ -33,10 +33,6 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
         }
 
         recorder.updateMeters()
-        print(recorder.averagePowerForChannel(0))
-        print(recorder.averagePowerForChannel(1))
-        print(recorder.averagePowerForChannel(2))
-        print(recorder.averagePowerForChannel(3))
 
         return recorder.averagePowerForChannel(0)
     }

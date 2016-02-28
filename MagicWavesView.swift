@@ -29,6 +29,7 @@ class MagicWavesView: UIView {
     @IBInspectable var phaseShift: CGFloat = -0.15
     
     var delegate: MagicWavesViewDelegate?
+    var previousLevel: Float!
     
     @IBInspectable var amplitude: CGFloat {
         get {
@@ -46,8 +47,24 @@ class MagicWavesView: UIView {
         
         if let delegate = delegate {
             
-            let level = delegate.updateMeters()
+            var level = delegate.updateMeters()
+            
+            if previousLevel == nil {
+                previousLevel = level
+            } else {
+                
+                let smooth_level: Float = 3
+                
+                let diff = level - previousLevel
+                
+                if diff != 0 {
+                    level = previousLevel + min(smooth_level, abs(diff)) * diff / abs(diff)
+                    previousLevel = level
+                }
+            }
+            
             let scale = pow(10, level / 40)
+            
             updateWithLevel(CGFloat(scale))
             
         } else {
