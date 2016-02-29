@@ -47,8 +47,16 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
     
     func getCurrentQuestionIdentifier() -> Int {
         
-        // FIXME: BUG !!!! identifier will collide with existing identifier sometimes
-        return category.qas.count
+        var IDs = [Int]()
+        for qa in category.qas {
+            IDs.append(qa.identifier)
+        }
+        if let maxID = IDs.maxElement() {
+            return maxID + 1
+        }
+        else {
+        return 0
+        }
     }
     
     @IBAction func record(sender: UIButton) {
@@ -109,7 +117,7 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
         }
         
         timerLabel.text = "\(padNumber(minutes)):\(padNumber(secs))"
-  
+        
     }
     
     func timerTick() {
@@ -127,14 +135,14 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
         super.viewDidLoad()
         
         recordingMode = nil
-
+        
         tvContr.category = category
         tableView.delegate = tvContr
         tableView.dataSource = tvContr
         waveView.delegate = self
-
+        
     }
-
+    
     @IBAction func resetStats(sender: AnyObject) {
         category.sessionSuccessRate = 0
         category.bestSuccessRate = 0
@@ -145,10 +153,10 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
         }
         
         Category.saveCategories()
-
+        
         let view = sender.superview!!
         
         view.removeFromSuperview()
-
+        
     }
 }
