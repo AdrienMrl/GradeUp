@@ -46,14 +46,10 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     }
 
     @IBAction func gotIt() {
-        category.qas[currentQuestion].time_success++
-        Category.saveCategories()
         swiper?.swipe(true)
     }
     
     @IBAction func failed() {
-        category.qas[currentQuestion].time_failure++
-        Category.saveCategories()
         swiper?.swipe(false)
     }
     
@@ -62,11 +58,13 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         swiper = Swiper(target: draggableView)
         
         swiper.rightAction = {
+            self.category.qas[self.currentQuestion].time_success++
             self.success++
             self.pullQuestion()
 
         }
         swiper.leftAction = {
+            self.category.qas[self.currentQuestion].time_failure++
             self.failure++
             self.pullQuestion()
         }
@@ -91,13 +89,19 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     
     func pullQuestion() {
         
-        //currentQuestion = Int(arc4random_uniform(UInt32(category.qas.count)))
         
         func sortQA() {
             category.qas.sortInPlace {
-                return $0.getSuccessRate() < $1.getSuccessRate()
+                
+                // add a number between + or - 50%
+                var randomizer = Float(arc4random()) / Float(UINT32_MAX)
+                randomizer -= 0.5
+                randomizer /= 2
+                
+                return $0.getSuccessRate() < $1.getSuccessRate() + randomizer
             }
         }
+        
         if currentQuestion == nil {
             sortQA()
             currentQuestion = 0
@@ -111,7 +115,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
             }
         }
         
-        questionLabel.text = "Question #\(currentQuestion + 1)"
+        questionLabel.text = "Question #\(category.qas[currentQuestion].identifier + 1)"
         successLabel.text = "Success: \(Int(category.qas[currentQuestion].getSuccessRate() * 100))%"
         updateSuccessRate()
         playStuff(.Question)
@@ -125,21 +129,14 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         
         category.sessionSuccessRate = success / (success + failure)
         
-        if category.bestSuccessRate < category.sessionSuccessRate {
-           category.bestSuccessRate = category.sessionSuccessRate
-        }
-        
         Category.saveCategories()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(animated: Bool) {
+        
+        if category.bestSuccessRate < category.sessionSuccessRate {
+            category.bestSuccessRate = category.sessionSuccessRate
+        }
+        
     }
-    */
-
 }

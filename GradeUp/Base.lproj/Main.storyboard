@@ -245,13 +245,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="urW-wv-pxb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dLE-Aa-Wcd">
-                            <connections>
-                                <segue destination="hxS-WQ-h1H" kind="unwind" unwindAction="unwindForDisplay:towardsViewController:" id="rFn-cP-ya6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="urW-wv-pxb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="draggableView" destination="WDy-FA-NwW" id="hkE-VR-sq3"/>
@@ -260,7 +254,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdO-GC-f51" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="hxS-WQ-h1H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3140" y="3087"/>
         </scene>
@@ -276,10 +269,10 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R2v-OG-2F5" userLabel="recordingView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2v-OG-2F5" userLabel="recordingView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mp9-jy-C66">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mp9-jy-C66">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-aj-GSY" customClass="MagicWavesView" customModule="GradeUp" customModuleProvider="target">
@@ -289,7 +282,7 @@
                                                     <constraint firstAttribute="height" constant="100" id="qHh-fd-uxM"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xvU-NH-MaR" userLabel="controlsView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvU-NH-MaR" userLabel="controlsView">
                                                 <rect key="frame" x="0.0" y="100" width="375" height="85"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBo-nj-SVD">
@@ -341,7 +334,7 @@
                                     <constraint firstAttribute="trailing" secondItem="mp9-jy-C66" secondAttribute="trailing" id="VER-kQ-Jfm"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LI9-qx-tsN" userLabel="resetStatsView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LI9-qx-tsN" userLabel="resetStatsView">
                                 <rect key="frame" x="0.0" y="185" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC0-KS-AiV">
@@ -360,7 +353,7 @@
                                     <constraint firstAttribute="trailing" secondItem="lC0-KS-AiV" secondAttribute="trailing" id="dM5-7D-4ET"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QFg-Yl-Oae">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QFg-Yl-Oae">
                                 <rect key="frame" x="0.0" y="235" width="375" height="368"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>

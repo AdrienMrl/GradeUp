@@ -80,11 +80,11 @@ class DisplayCategoryViewController: UIViewController {
         
         return !(identifier == "toTinder" && category.qas.count == 0)
     }
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let nav = segue.destinationViewController as! UINavigationController
-
+        
         if segue.identifier == "editCategory" {
             
             let editVC = nav.topViewController as! EditCategoryViewController
