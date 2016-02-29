@@ -400,30 +400,55 @@
         <scene sceneID="HdA-VG-1si">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="aVp-U7-Xqa" customClass="CategoriesTableViewController" customModule="GradeUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aSU-C5-QjB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="aSU-C5-QjB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="grN-sV-7xe" customClass="categoryTableViewCell" customModule="GradeUp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="grN-sV-7xe" id="7Xb-wf-xsZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="No category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDt-Wx-sZC">
-                                            <rect key="frame" x="19" y="0.0" width="581" height="44"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="earth" translatesAutoresizingMaskIntoConstraints="NO" id="a5c-e8-GXe" userLabel="categoryIcon">
+                                            <rect key="frame" x="20" y="20" width="59.5" height="59.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="a5c-e8-GXe" secondAttribute="height" multiplier="1:1" id="79Z-Iw-dwN"/>
+                                            </constraints>
+                                        </imageView>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="No category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDt-Wx-sZC" userLabel="categoryName">
+                                            <rect key="frame" x="91" y="40" width="488.5" height="20"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" notEnabled="YES"/>
                                             </accessibility>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 Questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-wA-QCe" userLabel="Questions Label">
+                                            <rect key="frame" x="91.5" y="64" width="488.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.44947916666666665" green="0.44947916666666665" blue="0.44947916666666665" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="aDt-Wx-sZC" secondAttribute="trailing" constant="12" id="0tQ-Ku-NnA"/>
+                                        <constraint firstItem="BOE-wA-QCe" firstAttribute="top" secondItem="aDt-Wx-sZC" secondAttribute="bottom" constant="4" id="1xZ-7y-7Mi"/>
+                                        <constraint firstItem="BOE-wA-QCe" firstAttribute="width" secondItem="aDt-Wx-sZC" secondAttribute="width" id="Goq-PP-Bzv"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BOE-wA-QCe" secondAttribute="trailing" constant="12" id="UvN-ZG-Hri"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="a5c-e8-GXe" secondAttribute="bottom" constant="12" id="Zux-yl-alI"/>
+                                        <constraint firstItem="a5c-e8-GXe" firstAttribute="leading" secondItem="7Xb-wf-xsZ" secondAttribute="leadingMargin" constant="12" id="bmG-8V-39u"/>
+                                        <constraint firstItem="a5c-e8-GXe" firstAttribute="top" secondItem="7Xb-wf-xsZ" secondAttribute="topMargin" constant="12" id="cjp-0j-H2r"/>
+                                        <constraint firstItem="aDt-Wx-sZC" firstAttribute="leading" secondItem="a5c-e8-GXe" secondAttribute="trailing" constant="12" id="giB-mL-ZDq"/>
+                                        <constraint firstItem="aDt-Wx-sZC" firstAttribute="centerY" secondItem="a5c-e8-GXe" secondAttribute="centerY" id="nQK-Nu-q4A"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="icon" destination="a5c-e8-GXe" id="vCM-Lt-Odb"/>
                                     <outlet property="nameTextField" destination="aDt-Wx-sZC" id="Ahu-wk-VMu"/>
+                                    <outlet property="questionsNumber" destination="BOE-wA-QCe" id="PAZ-pE-n14"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -534,10 +559,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="earth" width="512" height="512"/>
         <image name="play" width="256" height="256"/>
         <image name="record" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cGU-oE-mOC"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.94901960784313721" green="0.0" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
 </document>

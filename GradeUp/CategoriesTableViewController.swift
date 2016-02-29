@@ -83,7 +83,7 @@ class CategoriesTableViewController: UITableViewController {
         if (Category.categories.count == 0) {
             shouldDisplayBackGround(true)
         }
-        navigationItem.leftBarButtonItem = editButtonItem()
+        navigationItem.leftBarButtonItem = editButtonItem()        
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
@@ -108,7 +108,11 @@ class CategoriesTableViewController: UITableViewController {
         
         cell.setEditable(tableView.editing)
         cell.index = indexPath.row
-        cell.setCategoryName(Category.categories[indexPath.row].name)
+        
+        let category = Category.categories[indexPath.row]
+        cell.setCategoryName(category.name)
+        cell.setQuestionsCount(category.qas.count)
+        
         return cell as UITableViewCell
     }
     

@@ -139,7 +139,6 @@
 				931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */,
 				9314E9621C6AD3DE001A95D5 /* EditCategoryViewController.swift */,
 				933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */,
-				9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -147,6 +146,7 @@
 		93310F1B1C82A23800D8BC4D /* custom views */ = {
 			isa = PBXGroup;
 			children = (
+				9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */,
 				A0244F181C7FE8A0007109CC /* MagicWavesView.swift */,
 				932EE7A61C795CE200795F59 /* SwipeView.swift */,
 			);
@@ -400,6 +400,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GradeUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adrien.GradeUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,6 +415,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GradeUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adrien.GradeUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

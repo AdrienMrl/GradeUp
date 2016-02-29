@@ -10,14 +10,20 @@ import UIKit
 
 class categoryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var questionsNumber: UILabel!
     var index = 0
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
 
+        //icon.backgroundColor = UIColor.blueColor()
+        //icon.layer.cornerRadius = icon.frame.size.width / 2
+        //icon.clipsToBounds = true
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -34,5 +40,12 @@ class categoryTableViewCell: UITableViewCell {
     
     func getCategoryName() -> String {
         return nameTextField.text ?? "empty"
+    }
+    
+    func setQuestionsCount(count: Int) {
+        
+        let questions = count == 0 ? "question" : "questions"
+        
+        questionsNumber.text = "\(count) \(questions)"
     }
 }
