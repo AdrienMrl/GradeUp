@@ -51,6 +51,13 @@ class RecordingsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            
+            do {
+                try category.deleteRecordFileBy(identifier: category.qas[indexPath.row].identifier)
+            } catch let error as NSError {
+                print("Error: \(error)")
+            }
+            
             category.qas.removeAtIndex(indexPath.row)
             Category.saveCategories()
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)

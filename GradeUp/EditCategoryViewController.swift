@@ -47,12 +47,9 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
     
     func getCurrentQuestionIdentifier() -> Int {
         
-        var IDs = [Int]()
-        for qa in category.qas {
-            IDs.append(qa.identifier)
-        }
-        if let maxID = IDs.maxElement() {
-            return maxID + 1
+        if let greatestIdQA = category.qas.maxElement({(a: Category.QA, b: Category.QA) -> Bool in
+            return a.identifier < b.identifier}) {
+            return greatestIdQA.identifier + 1
         }
         else {
         return 0

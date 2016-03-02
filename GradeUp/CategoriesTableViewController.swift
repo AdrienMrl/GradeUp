@@ -52,6 +52,16 @@ class CategoriesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
+            let selectedCategory = Category.categories[indexPath.row]
+            
+            for qa in selectedCategory.qas {
+                do {
+                try selectedCategory.deleteRecordFileBy(identifier: qa.identifier)
+                } catch let error as NSError {
+                    print("Error: \(error)")
+                }
+            }
+            
             Category.categories.removeAtIndex(indexPath.row)
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
             if (Category.categories.count == 0) {

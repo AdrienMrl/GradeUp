@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class Category: NSObject, NSCoding {
     
@@ -62,6 +63,7 @@ class Category: NSObject, NSCoding {
             
             return total == 0 ? 0 : Float(time_success) / Float(total)
         }
+        
     }
     
     // A list of Question and Answers identifiers
@@ -85,17 +87,6 @@ class Category: NSObject, NSCoding {
         aCoder.encodeObject(bestSuccessRate, forKey: "bestSuccessRate")
     }
     
-    // debug function
-    func emergencyRecoverQA(howMany: Int) -> [QA] {
-        var qas : [QA] = []
-        
-        for i in 0...howMany {
-            qas.append(QA(identifier: i))
-        }
-        
-        return qas
-    }
-    
     required convenience init?(coder aDecoder: NSCoder) {
 
         let name = aDecoder.decodeObjectForKey("name") as! String
@@ -104,8 +95,6 @@ class Category: NSObject, NSCoding {
         
         self.qas = aDecoder.decodeObjectForKey("qas") as! Array<QA>
         
-//        self.qas = emergencyRecoverQA(11)
-        
         self.sessionSuccessRate = aDecoder.decodeObjectForKey("sessionSuccessRate") as! Float
         self.bestSuccessRate = aDecoder.decodeObjectForKey("bestSuccessRate") as! Float
 
@@ -113,5 +102,15 @@ class Category: NSObject, NSCoding {
 
     static func saveCategories() -> Bool {
         return NSKeyedArchiver.archiveRootObject(Category.categories, toFile: archiveURL.path!)
+    }
+    
+    func deleteRecordFileBy(identifier id: Int) throws {
+        let QURL = Recorder.recordingURL(.Question, name: name, identifier: id)
+        let AURL = Recorder.recordingURL(.Answer, name: name, identifier: id)
+        
+        let fileManager = NSFileManager.defaultManager()
+        
+        try fileManager.removeItemAtURL(QURL)
+        try fileManager.removeItemAtURL(AURL)
     }
 }
