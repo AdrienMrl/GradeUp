@@ -38,8 +38,11 @@ class RecordingsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("recordingCellPrototype", forIndexPath: indexPath)
+            as! EditCategoryTableViewCell
 
-        cell.textLabel!.text = "Question #\(category.qas[indexPath.row].identifier)"
+        let question = category.qas[indexPath.row]
+        cell.questionLabel.text = "Question #\(question.identifier)"
+        cell.questionSuccessRateLabel.text = "\(question.getSuccessRatePercent())%"
         return cell
     }
 

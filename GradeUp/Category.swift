@@ -64,6 +64,9 @@ class Category: NSObject, NSCoding {
             return total == 0 ? 0 : Float(time_success) / Float(total)
         }
         
+        func getSuccessRatePercent() -> Int {
+            return Int(getSuccessRate() * 100)
+        }
     }
     
     // A list of Question and Answers identifiers
