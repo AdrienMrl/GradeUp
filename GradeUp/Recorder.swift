@@ -21,6 +21,22 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         case Answer
     }
     
+    override init() {
+        
+        super.init()
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try AVAudioSession.sharedInstance().setActive(true)
+            AVAudioSession.sharedInstance().requestRecordPermission({(allowed: Bool) -> Void in})
+        }
+            
+        catch let error as NSError {
+            NSLog("Error: \(error)")
+        }
+    }
+    
+    
     static func recordingURL(recordingMode: RecordingMode,
         name: String, identifier: Int) -> NSURL {
             
@@ -60,15 +76,6 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             instance.recorder.prepareToRecord()
             instance.recorder.meteringEnabled = true
             
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-                try AVAudioSession.sharedInstance().setActive(true)
-                AVAudioSession.sharedInstance().requestRecordPermission({(allowed: Bool) -> Void in})
-            }
-            
-            catch let error as NSError {
-                NSLog("Error: \(error)")
-            }
             
     }
     
@@ -97,7 +104,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             NSLog("error: \(error)")
             return
         }
-        
+
         instance.player.volume = 3
         instance.player.play()
     }

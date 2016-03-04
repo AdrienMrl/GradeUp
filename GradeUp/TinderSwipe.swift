@@ -12,55 +12,55 @@ import UIKit
 class Swiper: NSObject {
 
     
-    var target: UIView!
     var att: UIAttachmentBehavior!
     var origin: CGPoint!
     var rightAction: (() -> ())?
     var leftAction: (() -> ())?
-    var nextView: UIView!
     
-    func cloneView(view: UIView) -> UIView {
-        let newView = NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(view)) as! MagicWavesView
-        newView.delegate = (view as! MagicWavesView).delegate
-        return newView
-    }
+    var upView: UIView!
+    var downView: UIView!
     
-    init(target: UIView) {
+    let addView: () -> UIView
+    
+    init(addView: () -> UIView) {
 
+        self.addView = addView
+        
         super.init()
 
-        putViewBehind(target)
-        origin = target.center
+        putViewBehind(addView())
+
+        origin = upView.center
     }
 
     func getRandomColor() -> UIColor{
 
         let randomRed:CGFloat = CGFloat(drand48())
-
         let randomGreen:CGFloat = CGFloat(drand48())
-
         let randomBlue:CGFloat = CGFloat(drand48())
 
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
 
     }
+    var pg: UIPanGestureRecognizer!
     
     func putViewBehind(which: UIView) {
 
-        self.target = which
-        let pg = UIPanGestureRecognizer(target: self, action:"drag:")
+        self.upView = which
+        which.userInteractionEnabled = true
+        pg = UIPanGestureRecognizer(target: self, action: Selector("drag:"))
         which.addGestureRecognizer(pg)
-        nextView = cloneView(self.target)
         
-        nextView.backgroundColor = getRandomColor()
-        self.target.superview!.insertSubview(nextView, belowSubview: self.target)        
+        downView = addView()
+        downView.superview!.sendSubviewToBack(downView)
+        downView.backgroundColor = getRandomColor()
     }
     
     func reset() {
         
         UIView.animateWithDuration(0.2, animations: {
-            self.target.center = self.origin
-            self.target.transform = CGAffineTransformMakeRotation(0)
+            self.upView.center = self.origin
+            self.upView.transform = CGAffineTransformMakeRotation(0)
         })
     }
     
@@ -68,18 +68,18 @@ class Swiper: NSObject {
         
         
         UIView.animateWithDuration(0.3 , animations: {
-            self.target.center.x =
-                self.origin.x + self.target.superview!.bounds.width * 2 * (right ? 1 : -1)
-            self.rotate(self.target)
+            self.upView.center.x =
+                self.origin.x + self.upView.superview!.bounds.width * 2 * (right ? 1 : -1)
+            self.rotate(self.upView)
             
         }, completion: {
                 (Bool) in
         
             right ? self.rightAction?() : self.leftAction?()
             
-            self.target.hidden = true
-            self.target.removeFromSuperview()
-            self.putViewBehind(self.nextView)
+            self.upView.hidden = true
+            self.upView.removeFromSuperview()
+            self.putViewBehind(self.downView)
 
         })
     }
@@ -87,31 +87,31 @@ class Swiper: NSObject {
     func rotate(view: UIView) {
         
         let c = view.center
-        let degrees: Double = 10 * (Double(c.x) - Double(origin.x)) / (Double(target.superview!.bounds.width) - Double(origin.x))
+        let degrees: Double = 10 * (Double(c.x) - Double(origin.x)) / (Double(upView.superview!.bounds.width) - Double(origin.x))
         view.transform = CGAffineTransformMakeRotation(CGFloat(degrees * M_PI / 180.0))
     }
-    
+
     func drag(p: UIPanGestureRecognizer!) {
-        
+                
         switch p.state {
             
             case .Began:
-                origin = target.center
+                origin = upView.center
             
             case .Changed:
                 
-                let delta = p.translationInView(target.superview)
-                var c = target.center
+                let delta = p.translationInView(upView.superview)
+                var c = upView.center
                 c.x += delta.x;
-                target.center = c
-                p.setTranslation(CGPointZero, inView: target.superview)
+                upView.center = c
+                p.setTranslation(CGPointZero, inView: upView.superview)
             
-                rotate(target)
+                rotate(upView)
 
             case .Ended:
                 
-                let offset = origin.x - target.center.x
-                if abs(offset) > (target.superview!.bounds.width - origin.x) / 2 {
+                let offset = origin.x - upView.center.x
+                if abs(offset) > (upView.superview!.bounds.width - origin.x) / 2 {
                     swipe(offset < 0)
                 } else {
                     reset()

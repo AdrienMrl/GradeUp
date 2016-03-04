@@ -17,6 +17,8 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var draggableView: MagicWavesView!
     @IBOutlet weak var successLabel: UILabel!
+    @IBOutlet weak var answerButton: UIButton!
+    @IBOutlet weak var hearAgainButton: UIButton!
     
     var success: Float = 0.0
     var failure: Float = 0.0
@@ -36,13 +38,13 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         swiper?.drag(sender)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pullQuestion()
         success = 0
         failure = 0
-        draggableView.delegate = self
     }
 
     @IBAction func gotIt() {
@@ -53,9 +55,12 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         swiper?.swipe(false)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         
-        swiper = Swiper(target: draggableView)
+        swiper = Swiper(addView: addSwipeView)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         
         swiper.rightAction = {
             self.category.qas[self.currentQuestion].time_success++
@@ -68,8 +73,31 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
             self.failure++
             self.pullQuestion()
         }
-
+        
     }
+    
+    func addSwipeView() -> UIView {
+        
+        let swipeView = MagicWavesView()
+        
+        swipeView.delegate = self
+        
+        swipeView.backgroundColor = UIColor.redColor()
+        
+        view.addSubview(swipeView)
+
+        swipeView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activateConstraints([
+            swipeView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 8),
+            swipeView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -8),
+            swipeView.topAnchor.constraintEqualToAnchor(answerButton.bottomAnchor, constant: 12),
+            swipeView.bottomAnchor.constraintEqualToAnchor(hearAgainButton.topAnchor, constant: -12),
+        ])
+        
+        return swipeView
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
