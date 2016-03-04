@@ -47,6 +47,7 @@ class Swiper: NSObject {
     func putViewBehind(which: UIView) {
 
         self.upView = which
+        which.superview!.bringSubviewToFront(which)
         which.userInteractionEnabled = true
         pg = UIPanGestureRecognizer(target: self, action: Selector("drag:"))
         which.addGestureRecognizer(pg)
@@ -102,7 +103,8 @@ class Swiper: NSObject {
                 
                 let delta = p.translationInView(upView.superview)
                 var c = upView.center
-                c.x += delta.x;
+                c.x += delta.x
+                c.y += delta.y
                 upView.center = c
                 p.setTranslation(CGPointZero, inView: upView.superview)
             
