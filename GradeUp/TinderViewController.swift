@@ -9,13 +9,14 @@
 import UIKit
 import Darwin
 import RandomColorSwift
+import LTMorphingLabel
 
 class TinderViewController: UIViewController, MagicWavesViewDelegate {
 
     var swiper: Swiper!
     var category: Category!
     var currentQuestion: Int! = nil
-    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var questionLabel: LTMorphingLabel!
     @IBOutlet weak var draggableView: MagicWavesView!
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var hearAgainButton: UIButton!
@@ -58,6 +59,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     override func viewWillAppear(animated: Bool) {
         
         swiper = Swiper(addView: addSwipeView)
+        questionLabel.morphingEffect = .Evaporate
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -159,7 +161,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
                 currentQuestion = 0
             }
         }
-        
+
         questionLabel.text = "Question #\(category.qas[currentQuestion].identifier + 1)"
         updateSuccessRate()
         playStuff(.Question)

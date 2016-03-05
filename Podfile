@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'GradeUp' do
   pod 'RandomColorSwift'
+  pod 'LTMorphingLabel'
 end
 
 target 'GradeUpTests' do

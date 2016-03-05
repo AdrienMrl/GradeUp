@@ -157,8 +157,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-Ws-5Kv">
-                                <rect key="frame" x="20" y="94" width="374" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-Ws-5Kv" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="20" y="94" width="374" height="44.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -181,8 +181,8 @@
                                     <action selector="failed" destination="xHy-gv-oFo" eventType="touchUpInside" id="FB0-mp-ApU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
-                                <rect key="frame" x="183" y="622" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
+                                <rect key="frame" x="182" y="622" width="50" height="50"/>
                                 <state key="normal" backgroundImage="replay"/>
                                 <connections>
                                     <action selector="hearQuestion:" destination="xHy-gv-oFo" eventType="touchUpInside" id="RaU-S2-lTA"/>
@@ -214,12 +214,10 @@
                             <constraint firstItem="iYN-Ws-5Kv" firstAttribute="leading" secondItem="QiL-Gl-LTb" secondAttribute="leadingMargin" id="AHB-Xh-ikS"/>
                             <constraint firstItem="iYN-Ws-5Kv" firstAttribute="centerX" secondItem="QiL-Gl-LTb" secondAttribute="centerX" id="ArB-hz-ONz"/>
                             <constraint firstItem="x2I-5z-uP3" firstAttribute="leading" secondItem="QiL-Gl-LTb" secondAttribute="leadingMargin" id="CMi-g4-PiW"/>
-                            <constraint firstItem="x2I-5z-uP3" firstAttribute="width" secondItem="5y5-Za-IEV" secondAttribute="width" id="Hcv-lC-rY0"/>
                             <constraint firstItem="s61-s4-Jxs" firstAttribute="height" secondItem="5y5-Za-IEV" secondAttribute="height" id="NCR-rB-CFB"/>
                             <constraint firstItem="VVg-KI-C7H" firstAttribute="top" secondItem="5y5-Za-IEV" secondAttribute="bottom" constant="20" id="R6N-vX-42H"/>
                             <constraint firstItem="s61-s4-Jxs" firstAttribute="centerY" secondItem="5y5-Za-IEV" secondAttribute="centerY" id="WIi-Bg-xfQ"/>
                             <constraint firstItem="rFh-5n-Ddx" firstAttribute="leading" secondItem="iYN-Ws-5Kv" secondAttribute="leading" id="XR6-tq-rdU"/>
-                            <constraint firstItem="x2I-5z-uP3" firstAttribute="height" secondItem="5y5-Za-IEV" secondAttribute="height" id="aUh-fl-57U"/>
                             <constraint firstItem="s61-s4-Jxs" firstAttribute="centerX" secondItem="QiL-Gl-LTb" secondAttribute="centerX" id="gds-HX-iRM"/>
                             <constraint firstItem="iYN-Ws-5Kv" firstAttribute="top" secondItem="urX-3k-ae2" secondAttribute="bottom" constant="30" id="mxx-3o-xHZ"/>
                             <constraint firstItem="rFh-5n-Ddx" firstAttribute="top" secondItem="iYN-Ws-5Kv" secondAttribute="bottom" id="oFF-Ch-enE"/>
