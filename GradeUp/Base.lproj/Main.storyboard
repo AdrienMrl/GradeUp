@@ -157,9 +157,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-Ws-5Kv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-Ws-5Kv">
                                 <rect key="frame" x="20" y="94" width="374" height="44.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -177,23 +177,6 @@
                                     <action selector="failed" destination="xHy-gv-oFo" eventType="touchUpInside" id="FB0-mp-ApU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFh-5n-Ddx">
-                                <rect key="frame" x="124" y="138" width="167" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="167" id="cn2-9t-bhW"/>
-                                    <constraint firstAttribute="width" constant="48" id="fqN-kY-tnS"/>
-                                    <constraint firstAttribute="height" constant="21" id="jAo-zb-Toa"/>
-                                </constraints>
-                                <state key="normal" title="Answer"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="fqN-kY-tnS"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="hearAnswer:" destination="xHy-gv-oFo" eventType="touchUpInside" id="fTd-Gs-YYe"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
                                 <rect key="frame" x="170" y="642" width="74" height="30"/>
                                 <state key="normal" title="Hear again"/>
@@ -201,12 +184,25 @@
                                     <action selector="hearQuestion:" destination="xHy-gv-oFo" eventType="touchUpInside" id="RaU-S2-lTA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success: 0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1Q-XW-7B3">
-                                <rect key="frame" x="20" y="167" width="344" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFh-5n-Ddx">
+                                <rect key="frame" x="20" y="138" width="88" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="cn2-9t-bhW"/>
+                                    <constraint firstAttribute="width" constant="48" id="fqN-kY-tnS"/>
+                                    <constraint firstAttribute="height" constant="21" id="jAo-zb-Toa"/>
+                                </constraints>
+                                <state key="normal" title="Hear Answer"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cn2-9t-bhW"/>
+                                        <exclude reference="fqN-kY-tnS"/>
+                                        <exclude reference="jAo-zb-Toa"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="hearAnswer:" destination="xHy-gv-oFo" eventType="touchUpInside" id="fTd-Gs-YYe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -216,15 +212,12 @@
                             <constraint firstItem="x2I-5z-uP3" firstAttribute="leading" secondItem="QiL-Gl-LTb" secondAttribute="leadingMargin" id="CMi-g4-PiW"/>
                             <constraint firstItem="VVg-KI-C7H" firstAttribute="top" secondItem="x2I-5z-uP3" secondAttribute="bottom" constant="20" id="GXK-Lt-yg1"/>
                             <constraint firstItem="VVg-KI-C7H" firstAttribute="top" secondItem="5y5-Za-IEV" secondAttribute="bottom" constant="20" id="GYD-Lp-My0"/>
-                            <constraint firstItem="rFh-5n-Ddx" firstAttribute="centerX" secondItem="iYN-Ws-5Kv" secondAttribute="centerX" id="hyI-1n-TBM"/>
+                            <constraint firstItem="rFh-5n-Ddx" firstAttribute="leading" secondItem="iYN-Ws-5Kv" secondAttribute="leading" id="XR6-tq-rdU"/>
                             <constraint firstItem="s61-s4-Jxs" firstAttribute="centerX" secondItem="QiL-Gl-LTb" secondAttribute="centerX" id="ltO-ec-hsQ"/>
                             <constraint firstItem="iYN-Ws-5Kv" firstAttribute="top" secondItem="urX-3k-ae2" secondAttribute="bottom" constant="30" id="mxx-3o-xHZ"/>
                             <constraint firstItem="rFh-5n-Ddx" firstAttribute="top" secondItem="iYN-Ws-5Kv" secondAttribute="bottom" id="oFF-Ch-enE"/>
                             <constraint firstItem="5y5-Za-IEV" firstAttribute="trailing" secondItem="QiL-Gl-LTb" secondAttribute="trailingMargin" id="qZp-5a-CxF"/>
-                            <constraint firstItem="O1Q-XW-7B3" firstAttribute="leading" secondItem="QiL-Gl-LTb" secondAttribute="leadingMargin" id="rry-Rf-OKo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iYN-Ws-5Kv" secondAttribute="trailing" id="sxh-vv-0j6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="O1Q-XW-7B3" secondAttribute="trailing" constant="30" id="uea-m1-oQd"/>
-                            <constraint firstItem="O1Q-XW-7B3" firstAttribute="top" secondItem="rFh-5n-Ddx" secondAttribute="bottom" constant="8" symbolic="YES" id="uyR-qf-cUt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="urW-wv-pxb"/>
@@ -233,7 +226,6 @@
                         <outlet property="answerButton" destination="rFh-5n-Ddx" id="usp-xj-Im2"/>
                         <outlet property="hearAgainButton" destination="s61-s4-Jxs" id="lhZ-Cq-YkV"/>
                         <outlet property="questionLabel" destination="iYN-Ws-5Kv" id="QlN-dy-v4r"/>
-                        <outlet property="successLabel" destination="O1Q-XW-7B3" id="Poa-WZ-P7Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdO-GC-f51" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -350,13 +342,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwG-HF-VZa">
                                                     <rect key="frame" x="20" y="22" width="81.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3F-1K-lHO">
                                                     <rect key="frame" x="322" y="22" width="33" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlR-FY-BEG">

@@ -8,6 +8,7 @@
 
 import UIKit
 import Darwin
+import RandomColorSwift
 
 class TinderViewController: UIViewController, MagicWavesViewDelegate {
 
@@ -16,7 +17,6 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     var currentQuestion: Int! = nil
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var draggableView: MagicWavesView!
-    @IBOutlet weak var successLabel: UILabel!
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var hearAgainButton: UIButton!
     
@@ -82,10 +82,8 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         
         swipeView.delegate = self
         
-        swipeView.backgroundColor = UIColor.redColor()
-        
         view.addSubview(swipeView)
-
+        
         swipeView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activateConstraints([
@@ -95,9 +93,28 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
             swipeView.bottomAnchor.constraintEqualToAnchor(hearAgainButton.topAnchor, constant: -12),
         ])
         
+        swipeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "swipeViewTouched"))
+        swipeView.backgroundColor = randomColor()
+    
+        let successLabel = UILabel()
+        swipeView.addSubview(successLabel)
+
+        successLabel.text = "\(category.qas[currentQuestion].getSuccessRatePercent())% success"
+        successLabel.textColor = UIColor.whiteColor()
+        successLabel.font = successLabel.font.fontWithSize(20)
+
+        successLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activateConstraints([
+            successLabel.trailingAnchor.constraintEqualToAnchor(swipeView.trailingAnchor, constant: -16),
+            successLabel.topAnchor.constraintEqualToAnchor(swipeView.topAnchor, constant: 16)])
+        
         return swipeView
     }
     
+    func swipeViewTouched() {
+        playStuff(.Answer)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -144,7 +161,6 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         }
         
         questionLabel.text = "Question #\(category.qas[currentQuestion].identifier + 1)"
-        successLabel.text = "Success: \(Int(category.qas[currentQuestion].getSuccessRate() * 100))%"
         updateSuccessRate()
         playStuff(.Question)
     }

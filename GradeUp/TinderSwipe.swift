@@ -33,15 +33,6 @@ class Swiper: NSObject {
         origin = upView.center
     }
 
-    func getRandomColor() -> UIColor{
-
-        let randomRed:CGFloat = CGFloat(drand48())
-        let randomGreen:CGFloat = CGFloat(drand48())
-        let randomBlue:CGFloat = CGFloat(drand48())
-
-        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
-
-    }
     var pg: UIPanGestureRecognizer!
     
     func putViewBehind(which: UIView) {
@@ -54,7 +45,6 @@ class Swiper: NSObject {
         
         downView = addView()
         downView.superview!.sendSubviewToBack(downView)
-        downView.backgroundColor = getRandomColor()
     }
     
     func reset() {
@@ -78,7 +68,6 @@ class Swiper: NSObject {
         
             right ? self.rightAction?() : self.leftAction?()
             
-            self.upView.hidden = true
             self.upView.removeFromSuperview()
             self.putViewBehind(self.downView)
 
