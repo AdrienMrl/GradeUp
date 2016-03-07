@@ -8,20 +8,22 @@
 
 import UIKit
 
-class categoryTableViewCell: UITableViewCell {
+class categoryTableViewCell: ParentCategoryTableViewCell {
 
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var questionsNumber: UILabel!
-    var index = 0
+    var onIconTap: ((Int) -> ())?
 
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-
-        //icon.backgroundColor = UIColor.blueColor()
-        //icon.layer.cornerRadius = icon.frame.size.width / 2
-        //icon.clipsToBounds = true
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: "iconTap:")
+        icon.userInteractionEnabled = true
+        icon.addGestureRecognizer(tapGR)
+    }
+    
+    func iconTap(tg: UITapGestureRecognizer?) {
+        onIconTap?(index)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -36,10 +38,6 @@ class categoryTableViewCell: UITableViewCell {
 
     func setCategoryName(name: String) {
         nameTextField.text = name
-    }
-    
-    func getCategoryName() -> String {
-        return nameTextField.text ?? "empty"
     }
     
     func setQuestionsCount(count: Int) {

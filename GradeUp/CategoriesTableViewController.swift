@@ -12,7 +12,15 @@ class CategoriesTableViewController: UITableViewController {
     
     var editMode = false
     var selectedCategory: Category?
+    var editingIcon : Int? = nil
+
     
+    func iconSelected(imageName: String, catIndex: Int) {
+        editingIcon = nil
+        Category.categories[catIndex].iconName = imageName
+        reloadAnimated()
+        Category.saveCategories()
+    }
     
     @IBAction func addCategory(sender: UIBarButtonItem)
     {
@@ -63,7 +71,7 @@ class CategoriesTableViewController: UITableViewController {
             }
             
             Category.categories.removeAtIndex(indexPath.row)
-            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .None)
+            reloadAnimated()
             if (Category.categories.count == 0) {
                 shouldDisplayBackGround(true)
             }
@@ -100,12 +108,17 @@ class CategoriesTableViewController: UITableViewController {
         super.setEditing(editing, animated: animated)
         
         for cell in tableView.visibleCells {
-            let cell = cell as! categoryTableViewCell
+           // let cell = cell as! ParentCategoryTableViewCell
             
-            cell.setEditable(editing)
+            // cell.setEditable(editing)
             if !editing && Category.categories.count != 0 {
-                Category.categories[cell.index].name = cell.getCategoryName()
+            //    Category.categories[cell.index].name = Category.categories[index].name
+                // TODO: fix me !!
             }
+        }
+        
+        if !editing {
+          //  editingIcon = nil
         }
     }
     
@@ -114,16 +127,47 @@ class CategoriesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as! categoryTableViewCell
         
-        cell.setEditable(tableView.editing)
-        cell.index = indexPath.row
+        let cell: UITableViewCell!
         
-        let category = Category.categories[indexPath.row]
-        cell.setCategoryName(category.name)
-        cell.setQuestionsCount(category.qas.count)
+        if tableView.editing == true && editingIcon == indexPath.row {
+            let customCell = tableView.dequeueReusableCellWithIdentifier("editIconCell", forIndexPath: indexPath) as! EditIconTableViewCell
+            
+            
+            var img = customCell.images
+            if let position = img.indexOf(Category.categories[indexPath.row].iconName) {
+                if position > 0 {
+                    swap(&customCell.images[position], &customCell.images[0])
+                    print(customCell.images)
+                    customCell.collectionView.reloadData()
+                }
+            }
+            customCell.onIconSelected = { (imageName: String) -> () in
+                self.iconSelected(imageName, catIndex: indexPath.row)
+            }
+            
+            cell = customCell
+        }
+        else {
+            let customCell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as! categoryTableViewCell
+            
+            customCell.setEditable(tableView.editing)
+            customCell.index = indexPath.row
+            
+            let category = Category.categories[indexPath.row]
+            customCell.setCategoryName(category.name)
+            customCell.setQuestionsCount(category.qas.count)
+            customCell.onIconTap = { (index: Int) in
+                self.editingIcon = index
+                self.reloadAnimated()
+            }
+            customCell.icon.image = UIImage(named: category.iconName)
+            cell = customCell
+            
+        }
         
-        return cell as UITableViewCell
+        
+        return cell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -152,6 +196,10 @@ class CategoriesTableViewController: UITableViewController {
             targetVC.shouldSegEditMode = editMode
             targetVC.category = selectedCategory
         }
+    }
+    
+    func reloadAnimated() {
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
     }
 }
 

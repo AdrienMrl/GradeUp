@@ -21,6 +21,8 @@ class Category: NSObject, NSCoding {
     var name: String
     var sessionSuccessRate: Float
     var bestSuccessRate: Float
+    var iconName: String!
+    
     static var categories: [Category] =
     {
         if let object = NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
@@ -88,6 +90,8 @@ class Category: NSObject, NSCoding {
         aCoder.encodeObject(qas, forKey: "qas")
         aCoder.encodeObject(sessionSuccessRate, forKey: "sessionSuccessRate")
         aCoder.encodeObject(bestSuccessRate, forKey: "bestSuccessRate")
+        aCoder.encodeObject(iconName, forKey: "iconName")
+
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -100,6 +104,11 @@ class Category: NSObject, NSCoding {
         
         self.sessionSuccessRate = aDecoder.decodeObjectForKey("sessionSuccessRate") as! Float
         self.bestSuccessRate = aDecoder.decodeObjectForKey("bestSuccessRate") as! Float
+        self.iconName = aDecoder.decodeObjectForKey("iconName") as? String
+        if self.iconName == nil {
+            self.iconName = "earth"
+        }
+
 
     }
 

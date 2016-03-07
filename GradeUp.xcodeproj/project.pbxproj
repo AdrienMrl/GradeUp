@@ -20,8 +20,11 @@
 		932EE7A71C795CE200795F59 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EE7A61C795CE200795F59 /* SwipeView.swift */; };
 		933539AE1C7199B800F3EF45 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933539AD1C7199B800F3EF45 /* Recorder.swift */; };
 		933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */; };
+		933BD7811C8DEE4000A3068C /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */; };
 		933E18AD1C7923B0008FE4DC /* TinderSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */; };
 		9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */; };
+		938914F41C8D7EFB000C254B /* ParentCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938914F31C8D7EFB000C254B /* ParentCategoryTableViewCell.swift */; };
+		938914F61C8D8248000C254B /* EditIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938914F51C8D8248000C254B /* EditIconTableViewCell.swift */; };
 		939A579B1C89373300B03490 /* EditCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939A579A1C89373300B03490 /* EditCategoryTableViewCell.swift */; };
 		93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */; };
 		A0244F191C7FE8A0007109CC /* MagicWavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0244F181C7FE8A0007109CC /* MagicWavesView.swift */; };
@@ -56,8 +59,11 @@
 		932EE7A61C795CE200795F59 /* SwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 		933539AD1C7199B800F3EF45 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
+		933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderSwipe.swift; sourceTree = "<group>"; };
 		9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryTableViewCell.swift; sourceTree = "<group>"; };
+		938914F31C8D7EFB000C254B /* ParentCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		938914F51C8D8248000C254B /* EditIconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIconTableViewCell.swift; sourceTree = "<group>"; };
 		939A579A1C89373300B03490 /* EditCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCategoryViewController.swift; sourceTree = "<group>"; };
 		9FAFAEDD8F3D85045E7AB4EB /* Pods-GradeUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradeUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GradeUp/Pods-GradeUp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 				939A579A1C89373300B03490 /* EditCategoryTableViewCell.swift */,
 				A0244F181C7FE8A0007109CC /* MagicWavesView.swift */,
 				932EE7A61C795CE200795F59 /* SwipeView.swift */,
+				938914F31C8D7EFB000C254B /* ParentCategoryTableViewCell.swift */,
+				938914F51C8D8248000C254B /* EditIconTableViewCell.swift */,
+				933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */,
 			);
 			name = "custom views";
 			sourceTree = "<group>";
@@ -339,13 +348,16 @@
 				930FDCEE1C691DD70068325D /* CategoriesTableViewController.swift in Sources */,
 				93207CA51C76B11F009450C1 /* TinderViewController.swift in Sources */,
 				933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */,
+				938914F41C8D7EFB000C254B /* ParentCategoryTableViewCell.swift in Sources */,
 				939A579B1C89373300B03490 /* EditCategoryTableViewCell.swift in Sources */,
 				931F3F2D1C6D66BD00240CF7 /* GlobalSplitViewController.swift in Sources */,
+				938914F61C8D8248000C254B /* EditIconTableViewCell.swift in Sources */,
 				930FDCEC1C691DD70068325D /* AppDelegate.swift in Sources */,
 				A0244F191C7FE8A0007109CC /* MagicWavesView.swift in Sources */,
 				9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */,
 				9314E9611C6AC7AA001A95D5 /* Category.swift in Sources */,
 				93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */,
+				933BD7811C8DEE4000A3068C /* IconCollectionViewCell.swift in Sources */,
 				933539AE1C7199B800F3EF45 /* Recorder.swift in Sources */,
 				933E18AD1C7923B0008FE4DC /* TinderSwipe.swift in Sources */,
 			);
