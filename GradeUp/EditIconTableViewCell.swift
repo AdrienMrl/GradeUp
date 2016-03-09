@@ -13,7 +13,26 @@ class EditIconTableViewCell: UITableViewCell, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
     var onIconSelected : ((String) -> ())?
     
-    var images = ["apple", "atom", "earth", "ascending-graphic", "find", "mouse", "rocket"]
+    var images = ["animal",
+        "apple",
+        "basketball",
+        "book",
+        "boy-face",
+        "chemistry",
+        "code",
+        "earth",
+        "graphic",
+        "music",
+        "painting",
+        "plant",
+        "rocket",
+        "scale",
+        "search",
+        "student",
+        "syringe",
+        "telescope",
+        "wallclock"]
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

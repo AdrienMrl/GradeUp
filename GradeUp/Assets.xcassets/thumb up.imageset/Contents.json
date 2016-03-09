@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "thumb up.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "Thumb Up Filled-100.png",
+      "filename" : "thumb up@2x.png",
       "scale" : "2x"
     },
     {

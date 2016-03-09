@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "replay.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "Recurring Appointment Filled-100.png",
+      "filename" : "replay@2x.png",
       "scale" : "2x"
     },
     {

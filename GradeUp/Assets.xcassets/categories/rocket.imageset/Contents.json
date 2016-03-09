@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "rocket.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "rocket.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "rocket@2x.png"
     },
     {
       "idiom" : "universal",
+      "filename" : "rocket@3x.png",
       "scale" : "3x"
     }
   ],

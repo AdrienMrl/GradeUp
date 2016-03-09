@@ -107,19 +107,22 @@ class CategoriesTableViewController: UITableViewController {
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
+        /*
+
         for cell in tableView.visibleCells {
-           // let cell = cell as! ParentCategoryTableViewCell
+            let cell = cell as! ParentCategoryTableViewCell
             
-            // cell.setEditable(editing)
+            cell.setEditable(editing)
             if !editing && Category.categories.count != 0 {
-            //    Category.categories[cell.index].name = Category.categories[index].name
+                Category.categories[cell.index].name = Category.categories[index].name
                 // TODO: fix me !!
             }
         }
         
         if !editing {
-          //  editingIcon = nil
+          editingIcon = nil
         }
+*/
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -133,12 +136,10 @@ class CategoriesTableViewController: UITableViewController {
         if tableView.editing == true && editingIcon == indexPath.row {
             let customCell = tableView.dequeueReusableCellWithIdentifier("editIconCell", forIndexPath: indexPath) as! EditIconTableViewCell
             
-            
-            var img = customCell.images
+            let img = customCell.images
             if let position = img.indexOf(Category.categories[indexPath.row].iconName) {
                 if position > 0 {
                     swap(&customCell.images[position], &customCell.images[0])
-                    print(customCell.images)
                     customCell.collectionView.reloadData()
                 }
             }
