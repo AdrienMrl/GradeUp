@@ -13,11 +13,40 @@ class Swiper: NSObject {
 
     
     var att: UIAttachmentBehavior!
+    var leftMessage: String?
+    var rightMessage: String?
+    var leftLabel: UILabel?
+    var rightLabel: UILabel?
     var origin: CGPoint!
     var rightAction: (() -> ())?
     var leftAction: (() -> ())?
     
-    var upView: UIView!
+    var upView: UIView! {
+        
+        get {
+            return self.upView
+        }
+        
+        set {
+            if let leftMessage = self.leftMessage {
+                
+        // Got it stamp
+        let gotItLabel = UILabel()
+        upView.addSubview(gotItLabel)
+        gotItLabel.text = "I got it !"
+        gotItLabel.textColor = UIColor.whiteColor()
+        gotItLabel.font = gotItLabel.font.fontWithSize(30)
+        gotItLabel.alpha = 0
+        
+        gotItLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activateConstraints([
+            gotItLabel.leadingAnchor.constraintEqualToAnchor(upView.leadingAnchor, constant: 30),
+            gotItLabel.topAnchor.constraintEqualToAnchor(upView.topAnchor, constant: 100)])
+        
+            }
+        }
+    }
+    
     var downView: UIView!
     
     let addView: () -> UIView
@@ -82,14 +111,16 @@ class Swiper: NSObject {
     }
 
     func drag(p: UIPanGestureRecognizer!) {
-                
+        
         switch p.state {
             
             case .Began:
                 origin = upView.center
             
             case .Changed:
-                
+                if (origin.x - upView.center.x < 0) {
+                    //upView.subviews = abs(origin.x - upView.center.x)
+                }
                 let delta = p.translationInView(upView.superview)
                 var c = upView.center
                 c.x += delta.x
