@@ -139,21 +139,4 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
         waveView.delegate = self
         
     }
-    
-    @IBAction func resetStats(sender: AnyObject) {
-        category.sessionSuccessRate = 0
-        category.bestSuccessRate = 0
-        
-        for q in category.qas {
-            q.time_success = 0
-            q.time_failure = 0
-        }
-        
-        Category.saveCategories()
-        
-        let view = sender.superview!!
-        
-        view.removeFromSuperview()
-        
-    }
 }
