@@ -23,6 +23,27 @@ class Category: NSObject, NSCoding {
     var bestSuccessRate: Float
     var iconName: String!
     
+    static var images = ["animal",
+        "apple",
+        "basketball",
+        "book",
+        "boy-face",
+        "chemistry",
+        "code",
+        "earth",
+        "graphic",
+        "music",
+        "painting",
+        "plant",
+        "rocket",
+        "scale",
+        "search",
+        "student",
+        "syringe",
+        "telescope",
+        "wallclock"]
+    
+    
     static var categories: [Category] =
     {
         if let object = NSKeyedUnarchiver.unarchiveObjectWithFile(Category.archiveURL.path!) as? [Category] {
@@ -82,6 +103,7 @@ class Category: NSObject, NSCoding {
         self.name = name
         self.sessionSuccessRate = 0
         self.bestSuccessRate = 0
+        self.iconName = Category.images[0]
     }
     
     func encodeWithCoder(aCoder: NSCoder) {

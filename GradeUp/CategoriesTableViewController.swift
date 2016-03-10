@@ -108,21 +108,20 @@ class CategoriesTableViewController: UITableViewController {
         super.setEditing(editing, animated: animated)
         
         /*
-
         for cell in tableView.visibleCells {
-            let cell = cell as! ParentCategoryTableViewCell
-            
-            cell.setEditable(editing)
-            if !editing && Category.categories.count != 0 {
-                Category.categories[cell.index].name = Category.categories[index].name
-                // TODO: fix me !!
-            }
+        let cell = cell as! ParentCategoryTableViewCell
+        
+        cell.setEditable(editing)
+        if !editing && Category.categories.count != 0 {
+        Category.categories[cell.index].name = Category.categories[index].name
+        // TODO: fix me !!
+        }
         }
         
         if !editing {
-          editingIcon = nil
+        editingIcon = nil
         }
-*/
+        */
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -136,10 +135,10 @@ class CategoriesTableViewController: UITableViewController {
         if tableView.editing == true && editingIcon == indexPath.row {
             let customCell = tableView.dequeueReusableCellWithIdentifier("editIconCell", forIndexPath: indexPath) as! EditIconTableViewCell
             
-            let img = customCell.images
+            let img = Category.images
             if let position = img.indexOf(Category.categories[indexPath.row].iconName) {
                 if position > 0 {
-                    swap(&customCell.images[position], &customCell.images[0])
+                    swap(&Category.images[position], &Category.images[0])
                     customCell.collectionView.reloadData()
                 }
             }
@@ -203,4 +202,3 @@ class CategoriesTableViewController: UITableViewController {
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
     }
 }
-

@@ -17,7 +17,6 @@ class IconCollectionViewCell: UICollectionViewCell {
         
         let collectionView = superview! as! UICollectionView
         
-        print("clicked \(collectionView.indexPathForCell(self))")
         
         let tableViewCellContentView = collectionView.superview! 
         let tableViewCell = tableViewCellContentView.superview! as! EditIconTableViewCell
