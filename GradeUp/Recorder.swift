@@ -47,8 +47,10 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             
             
             func makeName(recordingMode: RecordingMode,
-                name: String, identifier: Int) -> String {
+                var name: String, identifier: Int) -> String {
                     
+                    name = name.stringByReplacingOccurrencesOfString("/", withString: "-", options: NSStringCompareOptions.LiteralSearch, range: nil)
+
                     let recordMode = recordingMode == .Question ? "question" : "answer"
                     return "\(name)\(recordMode)\(String(identifier)).m4a"
             }
