@@ -14,7 +14,9 @@ class Swiper: NSObject {
     
     var att: UIAttachmentBehavior!
     var leftLabel: UILabel?
+    let leftLabelColor = UIColor(red: 76.0 / 255, green: 156.0 / 255, blue: 138.0 / 255, alpha: 1)
     var rightLabel: UILabel?
+    let rightLabelColor = UIColor(red: 176.0 / 255, green: 70.0 / 255, blue: 77.0 / 255, alpha: 1)
     var origin: CGPoint!
     var rightAction: (() -> ())?
     var leftAction: (() -> ())?
@@ -35,10 +37,10 @@ class Swiper: NSObject {
         upView.addSubview(leftLabel!)
         leftLabel!.layer.cornerRadius = 8
         leftLabel!.layer.borderWidth = 5.0
-        leftLabel!.layer.borderColor = UIColor.greenColor().CGColor
+        leftLabel!.layer.borderColor = leftLabelColor.CGColor
         leftLabel!.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_4 / 2))
         leftLabel!.text = leftMessage
-        leftLabel!.textColor = UIColor.greenColor()
+        leftLabel!.textColor = leftLabelColor
         leftLabel!.font = leftLabel!.font.fontWithSize(30)
         leftLabel!.alpha = 0
         
@@ -53,10 +55,10 @@ class Swiper: NSObject {
         upView.addSubview(rightLabel!)
         rightLabel!.layer.cornerRadius = 8
         rightLabel!.layer.borderWidth = 5.0
-        rightLabel!.layer.borderColor = UIColor.redColor().CGColor
+        rightLabel!.layer.borderColor = rightLabelColor.CGColor
         rightLabel!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_4 / 2))
         rightLabel!.text = rightMessage
-        rightLabel!.textColor = UIColor.redColor()
+        rightLabel!.textColor = rightLabelColor
         rightLabel!.font = rightLabel!.font.fontWithSize(30)
         rightLabel!.alpha = 0
         
@@ -120,21 +122,28 @@ class Swiper: NSObject {
     
     func swipe(right: Bool) {
         
-        
-        UIView.animateWithDuration(0.3 , animations: {
-            self.upView.center.x =
-                self.origin.x + self.upView.superview!.bounds.width * 2 * (right ? 1 : -1)
-            self.rotate(self.upView)
-            
+        UIView.animateWithDuration(0.2 , animations: {
+            if let labelToReveal = right ? self.leftLabel : self.rightLabel {
+                labelToReveal.alpha = 1
+            }
             }, completion: {
                 (Bool) in
                 
-                right ? self.rightAction?() : self.leftAction?()
-                
-                self.upView.removeFromSuperview()
-                self.putViewBehind(self.downView)
-                
+                UIView.animateWithDuration(0.3 , animations: {
+                self.upView.center.x =
+                    self.origin.x + self.upView.superview!.bounds.width * 2 * (right ? 1 : -1)
+                self.rotate(self.upView)
+                }, completion: {
+                    (Bool) in
+                    
+                    right ? self.rightAction?() : self.leftAction?()
+                    
+                    self.upView.removeFromSuperview()
+                    self.putViewBehind(self.downView)
+                    
+            })
         })
+            
     }
     
     func rotate(view: UIView) {
@@ -152,12 +161,11 @@ class Swiper: NSObject {
             origin = upView.center
             
         case .Changed:
-            
             if let rightLabel = self.rightLabel {
-                rightLabel.alpha = (origin.x - upView.center.x) / 100
+                rightLabel.alpha = (origin.x - upView.center.x) / 100 - 0.6
             }
             if let leftLabel = self.leftLabel {
-                leftLabel.alpha = -(origin.x - upView.center.x) / 100
+                leftLabel.alpha = -(origin.x - upView.center.x) / 100 - 0.6
             }
             
             let delta = p.translationInView(upView.superview)
