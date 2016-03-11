@@ -31,7 +31,7 @@ class Swiper: NSObject {
     }
     
     func addLeftLabel() {
-        leftLabel = UILabel()
+        leftLabel = tinderLikeStamp()
         upView.addSubview(leftLabel!)
         leftLabel!.layer.cornerRadius = 8
         leftLabel!.layer.borderWidth = 5.0
@@ -49,7 +49,7 @@ class Swiper: NSObject {
     }
     
     func addRightLabel() {
-        rightLabel = UILabel()
+        rightLabel = tinderLikeStamp()
         upView.addSubview(rightLabel!)
         rightLabel!.layer.cornerRadius = 8
         rightLabel!.layer.borderWidth = 5.0
