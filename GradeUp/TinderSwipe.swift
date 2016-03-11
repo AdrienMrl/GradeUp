@@ -76,13 +76,7 @@ class Swiper: NSObject {
         self.addView = addView
         
         super.init()
-<<<<<<< HEAD
-        
-        putViewBehind(callAddView())
-=======
-
         putViewBehind(addView())
->>>>>>> 78c79266c382ddcbcd9e55d37da0d9ef14dd9d73
 
         origin = upView.center
     }
