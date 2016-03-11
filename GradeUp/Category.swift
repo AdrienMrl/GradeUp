@@ -62,13 +62,19 @@ class Category: NSObject, NSCoding {
         let identifier: Int
         var time_success = 0
         var time_failure = 0
+        var record_duration = 0
 
-        init(identifier: Int) {
+        init(identifier: Int , record_duration: Int) {
             self.identifier = identifier
+            self.record_duration = record_duration
         }
         
         required convenience init?(coder aDecoder: NSCoder) {
-            self.init(identifier: aDecoder.decodeObjectForKey("identifier") as! Int)
+            
+            let identifier = aDecoder.decodeObjectForKey("identifier") as! Int
+            let duration = aDecoder.decodeObjectForKey("record_duration") as? Int
+            
+            self.init(identifier: identifier, record_duration: duration ?? 0)
             
             self.time_success = aDecoder.decodeObjectForKey("time_success") as! Int
             self.time_failure = aDecoder.decodeObjectForKey("time_failure") as! Int
@@ -79,6 +85,7 @@ class Category: NSObject, NSCoding {
             aCoder.encodeObject(identifier, forKey: "identifier")
             aCoder.encodeObject(time_success, forKey: "time_success")
             aCoder.encodeObject(time_failure, forKey: "time_failure")
+            aCoder.encodeObject(record_duration, forKey: "record_duration")
         }
         
         func getSuccessRate() -> Float {

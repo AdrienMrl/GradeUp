@@ -196,4 +196,8 @@ class CategoriesTableViewController: UITableViewController {
     func reloadAnimated() {
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        reloadAnimated()
+    }
 }

@@ -43,6 +43,13 @@ class RecordingsTableViewController: UITableViewController {
         let question = category.qas[indexPath.row]
         cell.questionLabel.text = "Question #\(question.identifier)"
         cell.questionSuccessRateLabel.text = "\(question.getSuccessRatePercent())%"
+        
+        
+        func padNumber(num: Int) -> String {
+            return String(format: "%02d", num)
+        }
+        
+        cell.questionDurationLabel.text = "\(padNumber(question.record_duration / 60)):\(padNumber(question.record_duration % 60))"
         return cell
     }
 
