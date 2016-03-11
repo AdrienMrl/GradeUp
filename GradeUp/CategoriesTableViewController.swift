@@ -192,7 +192,7 @@ class CategoriesTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let navController = segue.destinationViewController as! UINavigationController
         
-        if let targetVC = navController.topViewController as? DisplayCategoryViewController {
+        if let targetVC = navController.topViewController as? DisplayCategoryTableViewController {
             targetVC.shouldSegEditMode = editMode
             targetVC.category = selectedCategory
         }

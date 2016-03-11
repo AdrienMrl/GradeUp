@@ -8,14 +8,14 @@
 
 import UIKit
 
-class DisplayCategoryViewController: UIViewController {
+class DisplayCategoryTableViewController: UITableViewController {
     
     var shouldSegEditMode = false
     var category: Category!
     
-    @IBOutlet weak var lastSessionLabel: UILabel!
     @IBOutlet weak var bestSessionLabel: UILabel!
     @IBOutlet weak var numberOfQuestionLabel: UILabel!
+    @IBOutlet weak var lastSessionLabel: UILabel!
     
     func computeComposentValue(percentage: Float, greenVal: Float, redVal: Float) -> CGFloat {
         return CGFloat(

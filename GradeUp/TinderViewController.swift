@@ -59,6 +59,8 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     override func viewWillAppear(animated: Bool) {
         
         swiper = Swiper(addView: addSwipeView)
+        swiper.rightMessage = "DUNNO"
+        swiper.leftMessage = "GOT IT"
         questionLabel.morphingEffect = .Evaporate
     }
     
@@ -110,19 +112,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
             successLabel.trailingAnchor.constraintEqualToAnchor(swipeView.trailingAnchor, constant: -16),
             successLabel.topAnchor.constraintEqualToAnchor(swipeView.topAnchor, constant: 16)])
         
-        // I failed stamp
-        let IFailedLabel = UILabel()
-        swipeView.addSubview(IFailedLabel)
-        IFailedLabel.text = "I failed !"
-        IFailedLabel.textColor = UIColor.whiteColor()
-        IFailedLabel.font = successLabel.font.fontWithSize(30)
-        IFailedLabel.alpha = 0
-        
-        IFailedLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activateConstraints([
-            IFailedLabel.trailingAnchor.constraintEqualToAnchor(swipeView.trailingAnchor, constant: -30),
-            IFailedLabel.topAnchor.constraintEqualToAnchor(swipeView.topAnchor, constant: 100)])
-        
+
         return swipeView
     }
     
