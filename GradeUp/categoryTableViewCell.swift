@@ -8,18 +8,21 @@
 
 import UIKit
 
-class categoryTableViewCell: ParentCategoryTableViewCell {
+class categoryTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var questionsNumber: UILabel!
     var onIconTap: ((Int) -> ())?
+    var index: Int!
 
     override func awakeFromNib() {
         
         let tapGR = UITapGestureRecognizer(target: self, action: "iconTap:")
         icon.userInteractionEnabled = true
         icon.addGestureRecognizer(tapGR)
+        
+        nameTextField.delegate = self
     }
     
     func iconTap(tg: UITapGestureRecognizer?) {
@@ -46,4 +49,10 @@ class categoryTableViewCell: ParentCategoryTableViewCell {
         
         questionsNumber.text = "\(count) \(questions)"
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        endEditing(true)
+        return false
+    }
+
 }

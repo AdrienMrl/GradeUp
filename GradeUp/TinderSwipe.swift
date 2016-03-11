@@ -28,12 +28,22 @@ class Swiper: NSObject {
         
         super.init()
 
-        putViewBehind(addView())
+        putViewBehind(callAddView())
 
         origin = upView.center
     }
 
     var pg: UIPanGestureRecognizer!
+    
+    func callAddView() -> UIView {
+        let v = addView()
+        let newLabel = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        newLabel.text = "Hello World"
+        newLabel.clipsToBounds = true
+        newLabel.layer.borderWidth = 3
+        v.addSubview(newLabel)
+        return v
+    }
     
     func putViewBehind(which: UIView) {
 
@@ -43,18 +53,18 @@ class Swiper: NSObject {
         pg = UIPanGestureRecognizer(target: self, action: Selector("drag:"))
         which.addGestureRecognizer(pg)
         
-        downView = addView()
+        downView = callAddView()
         downView.superview!.sendSubviewToBack(downView)
     }
     
     func reset() {
-        
+
         UIView.animateWithDuration(0.2, animations: {
             self.upView.center = self.origin
             self.upView.transform = CGAffineTransformMakeRotation(0)
         })
     }
-    
+  
     func swipe(right: Bool) {
         
         
