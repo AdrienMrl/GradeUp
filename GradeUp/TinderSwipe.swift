@@ -105,16 +105,13 @@ class Swiper: NSObject {
     }
     
     func reset() {
-<<<<<<< HEAD
         if leftLabel != nil {
             leftLabel?.alpha = 0
         }
         if rightLabel != nil {
             rightLabel?.alpha = 0
         }
-=======
 
->>>>>>> 9577011829daf893edc37d97800e6ad203e7d330
         UIView.animateWithDuration(0.2, animations: {
             self.upView.center = self.origin
             self.upView.transform = CGAffineTransformMakeRotation(0)
