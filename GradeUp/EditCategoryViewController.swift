@@ -24,6 +24,7 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
     
     var secs = 0
     var minutes = 0
+    var question_duration = 0
 
     func updateMeters() -> Float {
        let recorder = Recorder.instance.recorder
@@ -64,13 +65,15 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
             
         } else if recordingMode == .Question {
             
+            question_duration = secs + minutes * 60
             stopRecording()
             recordAnswer()
             
         } else if recordingMode == .Answer {
             
             stopRecording()
-            let newQA = Category.QA(identifier: getCurrentQuestionIdentifier())
+            
+            let newQA = Category.QA(identifier: getCurrentQuestionIdentifier(), record_duration: question_duration)
             category.qas.append(newQA)
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
         }
