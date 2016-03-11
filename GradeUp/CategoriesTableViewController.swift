@@ -107,21 +107,16 @@ class CategoriesTableViewController: UITableViewController {
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
-        /*
         for cell in tableView.visibleCells {
-        let cell = cell as! ParentCategoryTableViewCell
+
+            if let cell = cell as? categoryTableViewCell {
         
-        cell.setEditable(editing)
-        if !editing && Category.categories.count != 0 {
-        Category.categories[cell.index].name = Category.categories[index].name
-        // TODO: fix me !!
+                cell.setEditable(editing)
+                if !editing && Category.categories.count != 0 {
+                    Category.categories[cell.index].name = cell.nameTextField.text!
+                }
+            }
         }
-        }
-        
-        if !editing {
-        editingIcon = nil
-        }
-        */
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

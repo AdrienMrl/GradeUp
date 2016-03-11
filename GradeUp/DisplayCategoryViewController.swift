@@ -49,9 +49,7 @@ class DisplayCategoryTableViewController: UITableViewController {
         
      }
  
-    override func viewWillAppear(animated: Bool) {
-        
-        super.viewWillAppear(animated)
+    func setDataOnGui() {
         
         if category == nil {
             return
@@ -62,12 +60,20 @@ class DisplayCategoryTableViewController: UITableViewController {
         numberOfQuestionLabel?.text = String(category.qas.count)
         setLabelColorFromScore()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        setDataOnGui()
         if shouldSegEditMode {
             shouldSegEditMode = false
             self.performSegueWithIdentifier("editCategory", sender: self)
         }
         
     }
+    
     @IBAction func unwindForDisplay(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
     }
     
@@ -89,15 +95,30 @@ class DisplayCategoryTableViewController: UITableViewController {
             
             let editVC = nav.topViewController as! EditCategoryViewController
             editVC.category = category
-            
+
         } else if segue.identifier == "toTinder" {
-            
+
             if category.qas.count != 0 {
-            
+
                 let tinderVC = nav.topViewController as! TinderViewController
                 tinderVC.category = category
-                
+
             }
         }
+    }
+    
+    @IBAction func resetStats(sender: AnyObject) {
+ 
+        category.sessionSuccessRate = 0
+        category.bestSuccessRate = 0
+        
+        for q in category.qas {
+            q.time_success = 0
+            q.time_failure = 0
+        }
+        
+        Category.saveCategories()
+        
+        setDataOnGui()
     }
 }

@@ -18,17 +18,17 @@
                         <sections>
                             <tableViewSection id="PUk-QP-lbT">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="4nA-S3-FtI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="4nA-S3-FtI">
                                         <rect key="frame" x="0.0" y="64" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4nA-S3-FtI" id="6bi-Ks-diw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRw-uO-6I3">
-                                                    <rect key="frame" x="79" y="17" width="217" height="85"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRw-uO-6I3">
+                                                    <rect key="frame" x="84" y="17" width="208" height="85"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                    <state key="normal" title="  Launch a quizz" image="playIcon"/>
+                                                    <state key="normal" title="  Launch a quiz" image="playIcon"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
@@ -131,6 +131,27 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="htu-FN-ccv">
+                                        <rect key="frame" x="0.0" y="484" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="htu-FN-ccv" id="5JW-h4-Cqh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nlw-0R-61R">
+                                                    <rect key="frame" x="135" y="35" width="105" height="30"/>
+                                                    <state key="normal" title="Reset statistics"/>
+                                                    <connections>
+                                                        <action selector="resetStats:" destination="1LT-28-NgF" eventType="touchUpInside" id="mGy-RZ-INB"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Nlw-0R-61R" firstAttribute="centerX" secondItem="5JW-h4-Cqh" secondAttribute="centerX" id="Dnc-y9-bh0"/>
+                                                <constraint firstItem="Nlw-0R-61R" firstAttribute="centerY" secondItem="5JW-h4-Cqh" secondAttribute="centerY" id="y5S-UB-0ar"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -171,26 +192,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Za-IEV">
-                                <rect key="frame" x="344" y="666" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Dx3-iF-fFU"/>
-                                    <constraint firstAttribute="height" constant="50" id="sgd-OA-HQd"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="thumb up"/>
-                                <connections>
-                                    <action selector="gotIt" destination="xHy-gv-oFo" eventType="touchUpInside" id="JA3-3M-gYg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-5z-uP3">
-                                <rect key="frame" x="20" y="666" width="50" height="50"/>
-                                <state key="normal" backgroundImage="thumb down"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2I-5z-uP3">
+                                <rect key="frame" x="20" y="622" width="50" height="50"/>
+                                <state key="normal" image="thumb down"/>
                                 <connections>
                                     <action selector="failed" destination="xHy-gv-oFo" eventType="touchUpInside" id="FB0-mp-ApU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
-                                <rect key="frame" x="182" y="666" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s61-s4-Jxs">
+                                <rect key="frame" x="182" y="622" width="50" height="50"/>
                                 <state key="normal" backgroundImage="replay"/>
                                 <connections>
                                     <action selector="hearQuestion:" destination="xHy-gv-oFo" eventType="touchUpInside" id="RaU-S2-lTA"/>
@@ -215,6 +225,16 @@
                                     <action selector="hearAnswer:" destination="xHy-gv-oFo" eventType="touchUpInside" id="fTd-Gs-YYe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-Za-IEV">
+                                <rect key="frame" x="344" y="622" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sgd-OA-HQd"/>
+                                </constraints>
+                                <state key="normal" image="thumb up"/>
+                                <connections>
+                                    <action selector="gotIt" destination="xHy-gv-oFo" eventType="touchUpInside" id="JA3-3M-gYg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -222,7 +242,6 @@
                             <constraint firstItem="iYN-Ws-5Kv" firstAttribute="leading" secondItem="QiL-Gl-LTb" secondAttribute="leadingMargin" id="AHB-Xh-ikS"/>
                             <constraint firstItem="iYN-Ws-5Kv" firstAttribute="centerX" secondItem="QiL-Gl-LTb" secondAttribute="centerX" id="ArB-hz-ONz"/>
                             <constraint firstItem="x2I-5z-uP3" firstAttribute="leading" secondItem="QiL-Gl-LTb" secondAttribute="leadingMargin" id="CMi-g4-PiW"/>
-                            <constraint firstItem="s61-s4-Jxs" firstAttribute="height" secondItem="5y5-Za-IEV" secondAttribute="height" id="NCR-rB-CFB"/>
                             <constraint firstItem="VVg-KI-C7H" firstAttribute="top" secondItem="5y5-Za-IEV" secondAttribute="bottom" constant="20" id="R6N-vX-42H"/>
                             <constraint firstItem="s61-s4-Jxs" firstAttribute="centerY" secondItem="5y5-Za-IEV" secondAttribute="centerY" id="WIi-Bg-xfQ"/>
                             <constraint firstItem="rFh-5n-Ddx" firstAttribute="leading" secondItem="iYN-Ws-5Kv" secondAttribute="leading" id="XR6-tq-rdU"/>
@@ -231,7 +250,6 @@
                             <constraint firstItem="rFh-5n-Ddx" firstAttribute="top" secondItem="iYN-Ws-5Kv" secondAttribute="bottom" id="oFF-Ch-enE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iYN-Ws-5Kv" secondAttribute="trailing" id="sxh-vv-0j6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5y5-Za-IEV" secondAttribute="trailing" id="uif-JK-wer"/>
-                            <constraint firstItem="s61-s4-Jxs" firstAttribute="width" secondItem="5y5-Za-IEV" secondAttribute="width" id="x2W-Ku-tu5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="urW-wv-pxb"/>
@@ -323,27 +341,8 @@
                                     <constraint firstAttribute="trailing" secondItem="mp9-jy-C66" secondAttribute="trailing" id="VER-kQ-Jfm"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LI9-qx-tsN" userLabel="resetStatsView">
-                                <rect key="frame" x="0.0" y="185" width="375" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC0-KS-AiV">
-                                        <rect key="frame" x="0.0" y="10" width="375" height="30"/>
-                                        <state key="normal" title="Reset statistics"/>
-                                        <connections>
-                                            <action selector="resetStats:" destination="beR-9t-9y8" eventType="touchUpInside" id="PFB-xG-H5Y"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="lC0-KS-AiV" firstAttribute="centerY" secondItem="LI9-qx-tsN" secondAttribute="centerY" id="NVV-Aq-eqq"/>
-                                    <constraint firstItem="lC0-KS-AiV" firstAttribute="leading" secondItem="LI9-qx-tsN" secondAttribute="leading" id="Qqt-T8-wMt"/>
-                                    <constraint firstItem="lC0-KS-AiV" firstAttribute="top" secondItem="LI9-qx-tsN" secondAttribute="top" constant="10" id="WGG-uD-4ZE"/>
-                                    <constraint firstAttribute="trailing" secondItem="lC0-KS-AiV" secondAttribute="trailing" id="dM5-7D-4ET"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QFg-Yl-Oae">
-                                <rect key="frame" x="0.0" y="235" width="375" height="368"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QFg-Yl-Oae">
+                                <rect key="frame" x="0.0" y="185" width="375" height="418"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordingCellPrototype" id="LOT-iZ-Y5n" customClass="EditCategoryTableViewCell" customModule="GradeUp" customModuleProvider="target">
@@ -391,10 +390,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="LI9-qx-tsN" firstAttribute="top" secondItem="R2v-OG-2F5" secondAttribute="bottom" id="3si-NY-Dpe"/>
-                            <constraint firstItem="QFg-Yl-Oae" firstAttribute="top" secondItem="LI9-qx-tsN" secondAttribute="bottom" id="nTq-fa-7Fg"/>
-                        </constraints>
                     </stackView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="dlK-xr-GuJ">
