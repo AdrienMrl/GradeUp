@@ -38,6 +38,10 @@ class CategoriesTableViewController: UITableViewController {
             
             if let name = popUp.textFields![0].text {
                 
+                if name == "" {
+                    return
+                }
+                
                 let newCategory = Category(name: name)
                 Category.categories.append(newCategory)
                 self.selectedCategory = newCategory
