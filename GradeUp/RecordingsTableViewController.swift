@@ -41,7 +41,7 @@ class RecordingsTableViewController: UITableViewController {
             as! EditCategoryTableViewCell
 
         let question = category.qas[indexPath.row]
-        cell.questionLabel.text = "Question #\(question.identifier)"
+        cell.questionLabel.text = "Question #\(question.identifier + 1)"
         cell.questionSuccessRateLabel.text = "\(question.getSuccessRatePercent())%"
         
         

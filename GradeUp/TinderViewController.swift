@@ -104,6 +104,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         swipeView.addSubview(successLabel)
 
         successLabel.text = "\(category.qas[currentQuestion].getSuccessRatePercent())% success"
+        
         successLabel.textColor = UIColor.whiteColor()
         successLabel.font = successLabel.font.fontWithSize(20)
         successLabel.font = UIFont(name: "System-Thin", size: 20)
