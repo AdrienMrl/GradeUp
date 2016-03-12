@@ -121,6 +121,12 @@ class CategoriesTableViewController: UITableViewController {
                 }
             }
         }
+        
+        if let editingId = editingIcon {
+            editingIcon = nil
+            
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forItem: editingId, inSection: 0)], withRowAnimation: .Fade)
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
