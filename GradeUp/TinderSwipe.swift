@@ -14,58 +14,51 @@ class Swiper: NSObject {
     
     var att: UIAttachmentBehavior!
     var leftLabel: UILabel?
-    let leftLabelColor = UIColor(red: 76.0 / 255, green: 156.0 / 255, blue: 138.0 / 255, alpha: 1)
+    let leftLabelColor = UIColor(red: 112.0 / 255, green: 165.0 / 255, blue: 65.0 / 255, alpha: 1)
     var rightLabel: UILabel?
-    let rightLabelColor = UIColor(red: 176.0 / 255, green: 70.0 / 255, blue: 77.0 / 255, alpha: 1)
+    let rightLabelColor = UIColor(red: 190.0 / 255, green: 61.0 / 255, blue: 55.0 / 255, alpha: 1)
     var origin: CGPoint!
     var rightAction: (() -> ())?
     var leftAction: (() -> ())?
     var leftMessage: String? {
         didSet {
-            addLeftLabel()
+            addLabel(&leftLabel, right :false)
         }
     }
     
     var rightMessage: String? {
         didSet {
-            addRightLabel()
+            addLabel(&rightLabel, right: true)
         }
     }
     
-    func addLeftLabel() {
-        leftLabel = tinderLikeStamp()
-        upView.addSubview(leftLabel!)
-        leftLabel!.layer.cornerRadius = 8
-        leftLabel!.layer.borderWidth = 5.0
-        leftLabel!.layer.borderColor = leftLabelColor.CGColor
-        leftLabel!.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_4 / 2))
-        leftLabel!.text = leftMessage
-        leftLabel!.textColor = leftLabelColor
-        leftLabel!.font = leftLabel!.font.fontWithSize(30)
-        leftLabel!.alpha = 0
+    func addLabel(inout label: UILabel?, right: Bool) {
+        let labelColor = right ? rightLabelColor : leftLabelColor
+        let labelMessage = right ? rightMessage : leftMessage
+        let angle = CGFloat(right ? M_PI_4 / 2 : -M_PI_4 / 2)
         
-        leftLabel!.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activateConstraints([
-            leftLabel!.leadingAnchor.constraintEqualToAnchor(upView.leadingAnchor, constant: 30),
-            leftLabel!.topAnchor.constraintEqualToAnchor(upView.topAnchor, constant: 100)])
-    }
-    
-    func addRightLabel() {
-        rightLabel = tinderLikeStamp()
-        upView.addSubview(rightLabel!)
-        rightLabel!.layer.cornerRadius = 8
-        rightLabel!.layer.borderWidth = 5.0
-        rightLabel!.layer.borderColor = rightLabelColor.CGColor
-        rightLabel!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_4 / 2))
-        rightLabel!.text = rightMessage
-        rightLabel!.textColor = rightLabelColor
-        rightLabel!.font = rightLabel!.font.fontWithSize(30)
-        rightLabel!.alpha = 0
+        label = tinderLikeStamp()
+        upView.addSubview(label!)
+        label!.layer.cornerRadius = 8
+        label!.layer.borderWidth = 5.0
+        label!.layer.borderColor = labelColor.CGColor
+        label!.transform = CGAffineTransformMakeRotation(angle)
+        label!.text = labelMessage
+        label!.textColor = labelColor
+        label!.font = label!.font.fontWithSize(30)
+        label!.alpha = 0
         
-        rightLabel!.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activateConstraints([
-            rightLabel!.trailingAnchor.constraintEqualToAnchor(upView.trailingAnchor, constant: -30),
-            rightLabel!.topAnchor.constraintEqualToAnchor(upView.topAnchor, constant: 100)])
+        label!.translatesAutoresizingMaskIntoConstraints = false
+
+        if (right) {
+            NSLayoutConstraint.activateConstraints([
+                label!.trailingAnchor.constraintEqualToAnchor(upView.trailingAnchor, constant: -30),
+                label!.topAnchor.constraintEqualToAnchor(upView.topAnchor, constant: 100)])
+        } else {
+            NSLayoutConstraint.activateConstraints([
+                label!.leadingAnchor.constraintEqualToAnchor(upView.leadingAnchor, constant: 30),
+                label!.topAnchor.constraintEqualToAnchor(upView.topAnchor, constant: 100)])
+        }
     }
     
     var upView: UIView!
@@ -79,7 +72,7 @@ class Swiper: NSObject {
         
         super.init()
         putViewBehind(addView())
-
+        
         origin = upView.center
     }
     
@@ -87,7 +80,7 @@ class Swiper: NSObject {
     
     func putViewBehind(which: UIView) {
         
-
+        
         
         self.upView = which
         which.superview!.bringSubviewToFront(which)
@@ -98,11 +91,11 @@ class Swiper: NSObject {
         downView = addView()
         downView.superview!.sendSubviewToBack(downView)
         if rightLabel != nil {
-            addRightLabel()
+            addLabel(&rightLabel, right: true)
         }
         
         if leftLabel != nil {
-            addLeftLabel()
+            addLabel(&leftLabel, right: false)
         }
     }
     
@@ -113,7 +106,7 @@ class Swiper: NSObject {
         if rightLabel != nil {
             rightLabel?.alpha = 0
         }
-
+        
         UIView.animateWithDuration(0.2, animations: {
             self.upView.center = self.origin
             self.upView.transform = CGAffineTransformMakeRotation(0)
@@ -130,20 +123,20 @@ class Swiper: NSObject {
                 (Bool) in
                 
                 UIView.animateWithDuration(0.3 , animations: {
-                self.upView.center.x =
-                    self.origin.x + self.upView.superview!.bounds.width * 2 * (right ? 1 : -1)
-                self.rotate(self.upView)
-                }, completion: {
-                    (Bool) in
-                    
-                    right ? self.rightAction?() : self.leftAction?()
-                    
-                    self.upView.removeFromSuperview()
-                    self.putViewBehind(self.downView)
-                    
-            })
+                    self.upView.center.x =
+                        self.origin.x + self.upView.superview!.bounds.width * 2 * (right ? 1 : -1)
+                    self.rotate(self.upView)
+                    }, completion: {
+                        (Bool) in
+                        
+                        right ? self.rightAction?() : self.leftAction?()
+                        
+                        self.upView.removeFromSuperview()
+                        self.putViewBehind(self.downView)
+                        
+                })
         })
-            
+        
     }
     
     func rotate(view: UIView) {
