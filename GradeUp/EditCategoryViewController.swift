@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import LTMorphingLabel
 
 class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
     
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var timerLabel: LTMorphingLabel!
+    @IBOutlet weak var infoLabel: LTMorphingLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var waveView: MagicWavesView!
     
