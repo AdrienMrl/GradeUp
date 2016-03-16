@@ -18,19 +18,23 @@ class Swiper: NSObject {
     var rightLabel: UILabel?
     let rightLabelColor = UIColor(red: 190.0 / 255, green: 61.0 / 255, blue: 55.0 / 255, alpha: 1)
     var origin: CGPoint!
-    var rightAction: (() -> ())?
-    var leftAction: (() -> ())?
+    var rightAction: ((UIView) -> ())?
+    var leftAction: ((UIView) -> ())?
     var leftMessage: String? {
         didSet {
             addLabel(&leftLabel, right :false)
         }
     }
-    
+
     var rightMessage: String? {
         didSet {
             addLabel(&rightLabel, right: true)
         }
     }
+
+    var upView: UIView!
+    var downView: UIView!
+    let addView: () -> UIView
     
     func addLabel(inout label: UILabel?, right: Bool) {
         let labelColor = right ? rightLabelColor : leftLabelColor
@@ -61,18 +65,14 @@ class Swiper: NSObject {
         }
     }
     
-    var upView: UIView!
-    var downView: UIView!
-    
-    let addView: () -> UIView
-    
     init(addView: () -> UIView) {
         
         self.addView = addView
-        
+ 
         super.init()
+
         putViewBehind(addView())
-        
+
         origin = upView.center
     }
     
@@ -123,18 +123,18 @@ class Swiper: NSObject {
                 (Bool) in
                 
                 UIView.animateWithDuration(0.3 , animations: {
-                    self.upView.center.x =
-                        self.origin.x + self.upView.superview!.bounds.width * 2 * (right ? 1 : -1)
-                    self.rotate(self.upView)
-                    }, completion: {
-                        (Bool) in
-                        
-                        right ? self.rightAction?() : self.leftAction?()
-                        
-                        self.upView.removeFromSuperview()
-                        self.putViewBehind(self.downView)
-                        
-                })
+                self.upView.center.x =
+                    self.origin.x + self.upView.superview!.bounds.width * 2 * (right ? 1 : -1)
+                self.rotate(self.upView)
+                }, completion: {
+                    (Bool) in
+                    
+                    right ? self.rightAction?(self.upView) : self.leftAction?(self.upView)
+                    
+                    self.upView.removeFromSuperview()
+                    self.putViewBehind(self.downView)
+                    
+            })
         })
         
     }

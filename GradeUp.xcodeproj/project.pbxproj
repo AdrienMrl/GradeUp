@@ -23,10 +23,10 @@
 		933BD7811C8DEE4000A3068C /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */; };
 		933E18AD1C7923B0008FE4DC /* TinderSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */; };
 		9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */; };
+		93810EE71C98E59900574C3D /* MagicWavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93810EE61C98E59900574C3D /* MagicWavesView.swift */; };
 		938914F61C8D8248000C254B /* EditIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938914F51C8D8248000C254B /* EditIconTableViewCell.swift */; };
 		939A579B1C89373300B03490 /* EditCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939A579A1C89373300B03490 /* EditCategoryTableViewCell.swift */; };
 		93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */; };
-		A0244F191C7FE8A0007109CC /* MagicWavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0244F181C7FE8A0007109CC /* MagicWavesView.swift */; };
 		A037E5931C9270AD00709F9A /* tinderLikeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A037E5921C9270AD00709F9A /* tinderLikeStamp.swift */; };
 		F0D8D3F5E11BD8EA64172DE8 /* Pods_GradeUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9773E195BDAF89E94BC7602 /* Pods_GradeUp.framework */; };
 /* End PBXBuildFile section */
@@ -62,11 +62,11 @@
 		933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderSwipe.swift; sourceTree = "<group>"; };
 		9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryTableViewCell.swift; sourceTree = "<group>"; };
+		93810EE61C98E59900574C3D /* MagicWavesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicWavesView.swift; sourceTree = "<group>"; };
 		938914F51C8D8248000C254B /* EditIconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIconTableViewCell.swift; sourceTree = "<group>"; };
 		939A579A1C89373300B03490 /* EditCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		93DE74791C6AE2A100DD4A24 /* DisplayCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCategoryViewController.swift; sourceTree = "<group>"; };
 		9FAFAEDD8F3D85045E7AB4EB /* Pods-GradeUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradeUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GradeUp/Pods-GradeUp.debug.xcconfig"; sourceTree = "<group>"; };
-		A0244F181C7FE8A0007109CC /* MagicWavesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagicWavesView.swift; path = ../MagicWavesView.swift; sourceTree = "<group>"; };
 		A037E5921C9270AD00709F9A /* tinderLikeStamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tinderLikeStamp.swift; sourceTree = "<group>"; };
 		CEFFC117238DF1AD52FB1815 /* Pods-GradeUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GradeUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GradeUp/Pods-GradeUp.release.xcconfig"; sourceTree = "<group>"; };
 		D9773E195BDAF89E94BC7602 /* Pods_GradeUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradeUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,10 +161,10 @@
 		93310F1B1C82A23800D8BC4D /* custom views */ = {
 			isa = PBXGroup;
 			children = (
+				93810EE61C98E59900574C3D /* MagicWavesView.swift */,
 				A037E5921C9270AD00709F9A /* tinderLikeStamp.swift */,
 				9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */,
 				939A579A1C89373300B03490 /* EditCategoryTableViewCell.swift */,
-				A0244F181C7FE8A0007109CC /* MagicWavesView.swift */,
 				932EE7A61C795CE200795F59 /* SwipeView.swift */,
 				938914F51C8D8248000C254B /* EditIconTableViewCell.swift */,
 				933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */,
@@ -345,6 +345,7 @@
 			files = (
 				9314E9631C6AD3DE001A95D5 /* EditCategoryViewController.swift in Sources */,
 				932EE7A71C795CE200795F59 /* SwipeView.swift in Sources */,
+				93810EE71C98E59900574C3D /* MagicWavesView.swift in Sources */,
 				930FDCEE1C691DD70068325D /* CategoriesTableViewController.swift in Sources */,
 				93207CA51C76B11F009450C1 /* TinderViewController.swift in Sources */,
 				933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */,
@@ -353,7 +354,6 @@
 				938914F61C8D8248000C254B /* EditIconTableViewCell.swift in Sources */,
 				930FDCEC1C691DD70068325D /* AppDelegate.swift in Sources */,
 				A037E5931C9270AD00709F9A /* tinderLikeStamp.swift in Sources */,
-				A0244F191C7FE8A0007109CC /* MagicWavesView.swift in Sources */,
 				9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */,
 				9314E9611C6AC7AA001A95D5 /* Category.swift in Sources */,
 				93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */,

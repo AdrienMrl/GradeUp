@@ -10,12 +10,7 @@ import UIKit
 
 class SwipeView: UIView {
 
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-
-    func clone() -> SwipeView {
-        return NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(self)) as! SwipeView
     }
 }

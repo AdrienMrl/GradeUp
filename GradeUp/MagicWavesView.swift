@@ -16,6 +16,8 @@ protocol MagicWavesViewDelegate {
 
 class MagicWavesView: UIView {
 
+    var question: Category.QA!
+
     private var _phase: CGFloat = 0.0
     private var _amplitude: CGFloat = 0.0
     

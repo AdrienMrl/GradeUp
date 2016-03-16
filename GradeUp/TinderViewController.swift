@@ -21,6 +21,9 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var hearAgainButton: UIButton!
     
+    var questionUp: Category.QA!
+    var questionDown: Category.QA!
+    
     var success: Float = 0.0
     var failure: Float = 0.0
     
@@ -43,6 +46,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("view did load")
         pullQuestion()
         success = 0
         failure = 0
@@ -66,16 +70,18 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     
     override func viewDidAppear(animated: Bool) {
         
-        swiper.rightAction = {
-            self.category.qas[self.currentQuestion].time_success++
+        swiper.rightAction = {(view: UIView) -> Void in
+            
+            let magic = view as! MagicWavesView
+            magic.question.time_success++
             self.success++
-            self.pullQuestion()
-
         }
-        swiper.leftAction = {
-            self.category.qas[self.currentQuestion].time_failure++
+        
+        swiper.leftAction = {(view: UIView) -> Void in
+            
+            let magic = view as! MagicWavesView
+            magic.question.time_failure++
             self.failure++
-            self.pullQuestion()
         }
         
     }
@@ -83,8 +89,18 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     func addSwipeView() -> UIView {
         
         let swipeView = MagicWavesView()
+        let question = pullQuestion()
         
         swipeView.delegate = self
+        swipeView.question = question
+        
+        questionUp = questionDown
+        questionDown = question
+        
+        if questionUp != nil {
+            questionLabel.text = "Question #\(questionUp.identifier + 1)"
+            self.playStuff(.Question, question: questionUp)
+        }
         
         view.addSubview(swipeView)
         
@@ -103,7 +119,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         let successLabel = UILabel()
         swipeView.addSubview(successLabel)
 
-        successLabel.text = "\(category.qas[currentQuestion].getSuccessRatePercent())% success"
+        successLabel.text = "\(question.getSuccessRatePercent())% success"
         
         successLabel.textColor = UIColor.whiteColor()
         successLabel.font = successLabel.font.fontWithSize(20)
@@ -119,7 +135,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     }
     
     func swipeViewTouched() {
-        playStuff(.Answer)
+        playStuff(.Answer, question: questionUp)
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,19 +143,19 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func playStuff(type: Recorder.RecordingMode) {
-        Recorder.play(type, categoryName: category.name, identifier: category.qas[currentQuestion].identifier)
+    func playStuff(type: Recorder.RecordingMode, question: Category.QA) {
+        Recorder.play(type, categoryName: category.name, identifier: question.identifier)
     }
     
     @IBAction func hearQuestion(sender: UIButton) {
-        playStuff(.Question)
+        playStuff(.Question, question: questionUp)
     }
     
     @IBAction func hearAnswer(sender: AnyObject) {
-        playStuff(.Answer)
+        playStuff(.Answer, question: questionUp)
     }
     
-    func pullQuestion() {
+    func pullQuestion() -> Category.QA {
         
         
         func sortQA() {
@@ -167,9 +183,9 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
             }
         }
 
-        questionLabel.text = "Question #\(category.qas[currentQuestion].identifier + 1)"
         updateSuccessRate()
-        playStuff(.Question)
+
+        return category.qas[currentQuestion]
     }
     
     func updateSuccessRate() {
