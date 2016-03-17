@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import RandomColorSwift
 
 class Category: NSObject, NSCoding {
     
@@ -63,6 +64,7 @@ class Category: NSObject, NSCoding {
         var time_success = 0
         var time_failure = 0
         var record_duration = 0
+        var color: UIColor!
 
         init(identifier: Int , record_duration: Int) {
             self.identifier = identifier
@@ -78,6 +80,10 @@ class Category: NSObject, NSCoding {
             
             self.time_success = aDecoder.decodeObjectForKey("time_success") as! Int
             self.time_failure = aDecoder.decodeObjectForKey("time_failure") as! Int
+            self.color = aDecoder.decodeObjectForKey("color") as? UIColor
+            if (self.color == nil) {
+                self.color = randomColor();
+            }
         }
         
         func encodeWithCoder(aCoder: NSCoder) {
@@ -86,6 +92,7 @@ class Category: NSObject, NSCoding {
             aCoder.encodeObject(time_success, forKey: "time_success")
             aCoder.encodeObject(time_failure, forKey: "time_failure")
             aCoder.encodeObject(record_duration, forKey: "record_duration")
+            aCoder.encodeObject(color, forKey: "color")
         }
         
         func getSuccessRate() -> Float {

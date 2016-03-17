@@ -8,7 +8,6 @@
 
 import UIKit
 import Darwin
-import RandomColorSwift
 import LTMorphingLabel
 
 class TinderViewController: UIViewController, MagicWavesViewDelegate {
@@ -46,7 +45,6 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("view did load")
         pullQuestion()
         success = 0
         failure = 0
@@ -114,7 +112,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         ])
         
         swipeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "swipeViewTouched"))
-        swipeView.backgroundColor = randomColor()
+        swipeView.backgroundColor = question.color;
     
         let successLabel = UILabel()
         swipeView.addSubview(successLabel)

@@ -133,19 +133,19 @@ class Swiper: NSObject {
                     
                     self.upView.removeFromSuperview()
                     self.putViewBehind(self.downView)
-                    
+ 
             })
         })
-        
+
     }
-    
+
     func rotate(view: UIView) {
-        
+
         let c = view.center
         let degrees: Double = 10 * (Double(c.x) - Double(origin.x)) / (Double(upView.superview!.bounds.width) - Double(origin.x))
         view.transform = CGAffineTransformMakeRotation(CGFloat(degrees * M_PI / 180.0))
     }
-    
+
     func drag(p: UIPanGestureRecognizer!) {
         
         switch p.state {
