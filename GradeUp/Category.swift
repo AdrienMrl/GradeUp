@@ -117,7 +117,11 @@ class Category: NSObject, NSCoding {
         self.name = name
         self.sessionSuccessRate = 0
         self.bestSuccessRate = 0
-        self.iconName = Category.images[0]
+        
+        let number_of_icons = Category.images.count
+        let randomIconIdx = Int(arc4random()) % number_of_icons
+        
+        self.iconName = Category.images[randomIconIdx];
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
