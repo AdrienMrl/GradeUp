@@ -242,7 +242,7 @@
 				TargetAttributes = {
 					930FDCE71C691DD70068325D = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 8XCF8YPAMS;
+						DevelopmentTeam = KA74PPR2DQ;
 					};
 					930FDCFB1C691DD70068325D = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -492,9 +492,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GradeUp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adrien.GradeUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gwendal.GradeUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -508,9 +508,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GradeUp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adrien.GradeUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gwendal.GradeUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

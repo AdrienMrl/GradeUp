@@ -89,7 +89,7 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
         recordingMode = type
         
         if timer == nil {
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerTick"), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(EditCategoryViewController.timerTick), userInfo: nil, repeats: true)
         }
     }
     
@@ -123,10 +123,10 @@ class EditCategoryViewController: UIViewController, MagicWavesViewDelegate {
     
     func timerTick() {
         
-        secs++
+        secs += 1
         if secs > 59 {
             secs = 0
-            minutes++
+            minutes += 1
         }
         
         refreshTimerLabels()

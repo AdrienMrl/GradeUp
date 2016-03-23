@@ -11,7 +11,7 @@ import Darwin
 import LTMorphingLabel
 
 class TinderViewController: UIViewController, MagicWavesViewDelegate {
-
+    
     var swiper: Swiper!
     var category: Category!
     var currentQuestion: Int! = nil
@@ -30,7 +30,7 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         
         if let player = Recorder.instance.player {
             player.updateMeters()
-
+            
             return player.averagePowerForChannel(0)
         }
         
@@ -49,13 +49,13 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         success = 0
         failure = 0
     }
-
+    
     @IBAction func gotIt() {
-        swiper?.swipe(true)
+        swiper?.swipe(Swiper.SwipeDirection.Right)
     }
     
     @IBAction func failed() {
-        swiper?.swipe(false)
+        swiper?.swipe(Swiper.SwipeDirection.Left)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -63,25 +63,43 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         swiper = Swiper(addView: addSwipeView)
         swiper.rightMessage = "DUNNO"
         swiper.leftMessage = "GOT IT"
+        let trashImage = UIImage(named: "trash")
+        swiper.botImageView = UIImageView(image: trashImage)
         questionLabel.morphingEffect = .Evaporate
     }
     
     override func viewDidAppear(animated: Bool) {
         
-        swiper.rightAction = {(view: UIView) -> Void in
-            
-            let magic = view as! MagicWavesView
-            magic.question.time_success++
-            self.success++
+        swiper.rightAction = {() -> Bool in
+            self.category.qas[self.currentQuestion].time_success += 1
+            self.success += 1
+            self.pullQuestion()
+            return false
         }
         
-        swiper.leftAction = {(view: UIView) -> Void in
-            
-            let magic = view as! MagicWavesView
-            magic.question.time_failure++
-            self.failure++
+        swiper.leftAction = {() -> Bool in
+            self.category.qas[self.currentQuestion].time_failure += 1
+            self.failure += 1
+            self.pullQuestion()
+            return false
         }
         
+        swiper.botAction = {() -> Bool in
+            do {
+                try self.category.deleteRecordFileBy(identifier: self.category.qas[self.currentQuestion!].identifier)
+            } catch let error as NSError {
+                print("Error: \(error)")
+            }
+            let shouldExitTest = self.category.qas.count <= 1
+            self.category.qas.removeAtIndex(self.currentQuestion!)
+            Category.saveCategories()
+            if shouldExitTest {
+                self.performSegueWithIdentifier("unwindForDisplay", sender: self)
+            } else {
+                self.pullQuestion()
+            }
+            return shouldExitTest
+        }
     }
     
     func addSwipeView() -> UIView {
@@ -109,9 +127,9 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
             swipeView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -8),
             swipeView.topAnchor.constraintEqualToAnchor(answerButton.bottomAnchor, constant: 12),
             swipeView.bottomAnchor.constraintEqualToAnchor(hearAgainButton.topAnchor, constant: -12),
-        ])
+            ])
         
-        swipeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "swipeViewTouched"))
+        swipeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(TinderViewController.swipeViewTouched)))
         swipeView.backgroundColor = question.color;
     
         let successLabel = UILabel()
@@ -122,20 +140,20 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
         successLabel.textColor = UIColor.whiteColor()
         successLabel.font = successLabel.font.fontWithSize(20)
         successLabel.font = UIFont(name: "System-Thin", size: 20)
-
+        
         successLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activateConstraints([
             successLabel.trailingAnchor.constraintEqualToAnchor(swipeView.trailingAnchor, constant: -16),
             successLabel.topAnchor.constraintEqualToAnchor(swipeView.topAnchor, constant: 16)])
         
-
+        
         return swipeView
     }
     
     func swipeViewTouched() {
         playStuff(.Answer, question: questionUp)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -173,13 +191,15 @@ class TinderViewController: UIViewController, MagicWavesViewDelegate {
             currentQuestion = 0
         } else {
             
-            currentQuestion!++
+            currentQuestion! += 1
             
             if currentQuestion >= category.qas.count {
                 sortQA()
                 currentQuestion = 0
             }
         }
+
+        questionLabel.text = "Question #\(category.qas[currentQuestion].identifier + 1)"
 
         updateSuccessRate()
 

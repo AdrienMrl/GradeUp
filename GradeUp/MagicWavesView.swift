@@ -76,7 +76,7 @@ class MagicWavesView: UIView {
     
     func setup() {
         
-        let displayLink = CADisplayLink(target: self, selector: Selector("updateMeters"))
+        let displayLink = CADisplayLink(target: self, selector: #selector(MagicWavesView.updateMeters))
         displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
 
     }
@@ -101,7 +101,7 @@ class MagicWavesView: UIView {
         
         // We draw multiple sinus waves, with equal phases but altered
         // amplitudes, multiplied by a parable function.
-        for var i = 0; i < numberOfWaves; i++ {
+        for var i = 0; i < numberOfWaves; i += 1 {
             let context = UIGraphicsGetCurrentContext()
             
             CGContextSetLineWidth(context, (i == 0 ? primaryWaveLineWidth : secondaryWaveLineWidth))

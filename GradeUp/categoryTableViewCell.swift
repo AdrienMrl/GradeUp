@@ -18,7 +18,7 @@ class categoryTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     override func awakeFromNib() {
         
-        let tapGR = UITapGestureRecognizer(target: self, action: "iconTap:")
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(categoryTableViewCell.iconTap(_:)))
         icon.userInteractionEnabled = true
         icon.addGestureRecognizer(tapGR)
         

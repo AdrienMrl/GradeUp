@@ -1,0 +1,763 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04913062FB19F572704D1F80F24D0F1E /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A716EC64D3110D077A153D7ADE014F /* Fragment.png */; };
+		09655714894296138E974CBC74484E5C /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDAC76AC683B5456038C651A086DAB8 /* LTMorphingLabel.swift */; };
+		0B0B16FE44CBECB512D2FC308055C7BB /* LTMorphingLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6AEB504DDE09B9987C775CAFF7A29F /* LTMorphingLabel-dummy.m */; };
+		10DA04EC085D11D23E0E3F0DBABE5114 /* LTMorphingLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 98C67749F81A8AC68FFD79FCAAF63A12 /* LTMorphingLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19822C9F8BCB56C0A26342907D70E022 /* Luminosity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC5DE4509EE832766AC0FD44077D6A /* Luminosity.swift */; };
+		1CF8DFA896A6618005B677B8793DBF0E /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F94E11893CBE1BAA7E024DD850D0A13 /* Fire.png */; };
+		2265F29F835D2FBFD8F22D2606A95F68 /* RandomColorSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C57F439651CD25A6F90662D7C5BAD5 /* RandomColorSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		270F1B227677C259D30299A97C5BEAA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91413329813FA6FE5A78842159E69621 /* Foundation.framework */; };
+		284D6D7E769F2276C566DA42ACF16DF3 /* Pods-GradeUp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7931A6B0FFEEC76588C8C1469006BD /* Pods-GradeUp-dummy.m */; };
+		35D1068A16F7B860DBF2FF11F7E88197 /* LTMorphingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB54C638368C3F6E2C98601F7A4820 /* LTMorphingEffect.swift */; };
+		3A94B91FAF297671481DB3A977CE3FB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91413329813FA6FE5A78842159E69621 /* Foundation.framework */; };
+		401A7DAFE42E4A8D8B065ABB2B5028D1 /* LTMorphingLabel+Sparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248AA7CBB18DAFE80D438A40DA39C2E /* LTMorphingLabel+Sparkle.swift */; };
+		465D8E8CB72E86B386B1B6D0EE4331E6 /* RandomColorSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E1EABB0C314D39E720E81D0E7458EB /* RandomColorSwift-dummy.m */; };
+		573B13ABBF79FA6ABDACA8F14750D83F /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AB524E830EBB90227BEC6C8CADBDAF2 /* Sparkle.png */; };
+		593D1905576E9788B79668BE8D303E48 /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAA1848DC71A515EE348E35AD9D89DA /* Hue.swift */; };
+		5CF83FB2E49B3342A3C09B02E8F474D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E642B1A057ADA2ABEF90BE2417F349C1 /* QuartzCore.framework */; };
+		62821F4D42C187B437988C64DBA6E0C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE615671731BF3AEFB3CB1F984FA8F /* UIKit.framework */; };
+		64B4A8DBD6B71467EEF566D28E4A84B6 /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81589CDED3D48266FECED6A8A6F984D4 /* ColorDefinition.swift */; };
+		74DEC2D3601595D8C6850C8FB7173158 /* LTCharacterLimbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B4CB2554A435B520818FADE4493655 /* LTCharacterLimbo.swift */; };
+		82CCC01A0501720443407C7842A2F8EE /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BAE328B81E99C861E25F32E5C2EFC /* LTMorphingLabel+Evaporate.swift */; };
+		87A5677A6AE8315FC08C7AFDA06C5E85 /* LTMorphingLabel+Anvil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0ACCF8BC8C7B10E0401282EC9B446 /* LTMorphingLabel+Anvil.swift */; };
+		94C184FAE53AE7FE2DAAF71250C88399 /* LTEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C986991F630955876F247FA36BD49 /* LTEmitterView.swift */; };
+		9CD2F676F12CF59997D469DC44040977 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8504EF3F7D03B4990E1368B0F5B856 /* LTEasing.swift */; };
+		BA25E1C4EFB2B53764E95238C01FC541 /* LTMorphingLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 56D74FBE4D57BFBD1C184A3241A02228 /* LTMorphingLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFC6568F9625CFEDE89544D5E106EE56 /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C6F4DC2D37DBB884D76CCEF405ED8 /* LTMorphingLabel+Fall.swift */; };
+		D40D84C336EB60A2349DA835277B3BB6 /* LTMorphingLabel+Burn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8721E8EAD58AADDA788330E16CFE0 /* LTMorphingLabel+Burn.swift */; };
+		D4BEFE9697D2C98014CEA515831D78EC /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45832029EC6BCA32A343A3D594A8C05C /* NSString+LTMorphingLabel.swift */; };
+		D7AF1C498BACC7A8145392B6E3AC91FB /* LTMorphingLabel+Pixelate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F556E1C96A7F1FBCBD601DF13FF12D /* LTMorphingLabel+Pixelate.swift */; };
+		E0E0BEC364F84BE12B9BEC134961CDB2 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3837B917D08C5A93DAFBF6523443224E /* RandomColor.swift */; };
+		E64E0DA42FF43A0CE84FC8E07BA9C2F4 /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = CC68FE912182C4B829FD05350D80BDC5 /* Smoke.png */; };
+		F0F119C05F6408B9E0F8064AA86D77C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91413329813FA6FE5A78842159E69621 /* Foundation.framework */; };
+		FB705A8B10A953DB1B3A730EBA38F0E2 /* Pods-GradeUp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 474DA2A7CDDAF4FE80D076392E7533D8 /* Pods-GradeUp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D4920FDDE473B0F1F4C50AB83CCBD0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F191F9A8D43E84DF422E78A18B7BB9AF;
+			remoteInfo = RandomColorSwift;
+		};
+		5E35DC9C08CB787A74FEEC82EC729591 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DCBD6C869DCC15AF62D43471CB4592C;
+			remoteInfo = LTMorphingLabel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01B2EBDF929BE89D543C9608B8730B30 /* RandomColorSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RandomColorSwift.xcconfig; sourceTree = "<group>"; };
+		048C986991F630955876F247FA36BD49 /* LTEmitterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTEmitterView.swift; path = LTMorphingLabel/LTEmitterView.swift; sourceTree = "<group>"; };
+		0BAA1848DC71A515EE348E35AD9D89DA /* Hue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Hue.swift; path = RandomColor/Hue.swift; sourceTree = "<group>"; };
+		101CFC39E570292057DA7683A4938D78 /* Pods-GradeUp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GradeUp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		11E1EABB0C314D39E720E81D0E7458EB /* RandomColorSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RandomColorSwift-dummy.m"; sourceTree = "<group>"; };
+		19C57F439651CD25A6F90662D7C5BAD5 /* RandomColorSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RandomColorSwift-umbrella.h"; sourceTree = "<group>"; };
+		1E1BAE328B81E99C861E25F32E5C2EFC /* LTMorphingLabel+Evaporate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Evaporate.swift"; path = "LTMorphingLabel/LTMorphingLabel+Evaporate.swift"; sourceTree = "<group>"; };
+		1F8504EF3F7D03B4990E1368B0F5B856 /* LTEasing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTEasing.swift; path = LTMorphingLabel/LTEasing.swift; sourceTree = "<group>"; };
+		2D4C17A8798ECB3DED2BEDFE7EB31523 /* LTMorphingLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LTMorphingLabel.modulemap; sourceTree = "<group>"; };
+		3837B917D08C5A93DAFBF6523443224E /* RandomColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RandomColor.swift; path = RandomColor/RandomColor.swift; sourceTree = "<group>"; };
+		3C6AEB504DDE09B9987C775CAFF7A29F /* LTMorphingLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LTMorphingLabel-dummy.m"; sourceTree = "<group>"; };
+		3E56C2AE371B0D7F0AEB4D4D7BDF75F4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F94E11893CBE1BAA7E024DD850D0A13 /* Fire.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Fire.png; path = LTMorphingLabel/Particles/Fire.png; sourceTree = "<group>"; };
+		4248AA7CBB18DAFE80D438A40DA39C2E /* LTMorphingLabel+Sparkle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Sparkle.swift"; path = "LTMorphingLabel/LTMorphingLabel+Sparkle.swift"; sourceTree = "<group>"; };
+		45832029EC6BCA32A343A3D594A8C05C /* NSString+LTMorphingLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSString+LTMorphingLabel.swift"; path = "LTMorphingLabel/NSString+LTMorphingLabel.swift"; sourceTree = "<group>"; };
+		46F556E1C96A7F1FBCBD601DF13FF12D /* LTMorphingLabel+Pixelate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Pixelate.swift"; path = "LTMorphingLabel/LTMorphingLabel+Pixelate.swift"; sourceTree = "<group>"; };
+		474DA2A7CDDAF4FE80D076392E7533D8 /* Pods-GradeUp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GradeUp-umbrella.h"; sourceTree = "<group>"; };
+		48CC5DE4509EE832766AC0FD44077D6A /* Luminosity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Luminosity.swift; path = RandomColor/Luminosity.swift; sourceTree = "<group>"; };
+		500470B49429D3B907B2FC4513FFC215 /* Pods-GradeUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GradeUp.debug.xcconfig"; sourceTree = "<group>"; };
+		510C1E036DBAE0A46EADA5EE873C3BA1 /* Pods-GradeUp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GradeUp-acknowledgements.plist"; sourceTree = "<group>"; };
+		56D74FBE4D57BFBD1C184A3241A02228 /* LTMorphingLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LTMorphingLabel-umbrella.h"; sourceTree = "<group>"; };
+		572822DAA96383A3428CD71729F0E11B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D0FA70BD4E50598C6E890F268B5BF13 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LTMorphingLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		640A161D7C361B09058168B81017F281 /* LTMorphingLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LTMorphingLabel-prefix.pch"; sourceTree = "<group>"; };
+		67F8721E8EAD58AADDA788330E16CFE0 /* LTMorphingLabel+Burn.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Burn.swift"; path = "LTMorphingLabel/LTMorphingLabel+Burn.swift"; sourceTree = "<group>"; };
+		69D8CD23D500D4A955A2DB2AD9AFA9F2 /* Pods-GradeUp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GradeUp-resources.sh"; sourceTree = "<group>"; };
+		6AB524E830EBB90227BEC6C8CADBDAF2 /* Sparkle.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Sparkle.png; path = LTMorphingLabel/Particles/Sparkle.png; sourceTree = "<group>"; };
+		81589CDED3D48266FECED6A8A6F984D4 /* ColorDefinition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorDefinition.swift; path = RandomColor/ColorDefinition.swift; sourceTree = "<group>"; };
+		872870F7092422BDEFC6986E96994972 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91413329813FA6FE5A78842159E69621 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9315EB56D21C482F86466FBDDA531DF7 /* RandomColorSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RandomColorSwift-prefix.pch"; sourceTree = "<group>"; };
+		98B38D322FF6D5B4490CA473A3C69022 /* Pods-GradeUp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GradeUp-frameworks.sh"; sourceTree = "<group>"; };
+		98C67749F81A8AC68FFD79FCAAF63A12 /* LTMorphingLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTMorphingLabel.h; path = LTMorphingLabel/LTMorphingLabel.h; sourceTree = "<group>"; };
+		A45841D90E908100EB9E557898857852 /* RandomColorSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RandomColorSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B4CB2554A435B520818FADE4493655 /* LTCharacterLimbo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTCharacterLimbo.swift; path = LTMorphingLabel/LTCharacterLimbo.swift; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BBDAC76AC683B5456038C651A086DAB8 /* LTMorphingLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTMorphingLabel.swift; path = LTMorphingLabel/LTMorphingLabel.swift; sourceTree = "<group>"; };
+		C0D0ACCF8BC8C7B10E0401282EC9B446 /* LTMorphingLabel+Anvil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Anvil.swift"; path = "LTMorphingLabel/LTMorphingLabel+Anvil.swift"; sourceTree = "<group>"; };
+		CB7931A6B0FFEEC76588C8C1469006BD /* Pods-GradeUp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GradeUp-dummy.m"; sourceTree = "<group>"; };
+		CC68FE912182C4B829FD05350D80BDC5 /* Smoke.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Smoke.png; path = LTMorphingLabel/Particles/Smoke.png; sourceTree = "<group>"; };
+		CDC3EC46AEFA1C3E7DD422B29D94D383 /* Pods-GradeUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GradeUp.release.xcconfig"; sourceTree = "<group>"; };
+		D8A716EC64D3110D077A153D7ADE014F /* Fragment.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Fragment.png; path = LTMorphingLabel/Particles/Fragment.png; sourceTree = "<group>"; };
+		D9DE615671731BF3AEFB3CB1F984FA8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E19FF2C5A20771AB6D7C2D6212C019CC /* LTMorphingLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LTMorphingLabel.xcconfig; sourceTree = "<group>"; };
+		E642B1A057ADA2ABEF90BE2417F349C1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		EB965924A33C94CA581ACC881FBAF1FF /* Pods_GradeUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GradeUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F22F0D24AA02D12253573DF780B0AC8F /* Pods-GradeUp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GradeUp.modulemap"; sourceTree = "<group>"; };
+		F41C6F4DC2D37DBB884D76CCEF405ED8 /* LTMorphingLabel+Fall.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Fall.swift"; path = "LTMorphingLabel/LTMorphingLabel+Fall.swift"; sourceTree = "<group>"; };
+		F4AB54C638368C3F6E2C98601F7A4820 /* LTMorphingEffect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTMorphingEffect.swift; path = LTMorphingLabel/LTMorphingEffect.swift; sourceTree = "<group>"; };
+		F8D4C648457716E8AAC05F2D76CD3849 /* RandomColorSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RandomColorSwift.modulemap; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E4EA1B394794C6A87EC7CD3AFB870DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F119C05F6408B9E0F8064AA86D77C0 /* Foundation.framework in Frameworks */,
+				5CF83FB2E49B3342A3C09B02E8F474D5 /* QuartzCore.framework in Frameworks */,
+				62821F4D42C187B437988C64DBA6E0C8 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		875F67F4EACB9902857F9BA95BB3F6BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A94B91FAF297671481DB3A977CE3FB6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA589A0ED0771B824CDFB2BBCB1E198F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270F1B227677C259D30299A97C5BEAA9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA23025FEDA7F7FE2AACB2532BD80D14 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23A7D3C64C2A566A878923B27D871F60 /* LTMorphingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B7B4CB2554A435B520818FADE4493655 /* LTCharacterLimbo.swift */,
+				1F8504EF3F7D03B4990E1368B0F5B856 /* LTEasing.swift */,
+				048C986991F630955876F247FA36BD49 /* LTEmitterView.swift */,
+				F4AB54C638368C3F6E2C98601F7A4820 /* LTMorphingEffect.swift */,
+				98C67749F81A8AC68FFD79FCAAF63A12 /* LTMorphingLabel.h */,
+				BBDAC76AC683B5456038C651A086DAB8 /* LTMorphingLabel.swift */,
+				C0D0ACCF8BC8C7B10E0401282EC9B446 /* LTMorphingLabel+Anvil.swift */,
+				67F8721E8EAD58AADDA788330E16CFE0 /* LTMorphingLabel+Burn.swift */,
+				1E1BAE328B81E99C861E25F32E5C2EFC /* LTMorphingLabel+Evaporate.swift */,
+				F41C6F4DC2D37DBB884D76CCEF405ED8 /* LTMorphingLabel+Fall.swift */,
+				46F556E1C96A7F1FBCBD601DF13FF12D /* LTMorphingLabel+Pixelate.swift */,
+				4248AA7CBB18DAFE80D438A40DA39C2E /* LTMorphingLabel+Sparkle.swift */,
+				45832029EC6BCA32A343A3D594A8C05C /* NSString+LTMorphingLabel.swift */,
+				DFD03BF8A1CAEDE43D38605FF285F4DE /* Resources */,
+				EB6A4D0CD47CFD89147F1B4E53357423 /* Support Files */,
+			);
+			path = LTMorphingLabel;
+			sourceTree = "<group>";
+		};
+		4FC58EFC9A0D6ED51503C64D98CAE60B /* RandomColorSwift */ = {
+			isa = PBXGroup;
+			children = (
+				81589CDED3D48266FECED6A8A6F984D4 /* ColorDefinition.swift */,
+				0BAA1848DC71A515EE348E35AD9D89DA /* Hue.swift */,
+				48CC5DE4509EE832766AC0FD44077D6A /* Luminosity.swift */,
+				3837B917D08C5A93DAFBF6523443224E /* RandomColor.swift */,
+				8A789E6F22E64DA5CEE6C361E0D34405 /* Support Files */,
+			);
+			path = RandomColorSwift;
+			sourceTree = "<group>";
+		};
+		533B6C1C33619F8150B7C5204109569B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D0FA70BD4E50598C6E890F268B5BF13 /* LTMorphingLabel.framework */,
+				EB965924A33C94CA581ACC881FBAF1FF /* Pods_GradeUp.framework */,
+				A45841D90E908100EB9E557898857852 /* RandomColorSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				FE6E079D18CC3BEDCED9CE3AEE90A678 /* Pods */,
+				533B6C1C33619F8150B7C5204109569B /* Products */,
+				A7922262811CC07019FFE96CA32C4E56 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8A789E6F22E64DA5CEE6C361E0D34405 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				872870F7092422BDEFC6986E96994972 /* Info.plist */,
+				F8D4C648457716E8AAC05F2D76CD3849 /* RandomColorSwift.modulemap */,
+				01B2EBDF929BE89D543C9608B8730B30 /* RandomColorSwift.xcconfig */,
+				11E1EABB0C314D39E720E81D0E7458EB /* RandomColorSwift-dummy.m */,
+				9315EB56D21C482F86466FBDDA531DF7 /* RandomColorSwift-prefix.pch */,
+				19C57F439651CD25A6F90662D7C5BAD5 /* RandomColorSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RandomColorSwift";
+			sourceTree = "<group>";
+		};
+		A7922262811CC07019FFE96CA32C4E56 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B340173E3EED905075779B1D5E8E2474 /* Pods-GradeUp */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B340173E3EED905075779B1D5E8E2474 /* Pods-GradeUp */ = {
+			isa = PBXGroup;
+			children = (
+				3E56C2AE371B0D7F0AEB4D4D7BDF75F4 /* Info.plist */,
+				F22F0D24AA02D12253573DF780B0AC8F /* Pods-GradeUp.modulemap */,
+				101CFC39E570292057DA7683A4938D78 /* Pods-GradeUp-acknowledgements.markdown */,
+				510C1E036DBAE0A46EADA5EE873C3BA1 /* Pods-GradeUp-acknowledgements.plist */,
+				CB7931A6B0FFEEC76588C8C1469006BD /* Pods-GradeUp-dummy.m */,
+				98B38D322FF6D5B4490CA473A3C69022 /* Pods-GradeUp-frameworks.sh */,
+				69D8CD23D500D4A955A2DB2AD9AFA9F2 /* Pods-GradeUp-resources.sh */,
+				474DA2A7CDDAF4FE80D076392E7533D8 /* Pods-GradeUp-umbrella.h */,
+				500470B49429D3B907B2FC4513FFC215 /* Pods-GradeUp.debug.xcconfig */,
+				CDC3EC46AEFA1C3E7DD422B29D94D383 /* Pods-GradeUp.release.xcconfig */,
+			);
+			name = "Pods-GradeUp";
+			path = "Target Support Files/Pods-GradeUp";
+			sourceTree = "<group>";
+		};
+		DA23025FEDA7F7FE2AACB2532BD80D14 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				91413329813FA6FE5A78842159E69621 /* Foundation.framework */,
+				E642B1A057ADA2ABEF90BE2417F349C1 /* QuartzCore.framework */,
+				D9DE615671731BF3AEFB3CB1F984FA8F /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DFD03BF8A1CAEDE43D38605FF285F4DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F94E11893CBE1BAA7E024DD850D0A13 /* Fire.png */,
+				D8A716EC64D3110D077A153D7ADE014F /* Fragment.png */,
+				CC68FE912182C4B829FD05350D80BDC5 /* Smoke.png */,
+				6AB524E830EBB90227BEC6C8CADBDAF2 /* Sparkle.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EB6A4D0CD47CFD89147F1B4E53357423 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				572822DAA96383A3428CD71729F0E11B /* Info.plist */,
+				2D4C17A8798ECB3DED2BEDFE7EB31523 /* LTMorphingLabel.modulemap */,
+				E19FF2C5A20771AB6D7C2D6212C019CC /* LTMorphingLabel.xcconfig */,
+				3C6AEB504DDE09B9987C775CAFF7A29F /* LTMorphingLabel-dummy.m */,
+				640A161D7C361B09058168B81017F281 /* LTMorphingLabel-prefix.pch */,
+				56D74FBE4D57BFBD1C184A3241A02228 /* LTMorphingLabel-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/LTMorphingLabel";
+			sourceTree = "<group>";
+		};
+		FE6E079D18CC3BEDCED9CE3AEE90A678 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23A7D3C64C2A566A878923B27D871F60 /* LTMorphingLabel */,
+				4FC58EFC9A0D6ED51503C64D98CAE60B /* RandomColorSwift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		64CDA0B1CBA17E89B9F0C335776D3056 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB705A8B10A953DB1B3A730EBA38F0E2 /* Pods-GradeUp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5D1926C75235190BA2B9B1C7E872D15 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA25E1C4EFB2B53764E95238C01FC541 /* LTMorphingLabel-umbrella.h in Headers */,
+				10DA04EC085D11D23E0E3F0DBABE5114 /* LTMorphingLabel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D624550A2A0F973488FB27E5AD604B30 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2265F29F835D2FBFD8F22D2606A95F68 /* RandomColorSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0DCBD6C869DCC15AF62D43471CB4592C /* LTMorphingLabel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD6BFD0F561BD7DC1612C7BF97AAE6BC /* Build configuration list for PBXNativeTarget "LTMorphingLabel" */;
+			buildPhases = (
+				EC8FE24E635DC3E29FDF20CFAD47AE8F /* Sources */,
+				0E4EA1B394794C6A87EC7CD3AFB870DF /* Frameworks */,
+				B5D1926C75235190BA2B9B1C7E872D15 /* Headers */,
+				F9DBA014C64C012FFED946DB4F6F8A87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LTMorphingLabel;
+			productName = LTMorphingLabel;
+			productReference = 5D0FA70BD4E50598C6E890F268B5BF13 /* LTMorphingLabel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CF9A9CC02FB7EA81934CC647B4552AAA /* Pods-GradeUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2CC3FBB69CF551B9E8656EB240FD680 /* Build configuration list for PBXNativeTarget "Pods-GradeUp" */;
+			buildPhases = (
+				56938F184A5603662062F5CAF76FF461 /* Sources */,
+				875F67F4EACB9902857F9BA95BB3F6BB /* Frameworks */,
+				64CDA0B1CBA17E89B9F0C335776D3056 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FCA9EFE0C7D8C381F6373CF15767BBB /* PBXTargetDependency */,
+				7F411FB68ECF9E2F5B03C14DD5F87899 /* PBXTargetDependency */,
+			);
+			name = "Pods-GradeUp";
+			productName = "Pods-GradeUp";
+			productReference = EB965924A33C94CA581ACC881FBAF1FF /* Pods_GradeUp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F191F9A8D43E84DF422E78A18B7BB9AF /* RandomColorSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 052712535052BBBA172D3296CF123D89 /* Build configuration list for PBXNativeTarget "RandomColorSwift" */;
+			buildPhases = (
+				F95EF5CD0F00D51E4A9120FF76806135 /* Sources */,
+				BA589A0ED0771B824CDFB2BBCB1E198F /* Frameworks */,
+				D624550A2A0F973488FB27E5AD604B30 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RandomColorSwift;
+			productName = RandomColorSwift;
+			productReference = A45841D90E908100EB9E557898857852 /* RandomColorSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 533B6C1C33619F8150B7C5204109569B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0DCBD6C869DCC15AF62D43471CB4592C /* LTMorphingLabel */,
+				CF9A9CC02FB7EA81934CC647B4552AAA /* Pods-GradeUp */,
+				F191F9A8D43E84DF422E78A18B7BB9AF /* RandomColorSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9DBA014C64C012FFED946DB4F6F8A87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CF8DFA896A6618005B677B8793DBF0E /* Fire.png in Resources */,
+				04913062FB19F572704D1F80F24D0F1E /* Fragment.png in Resources */,
+				E64E0DA42FF43A0CE84FC8E07BA9C2F4 /* Smoke.png in Resources */,
+				573B13ABBF79FA6ABDACA8F14750D83F /* Sparkle.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56938F184A5603662062F5CAF76FF461 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284D6D7E769F2276C566DA42ACF16DF3 /* Pods-GradeUp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC8FE24E635DC3E29FDF20CFAD47AE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74DEC2D3601595D8C6850C8FB7173158 /* LTCharacterLimbo.swift in Sources */,
+				9CD2F676F12CF59997D469DC44040977 /* LTEasing.swift in Sources */,
+				94C184FAE53AE7FE2DAAF71250C88399 /* LTEmitterView.swift in Sources */,
+				35D1068A16F7B860DBF2FF11F7E88197 /* LTMorphingEffect.swift in Sources */,
+				87A5677A6AE8315FC08C7AFDA06C5E85 /* LTMorphingLabel+Anvil.swift in Sources */,
+				D40D84C336EB60A2349DA835277B3BB6 /* LTMorphingLabel+Burn.swift in Sources */,
+				82CCC01A0501720443407C7842A2F8EE /* LTMorphingLabel+Evaporate.swift in Sources */,
+				CFC6568F9625CFEDE89544D5E106EE56 /* LTMorphingLabel+Fall.swift in Sources */,
+				D7AF1C498BACC7A8145392B6E3AC91FB /* LTMorphingLabel+Pixelate.swift in Sources */,
+				401A7DAFE42E4A8D8B065ABB2B5028D1 /* LTMorphingLabel+Sparkle.swift in Sources */,
+				0B0B16FE44CBECB512D2FC308055C7BB /* LTMorphingLabel-dummy.m in Sources */,
+				09655714894296138E974CBC74484E5C /* LTMorphingLabel.swift in Sources */,
+				D4BEFE9697D2C98014CEA515831D78EC /* NSString+LTMorphingLabel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F95EF5CD0F00D51E4A9120FF76806135 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64B4A8DBD6B71467EEF566D28E4A84B6 /* ColorDefinition.swift in Sources */,
+				593D1905576E9788B79668BE8D303E48 /* Hue.swift in Sources */,
+				19822C9F8BCB56C0A26342907D70E022 /* Luminosity.swift in Sources */,
+				E0E0BEC364F84BE12B9BEC134961CDB2 /* RandomColor.swift in Sources */,
+				465D8E8CB72E86B386B1B6D0EE4331E6 /* RandomColorSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7F411FB68ECF9E2F5B03C14DD5F87899 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RandomColorSwift;
+			target = F191F9A8D43E84DF422E78A18B7BB9AF /* RandomColorSwift */;
+			targetProxy = 4D4920FDDE473B0F1F4C50AB83CCBD0D /* PBXContainerItemProxy */;
+		};
+		9FCA9EFE0C7D8C381F6373CF15767BBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LTMorphingLabel;
+			target = 0DCBD6C869DCC15AF62D43471CB4592C /* LTMorphingLabel */;
+			targetProxy = 5E35DC9C08CB787A74FEEC82EC729591 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01A6C5A5F2D5C3EDDD6F9500B11577FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01B2EBDF929BE89D543C9608B8730B30 /* RandomColorSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RandomColorSwift/RandomColorSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RandomColorSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RandomColorSwift/RandomColorSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = RandomColorSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3B26C40FD62B373CEF000F8FBC5546BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E19FF2C5A20771AB6D7C2D6212C019CC /* LTMorphingLabel.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LTMorphingLabel/LTMorphingLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LTMorphingLabel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LTMorphingLabel/LTMorphingLabel.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = LTMorphingLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		44E81BE2D5932ACD6C51A02A78E317EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 500470B49429D3B907B2FC4513FFC215 /* Pods-GradeUp.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GradeUp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GradeUp/Pods-GradeUp.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_GradeUp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		6259BD18FF30B5D791BB1E5ED375E379 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDC3EC46AEFA1C3E7DD422B29D94D383 /* Pods-GradeUp.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GradeUp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GradeUp/Pods-GradeUp.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_GradeUp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93BDEFCF87DF2289EEBDC2F4CDC01019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E19FF2C5A20771AB6D7C2D6212C019CC /* LTMorphingLabel.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LTMorphingLabel/LTMorphingLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LTMorphingLabel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LTMorphingLabel/LTMorphingLabel.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = LTMorphingLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B065FACA23EDE60ED6C52C6648E8BCD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01B2EBDF929BE89D543C9608B8730B30 /* RandomColorSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RandomColorSwift/RandomColorSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RandomColorSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RandomColorSwift/RandomColorSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = RandomColorSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		052712535052BBBA172D3296CF123D89 /* Build configuration list for PBXNativeTarget "RandomColorSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01A6C5A5F2D5C3EDDD6F9500B11577FE /* Debug */,
+				B065FACA23EDE60ED6C52C6648E8BCD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
+				74857149DC1E0D599B8A01A78349A926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2CC3FBB69CF551B9E8656EB240FD680 /* Build configuration list for PBXNativeTarget "Pods-GradeUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44E81BE2D5932ACD6C51A02A78E317EC /* Debug */,
+				6259BD18FF30B5D791BB1E5ED375E379 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD6BFD0F561BD7DC1612C7BF97AAE6BC /* Build configuration list for PBXNativeTarget "LTMorphingLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93BDEFCF87DF2289EEBDC2F4CDC01019 /* Debug */,
+				3B26C40FD62B373CEF000F8FBC5546BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
