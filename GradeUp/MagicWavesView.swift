@@ -101,7 +101,7 @@ class MagicWavesView: UIView {
         
         // We draw multiple sinus waves, with equal phases but altered
         // amplitudes, multiplied by a parable function.
-        for var i = 0; i < numberOfWaves; i += 1 {
+        for i in 0 ..< numberOfWaves {
             let context = UIGraphicsGetCurrentContext()
             
             CGContextSetLineWidth(context, (i == 0 ? primaryWaveLineWidth : secondaryWaveLineWidth))

@@ -69,6 +69,7 @@ class Category: NSObject, NSCoding {
         init(identifier: Int , record_duration: Int) {
             self.identifier = identifier
             self.record_duration = record_duration
+            self.color = randomColor()
         }
         
         required convenience init?(coder aDecoder: NSCoder) {
@@ -81,9 +82,6 @@ class Category: NSObject, NSCoding {
             self.time_success = aDecoder.decodeObjectForKey("time_success") as! Int
             self.time_failure = aDecoder.decodeObjectForKey("time_failure") as! Int
             self.color = aDecoder.decodeObjectForKey("color") as? UIColor
-            if (self.color == nil) {
-                self.color = randomColor();
-            }
         }
         
         func encodeWithCoder(aCoder: NSCoder) {
@@ -119,9 +117,9 @@ class Category: NSObject, NSCoding {
         self.bestSuccessRate = 0
         
         let number_of_icons = Category.images.count
-        let randomIconIdx = Int(arc4random()) % number_of_icons
+        let random_icon_idx = Int(arc4random_uniform(UInt32(number_of_icons)))
         
-        self.iconName = Category.images[randomIconIdx];
+        self.iconName = Category.images[random_icon_idx];
     }
     
     func encodeWithCoder(aCoder: NSCoder) {

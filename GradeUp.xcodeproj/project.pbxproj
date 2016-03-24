@@ -10,7 +10,6 @@
 		930FDCEC1C691DD70068325D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FDCEB1C691DD70068325D /* AppDelegate.swift */; };
 		930FDCEE1C691DD70068325D /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FDCED1C691DD70068325D /* CategoriesTableViewController.swift */; };
 		930FDCF11C691DD70068325D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930FDCEF1C691DD70068325D /* Main.storyboard */; };
-		930FDCF31C691DD70068325D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930FDCF21C691DD70068325D /* Assets.xcassets */; };
 		930FDCF61C691DD70068325D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930FDCF41C691DD70068325D /* LaunchScreen.storyboard */; };
 		930FDD011C691DD70068325D /* GradeUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930FDD001C691DD70068325D /* GradeUpTests.swift */; };
 		9314E9611C6AC7AA001A95D5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314E9601C6AC7AA001A95D5 /* Category.swift */; };
@@ -22,7 +21,10 @@
 		933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */; };
 		933BD7811C8DEE4000A3068C /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */; };
 		933E18AD1C7923B0008FE4DC /* TinderSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */; };
+		9363EF751C9B848D0001811F /* TutoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363EF741C9B848D0001811F /* TutoPageViewController.swift */; };
 		9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */; };
+		936DC5101CA355B800BF33B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936DC50F1CA355B800BF33B0 /* Assets.xcassets */; };
+		9376981B1CA20A530084B548 /* PageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376981A1CA20A530084B548 /* PageItemViewController.swift */; };
 		93810EE71C98E59900574C3D /* MagicWavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93810EE61C98E59900574C3D /* MagicWavesView.swift */; };
 		938914F61C8D8248000C254B /* EditIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938914F51C8D8248000C254B /* EditIconTableViewCell.swift */; };
 		939A579B1C89373300B03490 /* EditCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939A579A1C89373300B03490 /* EditCategoryTableViewCell.swift */; };
@@ -46,7 +48,6 @@
 		930FDCEB1C691DD70068325D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		930FDCED1C691DD70068325D /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		930FDCF01C691DD70068325D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		930FDCF21C691DD70068325D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		930FDCF51C691DD70068325D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		930FDCF71C691DD70068325D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		930FDCFC1C691DD70068325D /* GradeUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GradeUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +62,10 @@
 		933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
 		933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderSwipe.swift; sourceTree = "<group>"; };
+		9363EF741C9B848D0001811F /* TutoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutoPageViewController.swift; sourceTree = "<group>"; };
 		9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryTableViewCell.swift; sourceTree = "<group>"; };
+		936DC50F1CA355B800BF33B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9376981A1CA20A530084B548 /* PageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemViewController.swift; sourceTree = "<group>"; };
 		93810EE61C98E59900574C3D /* MagicWavesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicWavesView.swift; sourceTree = "<group>"; };
 		938914F51C8D8248000C254B /* EditIconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIconTableViewCell.swift; sourceTree = "<group>"; };
 		939A579A1C89373300B03490 /* EditCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,13 +118,13 @@
 		930FDCEA1C691DD70068325D /* GradeUp */ = {
 			isa = PBXGroup;
 			children = (
+				936DC50F1CA355B800BF33B0 /* Assets.xcassets */,
 				93310F1B1C82A23800D8BC4D /* custom views */,
 				930FDCEB1C691DD70068325D /* AppDelegate.swift */,
 				93310F1A1C829CA900D8BC4D /* View Controllers */,
 				930FDCEF1C691DD70068325D /* Main.storyboard */,
 				93310F191C829C8600D8BC4D /* Singletons */,
 				933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */,
-				930FDCF21C691DD70068325D /* Assets.xcassets */,
 				930FDCF41C691DD70068325D /* LaunchScreen.storyboard */,
 				930FDCF71C691DD70068325D /* Info.plist */,
 			);
@@ -154,6 +158,7 @@
 				931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */,
 				9314E9621C6AD3DE001A95D5 /* EditCategoryViewController.swift */,
 				933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */,
+				9363EF741C9B848D0001811F /* TutoPageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				932EE7A61C795CE200795F59 /* SwipeView.swift */,
 				938914F51C8D8248000C254B /* EditIconTableViewCell.swift */,
 				933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */,
+				9376981A1CA20A530084B548 /* PageItemViewController.swift */,
 			);
 			name = "custom views";
 			sourceTree = "<group>";
@@ -276,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				930FDCF61C691DD70068325D /* LaunchScreen.storyboard in Resources */,
-				930FDCF31C691DD70068325D /* Assets.xcassets in Resources */,
+				936DC5101CA355B800BF33B0 /* Assets.xcassets in Resources */,
 				930FDCF11C691DD70068325D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,11 +360,13 @@
 				938914F61C8D8248000C254B /* EditIconTableViewCell.swift in Sources */,
 				930FDCEC1C691DD70068325D /* AppDelegate.swift in Sources */,
 				A037E5931C9270AD00709F9A /* tinderLikeStamp.swift in Sources */,
+				9363EF751C9B848D0001811F /* TutoPageViewController.swift in Sources */,
 				9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */,
 				9314E9611C6AC7AA001A95D5 /* Category.swift in Sources */,
 				93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */,
 				933BD7811C8DEE4000A3068C /* IconCollectionViewCell.swift in Sources */,
 				933539AE1C7199B800F3EF45 /* Recorder.swift in Sources */,
+				9376981B1CA20A530084B548 /* PageItemViewController.swift in Sources */,
 				933E18AD1C7923B0008FE4DC /* TinderSwipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
