@@ -21,7 +21,7 @@
 		933539B01C726EB900F3EF45 /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */; };
 		933BD7811C8DEE4000A3068C /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */; };
 		933E18AD1C7923B0008FE4DC /* TinderSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */; };
-		9363EF751C9B848D0001811F /* TutoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363EF741C9B848D0001811F /* TutoPageViewController.swift */; };
+		9363EF751C9B848D0001811F /* TutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363EF741C9B848D0001811F /* TutoViewController.swift */; };
 		9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */; };
 		936DC5101CA355B800BF33B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936DC50F1CA355B800BF33B0 /* Assets.xcassets */; };
 		9376981B1CA20A530084B548 /* PageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376981A1CA20A530084B548 /* PageItemViewController.swift */; };
@@ -62,7 +62,7 @@
 		933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
 		933BD7801C8DEE4000A3068C /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		933E18AC1C7923B0008FE4DC /* TinderSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderSwipe.swift; sourceTree = "<group>"; };
-		9363EF741C9B848D0001811F /* TutoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutoPageViewController.swift; sourceTree = "<group>"; };
+		9363EF741C9B848D0001811F /* TutoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutoViewController.swift; sourceTree = "<group>"; };
 		9367866E1C6A911A00A19354 /* categoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryTableViewCell.swift; sourceTree = "<group>"; };
 		936DC50F1CA355B800BF33B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9376981A1CA20A530084B548 /* PageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				931F3F2C1C6D66BD00240CF7 /* GlobalSplitViewController.swift */,
 				9314E9621C6AD3DE001A95D5 /* EditCategoryViewController.swift */,
 				933539AF1C726EB900F3EF45 /* RecordingsTableViewController.swift */,
-				9363EF741C9B848D0001811F /* TutoPageViewController.swift */,
+				9363EF741C9B848D0001811F /* TutoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 				938914F61C8D8248000C254B /* EditIconTableViewCell.swift in Sources */,
 				930FDCEC1C691DD70068325D /* AppDelegate.swift in Sources */,
 				A037E5931C9270AD00709F9A /* tinderLikeStamp.swift in Sources */,
-				9363EF751C9B848D0001811F /* TutoPageViewController.swift in Sources */,
+				9363EF751C9B848D0001811F /* TutoViewController.swift in Sources */,
 				9367866F1C6A911A00A19354 /* categoryTableViewCell.swift in Sources */,
 				9314E9611C6AC7AA001A95D5 /* Category.swift in Sources */,
 				93DE747A1C6AE2A100DD4A24 /* DisplayCategoryViewController.swift in Sources */,
@@ -500,11 +500,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GradeUp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gwendal.GradeUp;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.igloo.gradeup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -516,11 +517,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GradeUp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gwendal.GradeUp;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.igloo.gradeup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

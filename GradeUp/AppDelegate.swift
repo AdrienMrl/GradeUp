@@ -15,7 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let tuto = NSUserDefaults.standardUserDefaults().boolForKey("understood")
+
+        let firstViewController = !tuto ? "TutoController" : "SplitViewController"
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let exampleViewController = mainStoryboard.instantiateViewControllerWithIdentifier(firstViewController)
+        
+        self.window?.rootViewController = exampleViewController
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

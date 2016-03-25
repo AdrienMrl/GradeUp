@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TutoViewController: UIViewController, UIPageViewControllerDataSource {
+class TutoViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     // MARK: - Variables
     private var pageViewController: UIPageViewController?
@@ -16,6 +16,7 @@ class TutoViewController: UIViewController, UIPageViewControllerDataSource {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         populateControllersArray()
         createPageViewController()
         setupPageControl()
@@ -51,6 +52,7 @@ class TutoViewController: UIViewController, UIPageViewControllerDataSource {
         
         let pageController = self.storyboard!.instantiateViewControllerWithIdentifier("PageController") as! UIPageViewController
         pageController.dataSource = self
+        pageController.delegate = self
         
         if !controllers.isEmpty {
             pageController.setViewControllers([controllers[0]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
@@ -107,4 +109,17 @@ class TutoViewController: UIViewController, UIPageViewControllerDataSource {
         return controllers[index + 1]
     }
     
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
+    {
+        if (completed) {
+            
+            let viewController = pageViewController.viewControllers!.last!
+            
+            if let _ = viewController as? UISplitViewController {
+                
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setBool((controllers[controllers.count - 2] as! PageItemViewController).doNotShowSwitch.on, forKey: "understood")
+            }
+        }
+    }
 }

@@ -17,14 +17,23 @@ class PageItemViewController: UIViewController {
     var color: UIColor!
     var index = 0;
     
+    @IBOutlet weak var doNotShowSwitch: UISwitch!
+    @IBOutlet weak var doNotShowLabel: UILabel!
+    
+    @IBAction func showTuto(sender: UISwitch) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         info.text = text
         screenShot.image = image
         view.backgroundColor = color
         
-        // Do any additional setup after loading the view.
+        if index != 2 {
+            doNotShowLabel.hidden = true
+            doNotShowSwitch.hidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {

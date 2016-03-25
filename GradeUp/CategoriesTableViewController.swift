@@ -116,6 +116,7 @@ class CategoriesTableViewController: UITableViewController {
             if let cell = cell as? categoryTableViewCell {
         
                 cell.setEditable(editing)
+                cell.icon.userInteractionEnabled = editing
                 if !editing && Category.categories.count != 0 {
                     Category.categories[cell.index].name = cell.nameTextField.text!
                 }
