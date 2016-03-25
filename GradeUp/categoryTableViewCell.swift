@@ -23,6 +23,15 @@ class categoryTableViewCell: UITableViewCell, UITextFieldDelegate {
         icon.addGestureRecognizer(tapGR)
         
         nameTextField.delegate = self
+        nameTextField.addTarget(self, action: #selector(categoryTableViewCell.textFieldDidChange), forControlEvents: UIControlEvents.EditingChanged)
+    }
+    
+    func textFieldDidChange() {
+        if let newName = nameTextField.text {
+            Category.categories[index].name = newName
+            Category.saveCategories()
+        }
+
     }
     
     func iconTap(tg: UITapGestureRecognizer?) {
@@ -34,7 +43,7 @@ class categoryTableViewCell: UITableViewCell, UITextFieldDelegate {
 
         // Configure the view for the selected state
     }
-    
+
     func setEditable(state: Bool) {
         nameTextField.userInteractionEnabled = state
     }

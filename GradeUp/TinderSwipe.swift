@@ -58,7 +58,6 @@ class Swiper: NSObject {
             (botImageView?.centerXAnchor.constraintEqualToAnchor(upView.centerXAnchor))!,
             (botImageView?.widthAnchor.constraintEqualToConstant(100))!,
             (botImageView?.heightAnchor.constraintEqualToConstant(100))!])
-        
     }
     
     func addLabel(inout label: UILabel?, right: Bool) {
@@ -231,11 +230,9 @@ class Swiper: NSObject {
             } else {
                 reset()
             }
-            
+
         default:
             reset()
         }
-        
     }
-    
 }
